@@ -1,0 +1,59 @@
+Aug 04, 2017 10:29:53 AM org.eclipse.jetty.util.log.Log initialized
+INFO: Logging initialized @776ms
+Exploding C:\Users\t-wanl\.m2\repository\org\jenkins-ci\main\jenkins-war\1.645\jenkins-war-1.645-war-for-test.jar into C:\Users\t-wanl\workspace\azure-oauth-plugin\target\jenkins-for-test
+Aug 04, 2017 10:30:15 AM org.eclipse.jetty.server.handler.ContextHandler setContextPath
+WARNING: Empty contextPath
+Aug 04, 2017 10:30:16 AM org.eclipse.jetty.server.Server doStart
+INFO: jetty-9.2.15.v20160210
+Aug 04, 2017 10:30:16 AM org.eclipse.jetty.webapp.StandardDescriptorProcessor visitServlet
+INFO: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+Aug 04, 2017 10:30:16 AM org.eclipse.jetty.server.handler.ContextHandler doStart
+INFO: Started o.e.j.w.WebAppContext@132e0cc{/,file:/C:/Users/t-wanl/workspace/azure-oauth-plugin/target/jenkins-for-test/,AVAILABLE}{C:\Users\t-wanl\workspace\azure-oauth-plugin\target\jenkins-for-test}
+Aug 04, 2017 10:30:16 AM org.eclipse.jetty.server.AbstractConnector doStart
+INFO: Started ServerConnector@ab7395e{HTTP/1.1}{localhost:57447}
+Aug 04, 2017 10:30:16 AM org.eclipse.jetty.server.Server doStart
+INFO: Started @23332ms
+Aug 04, 2017 10:30:16 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Aug 04, 2017 10:31:32 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Aug 04, 2017 10:31:32 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Aug 04, 2017 10:31:32 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Aug 04, 2017 10:31:32 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Aug 04, 2017 10:31:34 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Aug 04, 2017 10:31:36 AM org.jenkinsci.main.modules.sshd.SSHD start
+INFO: Started SSHD at port 62016
+Aug 04, 2017 10:31:36 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Aug 04, 2017 10:31:36 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Aug 04, 2017 10:31:36 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Aug 04, 2017 10:31:36 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Aug 04, 2017 10:31:36 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Aug 04, 2017 10:31:36 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Aug 04, 2017 10:31:36 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Aug 04, 2017 10:31:36 AM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Aug 04, 2017 10:31:36 AM org.eclipse.jetty.server.Server doStart
+INFO: jetty-9.2.15.v20160210
+Aug 04, 2017 10:31:36 AM org.eclipse.jetty.server.handler.ContextHandler doStart
+INFO: Started o.e.j.s.ServletContextHandler@60dce7ea{/,null,AVAILABLE}
+Aug 04, 2017 10:31:36 AM org.eclipse.jetty.server.AbstractConnector doStart
+INFO: Started ServerConnector@27305e6{HTTP/1.1}{0.0.0.0:62018}
+Aug 04, 2017 10:31:36 AM org.eclipse.jetty.server.Server doStart
+INFO: Started @103305ms
+Aug 04, 2017 10:31:38 AM org.eclipse.jetty.server.AbstractConnector doStop
+INFO: Stopped ServerConnector@ab7395e{HTTP/1.1}{localhost:0}
+Aug 04, 2017 10:31:38 AM org.eclipse.jetty.server.handler.ContextHandler doStop
+INFO: Stopped o.e.j.w.WebAppContext@132e0cc{/,file:/C:/Users/t-wanl/workspace/azure-oauth-plugin/target/jenkins-for-test/,UNAVAILABLE}{C:\Users\t-wanl\workspace\azure-oauth-plugin\target\jenkins-for-test}
+WARN: The method class org.apache.commons.logging.impl.SLF4JLogFactory#release() was invoked.
+WARN: Please see http://www.slf4j.org/codes.html#release for an explanation.
