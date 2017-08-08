@@ -1,2 +1,14 @@
-com\microsoft\azure\oauth\BitbucketSecurityRealm.stapler
+com\microsoft\azure\oauth\AzureUser$AzureUserResponce.class
+com\microsoft\azure\oauth\AzureAuthenticationToken.class
+com\microsoft\azure\oauth\AzureUser.class
+com\microsoft\azure\oauth\AzureSecurityRealm$1.class
+com\microsoft\azure\oauth\AzureSecurityRealm.stapler
+com\microsoft\azure\oauth\AzureSecurityRealm$ConverterImpl.class
+com\microsoft\azure\oauth\AzureOAuth2Api$1.class
+com\microsoft\azure\oauth\AzureSecurityRealm$2.class
+com\microsoft\azure\oauth\AzureSecurityRealm$DescriptorImpl.class
+com\microsoft\azure\oauth\AzureOAuth2Service$1.class
+com\microsoft\azure\oauth\AzureOAuth2Service.class
+com\microsoft\azure\oauth\AzureSecurityRealm.class
 META-INF\annotations\hudson.Extension
+com\microsoft\azure\oauth\AzureOAuth2Api.class

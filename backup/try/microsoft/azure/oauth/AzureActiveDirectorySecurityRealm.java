@@ -50,7 +50,7 @@ public class AzureActiveDirectorySecurityRealm extends SecurityRealm {
         UserDetails result = null;
         Authentication token = SecurityContextHolder.getContext().getAuthentication();
         if (token == null) {
-            throw new UsernameNotFoundException("AzureActiveDirectoryAuthenticationToken = null, no known user: " + username);
+            throw new UsernameNotFoundException("AzureAuthenticationToken = null, no known user: " + username);
         }
         if (!(token instanceof AzureAuthenticationToken)) {
             throw new UserMayOrMayNotExistException("Unexpected authentication type: " + token);
