@@ -1,22 +1,31 @@
 package com.microsoft.azure.oauth;
 
+import com.google.gson.Gson;
 import org.acegisecurity.GrantedAuthority;
 import org.acegisecurity.providers.AbstractAuthenticationToken;
 import org.apache.commons.lang.StringUtils;
 import org.scribe.model.Token;
-import org.scribe.oauth.OAuthService;
+import com.microsoft.azure.oauth.AzureUser.AzureUserResponce;
+
+
+/**
+ * Created by t-wanl on 8/9/2017.
+ */
+
 
 public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 
     private static final long serialVersionUID = -7826610577724673531L;
 
-    private Token accessToken;
+    private AzureApiToken azureApiToken;
     private AzureUser azureUser;
 
-    public AzureAuthenticationToken(Token accessToken, AzureOAuth2Service service) {
-        this.accessToken = accessToken;
-        this.azureUser = service.getAzureUser();
+    public AzureAuthenticationToken(AzureApiToken azureApiToken) {
+        this.azureApiToken = azureApiToken;
 
+        Gson gson = new Gson();
+        String userInfo = this.azureApiToken.getUserInfo();
+        this.azureUser = gson.fromJson(userInfo, AzureUser.class);
 
         boolean authenticated = false;
 
@@ -33,10 +42,10 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     }
 
     /**
-     * @return the accessToken
+     * @return the azureApiToken
      */
-    public Token getAccessToken() {
-        return accessToken;
+    public Token getAzureApiToken() {
+        return azureApiToken;
     }
 
     @Override

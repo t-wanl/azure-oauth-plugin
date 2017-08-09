@@ -12,7 +12,8 @@ public class AzureUser implements UserDetails {
         public AzureUser user;
     }
 
-    public String username = StringUtils.EMPTY;
+    @SerializedName("name")
+    public String username;
     @SerializedName("given_name")
     public String givenName;
     @SerializedName("family_name")
@@ -35,6 +36,7 @@ public class AzureUser implements UserDetails {
     @Override
     public String getUsername() {
         return this.username;
+//        return
     }
 
     @Override

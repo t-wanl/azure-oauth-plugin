@@ -42,15 +42,12 @@ public class AzureSecurityRealm extends SecurityRealm {
 
     private static final String REFERER_ATTRIBUTE = AzureSecurityRealm.class.getName() + ".referer";
     private static final String ACCESS_TOKEN_ATTRIBUTE = AzureSecurityRealm.class.getName() + ".access_token";
-
+    private static final Token EMPTY_TOKEN = null;
     private static final Logger LOGGER = Logger.getLogger(AzureSecurityRealm.class.getName());
-
-//    private OAuthConfig config;
 
     private String clientID;
     private String clientSecret;
     private String tenant;
-    private AzureOAuth2Api api;
     public String getClientID() {
         return clientID;
     }
@@ -75,7 +72,17 @@ public class AzureSecurityRealm extends SecurityRealm {
         this.tenant = tenant;
     }
 
-    private AzureOAuth2Service service;
+    private OAuthService getService() {
+        AzureApi api = new AzureApi();
+        OAuthConfig config = new OAuthConfig(clientID, clientSecret, getCallback(), null, null, null);
+        OAuthService service = new ServiceBuilder().provider(AzureApi.class)
+                .apiKey(clientID).apiSecret(clientSecret).callback(getCallback())
+                .build();
+
+        return service;
+    }
+
+//    private AzureOAuth2Service service;
 
     private String getCallback() {
         Jenkins jenkins = Jenkins.getInstance();
@@ -97,8 +104,6 @@ public class AzureSecurityRealm extends SecurityRealm {
         this.clientID = clientID;
         this.clientSecret = clientSecret;
         this.tenant = tenant;
-
-        this.service = new AzureOAuth2Service(api, config);
     }
 
 
@@ -114,28 +119,41 @@ public class AzureSecurityRealm extends SecurityRealm {
 
         request.getSession().setAttribute(REFERER_ATTRIBUTE, referer);
 
-        Token requestToken = service.getRequestToken();
-        request.getSession().setAttribute(ACCESS_TOKEN_ATTRIBUTE, requestToken);
+//        Token requestToken = service.getRequestToken();
+//        request.getSession().setAttribute(ACCESS_TOKEN_ATTRIBUTE, requestToken);
+//
+//        return new HttpRedirect(service.getAuthorizationUrl(requestToken));
+        OAuthService service = getService();
 
-        return new HttpRedirect(service.getAuthorizationUrl(requestToken));
+        return new HttpRedirect(service.getAuthorizationUrl(EMPTY_TOKEN));
     }
 
     public HttpResponse doFinishLogin(StaplerRequest request) throws IOException {
-        String code = request.getParameter("oauth_verifier");
+        String code = request.getParameter("code");
 
         if (StringUtils.isBlank(code)) {
             LOGGER.log(Level.SEVERE, "doFinishLogin() code = null");
             return HttpResponses.redirectToContextRoot();
         }
 
-        Token requestToken = (Token) request.getSession().getAttribute(ACCESS_TOKEN_ATTRIBUTE);
+//        Token requestToken = (Token) request.getSession().getAttribute(ACCESS_TOKEN_ATTRIBUTE);
         Verifier v = new Verifier(code);
-        Token accessToken = service.getAccessToken(requestToken, v);
+
+        OAuthService service = getService();
+
+        Token accessToken = null;
+        accessToken = service.getAccessToken(EMPTY_TOKEN, v);
+
 
         if (!accessToken.isEmpty()) {
+            AzureAuthenticationToken auth = null;
+            if (accessToken instanceof AzureApiToken) {
+                AzureApiToken azureApiToken = (AzureApiToken)accessToken;
+                auth = new AzureAuthenticationToken(azureApiToken);
+            }
+            else
+                return HttpResponses.redirectToContextRoot(); // TODO
 
-            AzureAuthenticationToken auth =
-                    new AzureAuthenticationToken(accessToken, service);
             SecurityContextHolder.getContext().setAuthentication(auth);
 
             User u = User.current();
@@ -160,7 +178,7 @@ public class AzureSecurityRealm extends SecurityRealm {
     public SecurityComponents createSecurityComponents() {
         return new SecurityComponents(new AuthenticationManager() {
             public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-                if (authentication instanceof AzureAuthenticationToken) {
+                if (authentication instanceof AzureApiToken) {
                     return authentication;
                 }
 
