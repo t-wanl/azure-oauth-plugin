@@ -7,9 +7,9 @@
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
   <securityRealm class="com.microsoft.azure.oauth.AzureSecurityRealm">
-    <clientID>2b98308e-f223-4cad-abb3-dd97a0fe5570</clientID>
-    <clientSecret>oYAEqS4fWHeOCwbvQEOYNMyitMJaZvdnnUKLNrjukqk=</clientSecret>
-    <tenant>72f988bf-86f1-41af-91ab-2d7cd011db47</tenant>
+    <clientID>f8e021e7-cecb-402e-a503-ce022c16bc64</clientID>
+    <clientSecret>Sk37K5hv0DBejjhIo6CzPu1k03O+OdB8bRNRcwSF9Zw=</clientSecret>
+    <tenant>15a9950e-5270-4308-a56e-f446137a868e</tenant>
   </securityRealm>
   <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>

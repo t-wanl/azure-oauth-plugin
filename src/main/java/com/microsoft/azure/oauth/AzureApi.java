@@ -41,9 +41,25 @@ public class AzureApi extends DefaultApi20 {
 
     private boolean offline = false;
 
-//    protected static final String tenant = "72f988bf-86f1-41af-91ab-2d7cd011db47";
-    protected static final String tenant = "common";
+//    protected static String tenant = "72f988bf-86f1-41af-91ab-2d7cd011db47";
+    protected static String tenant = "common";
+//    protected static final String tenant = "15a9950e-5270-4308-a56e-f446137a868e";
 //    protected static final String tenant = (String)Holders.getFlatConfig().get("oauth.providers.azure.tenant");
+
+
+    public static String getTenant() {
+        return tenant;
+    }
+
+    public static void setTenant(String tenant) {
+        AzureApi.tenant = tenant;
+    }
+
+
+//    public AzureApi(final String tenant){
+//        super();
+//        this.tenant = tenant;
+//    }
 
     @Override
     public String getAccessTokenEndpoint() {

@@ -39,6 +39,17 @@
             <id>repo.jenkins-ci.org</id>
             <url>http://repo.jenkins-ci.org/public/</url>
         </repository>
+
+            <repository>
+                <id>com.springsource.repository.bundles.release</id>
+                <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+                <url>http://repository.springsource.com/maven/bundles/release</url>
+            </repository>
+            <repository>
+                <id>com.springsource.repository.bundles.external</id>
+                <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+                <url>http://repository.springsource.com/maven/bundles/external</url>
+            </repository>
     </repositories>
 
     <pluginRepositories>
@@ -46,6 +57,8 @@
             <id>repo.jenkins-ci.org</id>
             <url>http://repo.jenkins-ci.org/public/</url>
         </pluginRepository>
+
+
     </pluginRepositories>
 
     <dependencies>
@@ -70,17 +83,43 @@
             <artifactId>json</artifactId>
             <version>20070829</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.microsoft.azure</groupId>-->
-            <!--<artifactId>adal4j</artifactId>-->
-            <!--<version>1.1.1</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>adal4j</artifactId>
+            <version>1.1.1</version>
+        </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.2.2</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-client-authentication</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-mgmt-compute</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>
