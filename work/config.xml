@@ -5,10 +5,21 @@
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
-  <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
+  <authorizationStrategy class="com.microsoft.azure.oauth.AzureAuthorizationStrategy" plugin="azure-oauth@1.0-SNAPSHOT">
+    <rootACL>
+      <adminUserNameList class="linked-list">
+        <string>Wanpeng Li</string>
+      </adminUserNameList>
+      <groupNameList class="linked-list">
+        <string></string>
+      </groupNameList>
+      <authenticatedUserReadPermission>true</authenticatedUserReadPermission>
+      <authenticatedUserCreateJobPermission>false</authenticatedUserCreateJobPermission>
+    </rootACL>
+  </authorizationStrategy>
   <securityRealm class="com.microsoft.azure.oauth.AzureSecurityRealm">
     <clientID>f8e021e7-cecb-402e-a503-ce022c16bc64</clientID>
-    <clientSecret>Sk37K5hv0DBejjhIo6CzPu1k03O+OdB8bRNRcwSF9Zw=</clientSecret>
+    <clientSecret>QAi6iEGVZM/AUyWH9UVZqMC018sMF7GraB1LmVz/5YA=</clientSecret>
     <tenant>15a9950e-5270-4308-a56e-f446137a868e</tenant>
   </securityRealm>
   <disableRememberMe>false</disableRememberMe>

@@ -148,11 +148,13 @@ public class AzureSecurityRealm extends SecurityRealm {
 //
 //        return new HttpRedirect(service.getAuthorizationUrl(requestToken));
         OAuthService service = getService();
-
+        Utils.TimeUtil.setBeginDate();
         return new HttpRedirect(service.getAuthorizationUrl(EMPTY_TOKEN));
     }
 
     public HttpResponse doFinishLogin(StaplerRequest request) throws Exception {
+        Utils.TimeUtil.setEndDate();
+        System.out.println("Requesting oauth code time = " + Utils.TimeUtil.getTimeDifference() + " ms");
         String code = request.getParameter("code");
 
         if (StringUtils.isBlank(code)) {
@@ -165,8 +167,11 @@ public class AzureSecurityRealm extends SecurityRealm {
 
         OAuthService service = getService();
 
+        Utils.TimeUtil.setBeginDate();
         Token accessToken = null;
         accessToken = service.getAccessToken(EMPTY_TOKEN, v);
+        Utils.TimeUtil.setEndDate();
+        System.out.println("Requesting access token time = " + Utils.TimeUtil.getTimeDifference() + " ms");
 
 
         if (!accessToken.isEmpty()) {
@@ -189,7 +194,8 @@ public class AzureSecurityRealm extends SecurityRealm {
             LOGGER.log(Level.SEVERE, "doFinishLogin() accessToken = null");
         }
 
-        test(tenant, accessToken);
+//        test(tenant, accessToken);
+
         // redirect to referer
         String referer = (String) request.getSession().getAttribute(REFERER_ATTRIBUTE);
         if (referer != null) {
