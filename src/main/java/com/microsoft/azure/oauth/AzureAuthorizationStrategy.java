@@ -25,10 +25,13 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
             String adminUserNames,
             String groupNames,
             boolean authenticatedUserReadPermission,
-            boolean authenticatedUserCreateJobPermission) {
+            boolean authenticatedUserCreateJobPermission,
+            boolean allowAnonymousReadPermission,
+            boolean allowAnonymousJobStatusPermission) {
         super();
         rootACL = new AzureACL(adminUserNames, groupNames,
-                authenticatedUserReadPermission, authenticatedUserCreateJobPermission);
+                authenticatedUserReadPermission, authenticatedUserCreateJobPermission,
+                allowAnonymousReadPermission, allowAnonymousJobStatusPermission);
     }
 
     @Nonnull
@@ -55,7 +58,9 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
             return this.getGroupNames().equals(obj.getGroupNames()) &&
                     this.getAdminUserNames().equals(obj.getAdminUserNames()) &&
                     this.isAuthenticatedUserReadPermission() == obj.isAuthenticatedUserReadPermission() &&
-                    this.isAuthenticatedUserCreateJobPermission() == obj.isAuthenticatedUserCreateJobPermission();
+                    this.isAuthenticatedUserCreateJobPermission() == obj.isAuthenticatedUserCreateJobPermission() &&
+                    this.isAllowAnonymousReadPermission() == obj.isAllowAnonymousReadPermission() &&
+                    this.isAllowAnonymousJobStatusPermission() == obj.isAllowAnonymousJobStatusPermission();
         }
         return false;
     }
@@ -73,6 +78,12 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
     }
     public boolean isAuthenticatedUserCreateJobPermission() {
         return rootACL.isAuthenticatedUserCreateJobPermission();
+    }
+    public boolean isAllowAnonymousReadPermission() {
+        return rootACL.isAllowAnonymousReadPermission();
+    }
+    public boolean isAllowAnonymousJobStatusPermission() {
+        return rootACL.isAllowAnonymousJobStatusPermission();
     }
 
 

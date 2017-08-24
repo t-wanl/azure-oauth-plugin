@@ -22,12 +22,16 @@ public class AzureACL extends ACL{
     private final List<String> groupNameList;
     private final boolean authenticatedUserReadPermission;
     private final boolean authenticatedUserCreateJobPermission;
+    private final boolean allowAnonymousReadPermission;
+    private final boolean allowAnonymousJobStatusPermission;
     private final AbstractItem item;
 
     public AzureACL(String adminUserNames,
                     String groupNames,
                     boolean authenticatedUserReadPermission,
-                    boolean authenticatedUserCreateJobPermission) {
+                    boolean authenticatedUserCreateJobPermission,
+                    boolean allowAnonymousReadPermission,
+                    boolean allowAnonymousJobStatusPermission) {
         super();
 
         this.adminUserNameList = new LinkedList<String>();
@@ -44,7 +48,8 @@ public class AzureACL extends ACL{
 
         this.authenticatedUserReadPermission = authenticatedUserReadPermission;
         this.authenticatedUserCreateJobPermission = authenticatedUserCreateJobPermission;
-
+        this.allowAnonymousReadPermission = allowAnonymousReadPermission;
+        this.allowAnonymousJobStatusPermission = allowAnonymousJobStatusPermission;
         this.item = null;
     }
 
@@ -102,9 +107,14 @@ public class AzureACL extends ACL{
             }
 
             if (authenticatedUserName.equals("anonymous")) {
-                // TODO
-
-
+                if(checkJobStatusPermission(permission) && allowAnonymousJobStatusPermission) {
+                    return true;
+                }
+                if (checkReadPermission(permission) && allowAnonymousReadPermission) {
+                    log.finer("Granting Read rights to anonymous user.");
+                    return true;
+                }
+                return false;
             }
         }
 
@@ -129,12 +139,24 @@ public class AzureACL extends ACL{
         }
     }
 
+    private boolean checkJobStatusPermission(Permission permission) {
+        return permission.getId().equals("hudson.model.Item.ViewStatus");
+    }
+
     public boolean isAuthenticatedUserReadPermission() {
         return authenticatedUserReadPermission;
     }
 
     public boolean isAuthenticatedUserCreateJobPermission() {
         return authenticatedUserCreateJobPermission;
+    }
+
+    public boolean isAllowAnonymousReadPermission() {
+        return allowAnonymousReadPermission;
+    }
+
+    public boolean isAllowAnonymousJobStatusPermission() {
+        return allowAnonymousJobStatusPermission;
     }
 
 }

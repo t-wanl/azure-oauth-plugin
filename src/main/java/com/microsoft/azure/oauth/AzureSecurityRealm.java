@@ -282,18 +282,18 @@ public class AzureSecurityRealm extends SecurityRealm {
     }
 
 //    @Override
-//    public UserDetails loadUserByUsername(String username) {
+//    public UserDetails loadUserByUsername(String userName) {
 //        UserDetails result = null;
 //        Authentication token = SecurityContextHolder.getContext().getAuthentication();
 //        if (token == null) {
-//            throw new UsernameNotFoundException("AzureAuthenticationToken = null, no known user: " + username);
+//            throw new UsernameNotFoundException("AzureAuthenticationToken = null, no known user: " + userName);
 //        }
 //        if (!(token instanceof AzureAuthenticationToken)) {
 //          throw new UserMayOrMayNotExistException("Unexpected authentication type: " + token);
 //        }
-//        result = service.getUserByUsername(username);
+//        result = service.getUserByUsername(userName);
 //        if (result == null) {
-//            throw new UsernameNotFoundException("User does not exist for login: " + username);
+//            throw new UsernameNotFoundException("User does not exist for login: " + userName);
 //        }
 //        return result;
 //    }

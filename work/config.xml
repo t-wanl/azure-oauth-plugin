@@ -8,13 +8,15 @@
   <authorizationStrategy class="com.microsoft.azure.oauth.AzureAuthorizationStrategy" plugin="azure-oauth@1.0-SNAPSHOT">
     <rootACL>
       <adminUserNameList class="linked-list">
-        <string>Wanpeng Li</string>
+        <string>t-wanl@microsoft.com</string>
       </adminUserNameList>
       <groupNameList class="linked-list">
         <string></string>
       </groupNameList>
       <authenticatedUserReadPermission>true</authenticatedUserReadPermission>
       <authenticatedUserCreateJobPermission>false</authenticatedUserCreateJobPermission>
+      <allowAnonymousReadPermission>true</allowAnonymousReadPermission>
+      <allowAnonymousJobStatusPermission>false</allowAnonymousJobStatusPermission>
     </rootACL>
   </authorizationStrategy>
   <securityRealm class="com.microsoft.azure.oauth.AzureSecurityRealm">

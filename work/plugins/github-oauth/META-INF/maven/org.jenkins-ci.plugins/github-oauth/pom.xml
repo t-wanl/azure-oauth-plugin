@@ -28,7 +28,7 @@
       The developers show up as current maintainers in the Jenkins wiki.
       https://wiki.jenkins-ci.org/display/JENKINS/Github+OAuth+Plugin
 
-      The id should be the jenkinsci.org username and not your GitHub username.
+      The id should be the jenkinsci.userNamename and not your GituserNamename.
     -->
     <developers>
         <developer>

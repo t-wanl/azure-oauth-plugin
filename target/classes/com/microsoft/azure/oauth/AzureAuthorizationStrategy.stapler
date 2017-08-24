@@ -1,2 +1,2 @@
-#Wed Aug 23 16:47:10 CST 2017
-constructor=adminUserNames,groupNames,authenticatedUserReadPermission,authenticatedUserCreateJobPermission
+#Thu Aug 24 16:42:12 CST 2017
+constructor=adminUserNames,groupNames,authenticatedUserReadPermission,authenticatedUserCreateJobPermission,allowAnonymousReadPermission,allowAnonymousJobStatusPermission

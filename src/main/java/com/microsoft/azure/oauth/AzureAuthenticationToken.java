@@ -1,11 +1,17 @@
 package com.microsoft.azure.oauth;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import org.acegisecurity.GrantedAuthority;
 import org.acegisecurity.providers.AbstractAuthenticationToken;
 import org.apache.commons.lang.StringUtils;
 import org.scribe.model.Token;
 import com.microsoft.azure.oauth.AzureUser.AzureUserResponce;
+
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -15,10 +21,14 @@ import com.microsoft.azure.oauth.AzureUser.AzureUserResponce;
 
 public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 
-    private static final long serialVersionUID = -7826610577724673531L;
+    private static final long serialVersionUID = 2L;
 
     private AzureApiToken azureApiToken;
     private AzureUser azureUser;
+    public static final TimeUnit CACHE_EXPIRY = TimeUnit.HOURS;
+
+    private static final Cache<String, Set<String>> groupMembers =
+            CacheBuilder.newBuilder().expireAfterWrite(1, CACHE_EXPIRY).build();
 
     public AzureAuthenticationToken(AzureApiToken azureApiToken) {
         this.azureApiToken = azureApiToken;
