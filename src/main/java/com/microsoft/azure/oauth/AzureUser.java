@@ -20,6 +20,10 @@ public class AzureUser implements UserDetails {
     public String familyName;
     @SerializedName("unique_name")
     public String uniqueName;
+    @SerializedName("tid")
+    public String tenantID;
+    @SerializedName("oid")
+    public String objectID;
 
     public AzureUser() {
         super();
@@ -61,4 +65,11 @@ public class AzureUser implements UserDetails {
         return true;
     }
 
+    public String getTenantID() {
+        return tenantID;
+    }
+
+    public String getObjectID() {
+        return objectID;
+    }
 }

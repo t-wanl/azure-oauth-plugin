@@ -73,4 +73,7 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         return (azureUser != null ? azureUser.getUsername() : null);
     }
 
+    public AzureUser getAzureUser() {
+        return azureUser;
+    }
 }

@@ -5,10 +5,11 @@ import hudson.model.Item;
 import hudson.security.ACL;
 import hudson.security.Permission;
 import org.acegisecurity.Authentication;
+import org.json.JSONException;
 
 import javax.annotation.Nonnull;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.IOException;
+import java.util.*;
 import java.util.logging.Logger;
 
 /**
@@ -70,25 +71,38 @@ public class AzureACL extends ACL{
                 return true;
             }
 
-            if (this.item != null) {
-                if (authenticatedUserReadPermission) {
-                    if (checkReadPermission(permission)) {
-                        log.finest("Granting Authenticated User read permission " +
-                                "on project " + item.getName() +
-                                "to user " + candidateName);
+
+            // for group user
+            if (!groupNameList.isEmpty()) {
+                try {
+                    String token = ((AzureAuthenticationToken) a).getAzureApiToken().getToken();
+                    String tenant = ((AzureAuthenticationToken) a).getAzureUser().getTenantID();
+                    Set<String> allGroupsID = null;
+
+                    allGroupsID = AzureAdApi.getAllAadGroupsId(token, tenant);
+                    Set<String> intersection = new HashSet<String>(groupNameList);
+                    intersection.retainAll(allGroupsID);
+                    if (!intersection.isEmpty() && isInGroup(a) && checkAadGroupPermission(permission)) {
+                        log.finest("Granting Authenticated User read permission to group "
+                                + intersection.iterator().next());
+                        System.out.println("grant permission = " + permission);
                         return true;
                     }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
 
-
-            } else {
-                // candidate id non-admin user, grant read rights
-                if (authenticatedUserReadPermission && checkReadPermission(permission)) {
-                    log.finest("Granting Authenticated User read permission to user "
-                            + candidateName);
-                    return true;
-                }
             }
+
+            // candidate id non-admin user, grant read rights
+            if (authenticatedUserReadPermission && checkReadPermission(permission)) {
+                log.finest("Granting Authenticated User read permission to user "
+                        + candidateName);
+                return true;
+            }
+
 
             if (authenticatedUserCreateJobPermission && permission.equals(Item.CREATE)) {
                 return true;
@@ -129,6 +143,27 @@ public class AzureACL extends ACL{
         return groupNameList;
     }
 
+    private boolean checkAadGroupPermission(Permission permission) {
+        System.out.println("check permission = " + permission);
+
+        if (permission.getId().equals("hudson.model.Hudson.Read")
+                || permission.getId().equals("hudson.model.Item.Workspace")
+                || permission.getId().equals("hudson.model.Item.Read")
+                || permission.getId().equals("hudson.model.Item.Create")) {
+            return true;
+        }
+
+        if (permission.equals(Item.CREATE) ||
+                permission.equals(Item.READ) ||
+                permission.equals(Item.CONFIGURE) ||
+                permission.equals(Item.DELETE) ||
+                permission.equals(Item.EXTENDED_READ) ||
+                permission.equals(Item.CANCEL)) {
+            return true;
+        }
+        return false;
+    }
+
     private boolean checkReadPermission(Permission permission) {
         if (permission.getId().equals("hudson.model.Hudson.Read")
                 || permission.getId().equals("hudson.model.Item.Workspace")
@@ -141,6 +176,36 @@ public class AzureACL extends ACL{
 
     private boolean checkJobStatusPermission(Permission permission) {
         return permission.getId().equals("hudson.model.Item.ViewStatus");
+    }
+
+    public boolean isInGroup(Authentication a) throws IOException, JSONException {
+        if (a instanceof AzureAuthenticationToken) {
+            String oid = ((AzureAuthenticationToken) a).getAzureUser().getObjectID();
+            String accessToken = ((AzureAuthenticationToken) a).getAzureApiToken().getToken();
+            String tenent = ((AzureAuthenticationToken) a).getAzureUser().getTenantID();
+
+            Queue<String> queue = new LinkedList<String>();
+            Set<String> visited = new HashSet<String>();
+
+            for (String groupID : groupNameList) {
+                queue.offer(groupID);
+            }
+
+            while (!queue.isEmpty()) {
+                String curGroup = queue.poll();
+                visited.add(curGroup);
+                Set<AbstractMap.SimpleEntry<String, String>> members = AzureAdApi.getGroupMembers(curGroup, accessToken, tenent, true);
+                for (Iterator<AbstractMap.SimpleEntry<String, String>> it = members.iterator(); it.hasNext();) {
+                    AbstractMap.SimpleEntry<String, String> member = it.next();
+                    if (member.getKey() == oid) return true;
+                    if (member.getValue() == "Group" && !visited.contains(member.getKey())) queue.offer(member.getKey());
+                }
+            }
+
+            return false;
+        }
+
+        return false;
     }
 
     public boolean isAuthenticatedUserReadPermission() {

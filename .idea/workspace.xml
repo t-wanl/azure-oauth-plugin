@@ -2,24 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="806b2527-22ae-4780-89f1-9ccbf5588a37" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/HttpHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthenticationToken.java" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthenticationToken.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthorizationStrategy.java" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthorizationStrategy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureSecurityRealm.java" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureSecurityRealm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/microsoft/azure/oauth/AzureAuthorizationStrategy/config.jelly" afterPath="$PROJECT_DIR$/src/main/resources/com/microsoft/azure/oauth/AzureAuthorizationStrategy/config.jelly" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/microsoft/azure/oauth/AzureAuthorizationStrategy.stapler" afterPath="$PROJECT_DIR$/target/classes/com/microsoft/azure/oauth/AzureAuthorizationStrategy.stapler" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/microsoft/azure/oauth/AzureAuthorizationStrategy/config.jelly" afterPath="$PROJECT_DIR$/target/classes/com/microsoft/azure/oauth/AzureAuthorizationStrategy/config.jelly" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/microsoft/azure/oauth/AzureSecurityRealm.stapler" afterPath="$PROJECT_DIR$/target/classes/com/microsoft/azure/oauth/AzureSecurityRealm.stapler" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/findbugsXml.xml" afterPath="$PROJECT_DIR$/target/findbugsXml.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/allclasses-frame.html" afterPath="$PROJECT_DIR$/target/site/apidocs/allclasses-frame.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/allclasses-noframe.html" afterPath="$PROJECT_DIR$/target/site/apidocs/allclasses-noframe.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureACL.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureACL.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureAdApi.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureAdApi.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureApi.Service.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureApi.Service.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureApi.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureApi.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureApiToken.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureApiToken.html" />
@@ -31,9 +25,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureSecurityRealm.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureSecurityRealm.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureUser.AzureUserResponce.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureUser.AzureUserResponce.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureUser.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureUser.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/HttpHelper.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/HttpHelper.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/Utils.TimeUtil.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/Utils.TimeUtil.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/Utils.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/Utils.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureACL.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureACL.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureAdApi.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureAdApi.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureApi.Service.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureApi.Service.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureApi.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureApi.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureApiToken.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureApiToken.html" />
@@ -45,6 +41,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureSecurityRealm.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureSecurityRealm.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureUser.AzureUserResponce.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureUser.AzureUserResponce.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureUser.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/AzureUser.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/HttpHelper.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/HttpHelper.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/Utils.TimeUtil.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/Utils.TimeUtil.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/Utils.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/class-use/Utils.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/package-frame.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/package-frame.html" />
@@ -58,9 +55,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/index.html" afterPath="$PROJECT_DIR$/target/site/apidocs/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/overview-tree.html" afterPath="$PROJECT_DIR$/target/site/apidocs/overview-tree.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/serialized-form.html" afterPath="$PROJECT_DIR$/target/site/apidocs/serialized-form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/.owner" afterPath="$PROJECT_DIR$/work/.owner" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/config.xml" afterPath="$PROJECT_DIR$/work/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/azure-oauth.hpl" afterPath="$PROJECT_DIR$/work/plugins/azure-oauth.hpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/github-oauth/META-INF/maven/org.jenkins-ci.plugins/github-oauth/pom.xml" afterPath="$PROJECT_DIR$/work/plugins/github-oauth/META-INF/maven/org.jenkins-ci.plugins/github-oauth/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/updates/default.json" afterPath="$PROJECT_DIR$/work/updates/default.json" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -75,109 +72,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AzureApi.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureApi.java">
+      <file leaf-file-name="AzureACL.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2261">
-              <caret line="162" column="44" lean-forward="false" selection-start-line="162" selection-start-column="44" selection-end-line="162" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OAuth20ServiceImpl.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/oauth/OAuth20ServiceImpl.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-226">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding>
-                <element signature="e#1889#1890#0" expanded="true" />
-                <element signature="e#1953#1954#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AzureAuthenticationToken.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthenticationToken.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/work/config.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AzureAdApi.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="48" column="14" lean-forward="false" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+            <state relative-caret-position="68">
+              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#562#570#0" expanded="true" />
-                <element signature="e#1070#1078#0" expanded="true" />
-                <element signature="e#2467#2483#0" expanded="true" />
-                <element signature="e#2540#2556#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/HttpHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="47" column="23" lean-forward="false" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1048#1064#0" expanded="true" />
-                <element signature="e#1763#1764#0" expanded="true" />
-                <element signature="e#1826#1827#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatusLine.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3.jar!/org/apache/http/StatusLine.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpGet.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar!/org/apache/http/client/methods/HttpGet.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AzureApiToken.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureApiToken.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1727#1728#0" expanded="true" />
-                <element signature="e#1758#1759#0" expanded="true" />
+                <element signature="e#3108#3116#0" expanded="true" />
+                <element signature="e#7182#7190#0" expanded="true" />
+                <element signature="e#7239#7247#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,9 +90,27 @@
       <file leaf-file-name="AzureUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="43" column="5" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="43" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="485">
+              <caret line="69" column="5" lean-forward="false" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+              <folding>
+                <element signature="e#1492#1493#0" expanded="true" />
+                <element signature="e#1523#1524#0" expanded="true" />
+                <element signature="e#1558#1559#0" expanded="true" />
+                <element signature="e#1589#1590#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AzureAdApi.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+              <folding>
+                <element signature="e#672#713#0" expanded="true" />
+                <element signature="e#1303#1344#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -204,13 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>AzureAuthenticationToken</find>
-      <find>config.getApiKey(), config.getApiSecret()</find>
-      <find>ConverterImpl</find>
-      <find>convert</find>
-      <find>service</find>
-      <find>getcall</find>
-      <find>AzureOAuth2Service</find>
       <find>createService</find>
       <find>config</find>
       <find>method</find>
@@ -234,6 +149,13 @@
       <find>apitoken</find>
       <find>@data</find>
       <find>dofinish</find>
+      <find>check</find>
+      <find>che</find>
+      <find>FULL_CONTROL</find>
+      <find>owner</find>
+      <find>create</find>
+      <find>groupid</find>
+      <find>AzureAuthenticationToken</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -250,19 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/api/AadApi.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/api/AzureActiveDirectoryConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/api/AzureActiveDirectoryApi.java" />
-        <option value="$PROJECT_DIR$/src/main/java/java/org/jenkinsci/plugins/BitbucketSecurityRealm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/api/AzureActiveDirectoryApiService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/api/AzureActiveDirectoryApi.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/api/AzureActiveDirectoryConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/Google2Api.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureActiveDirectoryOAuth2Api.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureActiveDirectoryAuthenticationToken.java" />
-        <option value="$MAVEN_REPOSITORY$/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar!/com/thoughtworks/xstream/converters/Converter.class" />
-        <option value="$MAVEN_REPOSITORY$/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar!/com/thoughtworks/xstream/converters/UnmarshallingContext.class" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureActiveDirectorySecurityRealm.java" />
         <option value="$PROJECT_DIR$/src/main/resources/index.jelly" />
         <option value="$PROJECT_DIR$/src/main/resources/com.microsoft.azure.oauth.AzureActiveDirectorySecurityRealm/config.jelly" />
         <option value="$MAVEN_REPOSITORY$/org/kohsuke/stapler/stapler/1.237/stapler-1.237.jar!/org/kohsuke/stapler/RequestImpl.class" />
@@ -282,13 +191,38 @@
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureSecurityRealm.java" />
         <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/ACL.class" />
         <option value="$PROJECT_DIR$/src/main/resources/com/microsoft/azure/oauth/AzureAuthorizationStrategy/config.jelly" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthorizationStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthenticationToken.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/HttpHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java" />
         <option value="$PROJECT_DIR$/work/config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthenticationToken.java" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Item.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/Permission.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Messages.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/AuthorizationStrategy.class" />
+        <option value="$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-util/9.2.15.v20160210/jetty-util-9.2.15.v20160210.jar!/org/eclipse/jetty/util/thread/QueuedThreadPool.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Node.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/Functions.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/util/introspection/UberspectImpl.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/parser/ASTMethod.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/parser/ASTReference.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/parser/ASTExpression.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/parser/ASTExpressionExpression.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/ExpressionImpl.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/ExpressionFactory2.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar!/org/apache/commons/jelly/expression/ExpressionSupport.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar!/org/apache/commons/jelly/tags/core/CoreTagLibrary.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/lib/JenkinsTagLib.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/widgets/BuildQueueWidget/index.groovy" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/ChainedServletFilter.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/UnwrapSecurityExceptionFilter.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/security/ExceptionTranslationFilter.class" />
+        <option value="$MAVEN_REPOSITORY$/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar!/org/acegisecurity/providers/anonymous/AnonymousProcessingFilter.class" />
+        <option value="$MAVEN_REPOSITORY$/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar!/org/acegisecurity/ui/rememberme/RememberMeProcessingFilter.class" />
+        <option value="$MAVEN_REPOSITORY$/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar!/org/acegisecurity/ui/AbstractProcessingFilter.class" />
+        <option value="$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/security/BasicHeaderProcessor.class" />
+        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java" />
       </list>
     </option>
   </component>
@@ -342,9 +276,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -860,7 +795,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -876,14 +812,14 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52407" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.521855" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3238512" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24945295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3501094" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26868907" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -956,11 +892,35 @@
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java</url>
+          <line>155</line>
+          <properties />
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java</url>
+          <line>148</line>
+          <properties />
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/Permission.class</url>
+          <line>122</line>
+          <properties />
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Class.java</url>
+          <line>642</line>
+          <properties />
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="80" />
+      <option name="time" value="88" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="MavenRunConfiguration">
@@ -982,260 +942,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/model/ParameterList.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/model/Verb.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/model/OAuthRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/model/RequestTuner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/model/Response.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/HttpURLConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="447" column="34" lean-forward="false" selection-start-line="447" selection-start-column="28" selection-end-line="447" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/utils/OAuthEncoder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureOAuth2Service.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureOAuth2Api.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/json/json/20070829/json-20070829.jar!/org/json/JSONException.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/model/Request.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/URLStreamHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-601">
-          <caret line="51" column="22" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/URL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="211" column="58" lean-forward="false" selection-start-line="211" selection-start-column="58" selection-end-line="211" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/json/json/20070829/json-20070829.jar!/org/json/JSONObject.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-439">
-          <caret line="184" column="18" lean-forward="false" selection-start-line="184" selection-start-column="18" selection-end-line="184" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/builder/api/DefaultApi20.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar!/org/acegisecurity/context/SecurityContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" column="26" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/microsoft/azure/azure-mgmt-resources/1.0.0-beta5/azure-mgmt-resources-1.0.0-beta5.jar!/com/microsoft/azure/management/resources/fluentcore/arm/models/Resource.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="10" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/microsoft/azure/azure-mgmt-compute/1.0.0-beta5/azure-mgmt-compute-1.0.0-beta5.jar!/com/microsoft/azure/management/compute/implementation/ComputeManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="65" column="27" lean-forward="false" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/microsoft/azure/azure-client-authentication/1.0.0-beta5/azure-client-authentication-1.0.0-beta5.jar!/com/microsoft/azure/credentials/ApplicationTokenCredentials.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="32" column="11" lean-forward="false" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/microsoft/azure/azure-mgmt-compute/1.0.0-beta5/azure-mgmt-compute-1.0.0-beta5.jar!/com/microsoft/azure/management/compute/VirtualMachine.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="29" column="19" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/microsoft/azure/azure/1.0.0/azure-1.0.0.jar!/com/microsoft/azure/management/Azure.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-52">
-          <caret line="332" column="14" lean-forward="false" selection-start-line="332" selection-start-column="14" selection-end-line="332" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/json/json/20070829/json-20070829.jar!/org/json/JSONArray.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="267" column="21" lean-forward="false" selection-start-line="267" selection-start-column="21" selection-end-line="267" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3.jar!/org/apache/http/NameValuePair.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/oauth/OAuthService.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/kohsuke/stapler/stapler/1.237/stapler-1.237.jar!/org/kohsuke/stapler/Function.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/microsoft/azure/azure/1.0.0-beta5/azure-1.0.0-beta5.jar!/com/microsoft/azure/management/Azure.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="201" column="46" lean-forward="false" selection-start-line="201" selection-start-column="46" selection-end-line="201" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar!/org/apache/http/client/methods/HttpEntityEnclosingRequestBase.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="2866" column="18" lean-forward="false" selection-start-line="2866" selection-start-column="18" selection-end-line="2866" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/extractors/AccessTokenExtractor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar!/org/acegisecurity/providers/AbstractAuthenticationToken.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/ACL.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/microsoft/azure/oauth/AzureAuthorizationStrategy/config.jelly">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2380">
-          <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthorizationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2384#2385#0" expanded="true" />
-            <element signature="e#2468#2469#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/User.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="618">
@@ -1270,62 +976,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar!/org/apache/http/client/methods/HttpGet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3.jar!/org/apache/http/StatusLine.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/HttpHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="47" column="23" lean-forward="false" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1048#1064#0" expanded="true" />
-            <element signature="e#1763#1764#0" expanded="true" />
-            <element signature="e#1826#1827#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Set.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="296" column="23" lean-forward="true" selection-start-line="296" selection-start-column="23" selection-end-line="296" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="162" column="44" lean-forward="false" selection-start-line="162" selection-start-column="44" selection-end-line="162" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="14" lean-forward="false" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#562#570#0" expanded="true" />
-            <element signature="e#1070#1078#0" expanded="true" />
-            <element signature="e#2467#2483#0" expanded="true" />
-            <element signature="e#2540#2556#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1340,18 +995,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3.jar!/org/apache/http/StatusLine.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="43" column="5" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="43" selection-end-column="5" />
+        <state relative-caret-position="119">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar!/org/apache/http/client/methods/HttpGet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="162" column="44" lean-forward="false" selection-start-line="162" selection-start-column="44" selection-end-line="162" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/microsoft/azure/oauth/AzureAuthorizationStrategy/config.jelly">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="64" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureApiToken.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="340">
+          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1727#1728#0" expanded="true" />
@@ -1362,17 +1049,343 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthenticationToken.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="370">
+          <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+          <folding>
+            <element signature="e#2014#2015#0" expanded="true" />
+            <element signature="e#2046#2047#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/HttpHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="47" column="23" lean-forward="false" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1048#1064#0" expanded="false" />
+            <element signature="e#1763#1764#0" expanded="false" />
+            <element signature="e#1826#1827#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/AuthorizationStrategy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/work/config.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthorizationStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        <state relative-caret-position="-467">
+          <caret line="18" column="52" lean-forward="false" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-util/9.2.15.v20160210/jetty-util-9.2.15.v20160210.jar!/org/eclipse/jetty/util/thread/QueuedThreadPool.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="486" column="0" lean-forward="false" selection-start-line="486" selection-start-column="0" selection-end-line="486" selection-end-column="0" />
+          <folding>
+            <element signature="e#17521#17522#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/ACL.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Node.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+          <folding>
+            <element signature="e#8252#8253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/Functions.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="582" column="58" lean-forward="false" selection-start-line="582" selection-start-column="58" selection-end-line="582" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="497" column="0" lean-forward="false" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/util/introspection/UberspectImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="216" column="0" lean-forward="false" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/parser/ASTMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/parser/ASTReference.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/parser/ASTExpression.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/parser/ASTExpressionExpression.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/ExpressionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/ExpressionFactory2.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar!/org/apache/commons/jelly/expression/ExpressionSupport.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar!/org/apache/commons/jelly/tags/core/CoreTagLibrary.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/lib/JenkinsTagLib.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-all/1.8.9/groovy-all-1.8.9.jar!/org/codehaus/groovy/runtime/callsite/CallSiteArray.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/widgets/BuildQueueWidget/index.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/UnwrapSecurityExceptionFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/security/ExceptionTranslationFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar!/org/acegisecurity/providers/anonymous/AnonymousProcessingFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/Permission.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="174" column="78" lean-forward="false" selection-start-line="174" selection-start-column="78" selection-end-line="174" selection-end-column="78" />
+          <folding>
+            <element signature="e#4311#4312#0" expanded="true" />
+            <element signature="e#4372#4373#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-all/1.8.9/groovy-all-1.8.9.jar!/org/codehaus/groovy/runtime/callsite/AbstractCallSite.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="82" column="64" lean-forward="false" selection-start-line="82" selection-start-column="64" selection-end-line="82" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/kohsuke/stapler/stapler-groovy/1.237/stapler-groovy-1.237.jar!/org/kohsuke/stapler/jelly/groovy/GroovierJellyScript.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/ChainedServletFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/security/BasicHeaderProcessor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar!/org/acegisecurity/ui/AbstractProcessingFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar!/org/acegisecurity/ui/rememberme/RememberMeProcessingFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Messages.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="636" column="30" lean-forward="false" selection-start-line="636" selection-start-column="30" selection-end-line="636" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Item.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-290">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2981">
+          <caret line="642" column="0" lean-forward="false" selection-start-line="642" selection-start-column="0" selection-end-line="642" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="69" column="5" lean-forward="false" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+          <folding>
+            <element signature="e#1492#1493#0" expanded="true" />
+            <element signature="e#1523#1524#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
+            <element signature="e#1589#1590#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+          <folding>
+            <element signature="e#672#713#0" expanded="true" />
+            <element signature="e#1303#1344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3108#3116#0" expanded="true" />
+            <element signature="e#7182#7190#0" expanded="true" />
+            <element signature="e#7239#7247#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

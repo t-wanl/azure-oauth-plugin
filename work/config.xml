@@ -11,11 +11,11 @@
         <string>t-wanl@microsoft.com</string>
       </adminUserNameList>
       <groupNameList class="linked-list">
-        <string></string>
+        <string>352f8ed2-876d-40c7-b1d6-ea7f5832c98d</string>
       </groupNameList>
-      <authenticatedUserReadPermission>true</authenticatedUserReadPermission>
+      <authenticatedUserReadPermission>false</authenticatedUserReadPermission>
       <authenticatedUserCreateJobPermission>false</authenticatedUserCreateJobPermission>
-      <allowAnonymousReadPermission>true</allowAnonymousReadPermission>
+      <allowAnonymousReadPermission>false</allowAnonymousReadPermission>
       <allowAnonymousJobStatusPermission>false</allowAnonymousJobStatusPermission>
     </rootACL>
   </authorizationStrategy>
