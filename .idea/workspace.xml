@@ -2,14 +2,655 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="806b2527-22ae-4780-89f1-9ccbf5588a37" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/azure-oauth.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/ant.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/antisamy-markup-formatter.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/credentials.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/cvs.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/external-monitor-job.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/javadoc.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/junit.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/ldap.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/mailer.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/matrix-auth.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/matrix-project.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/maven-plugin.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/pam-auth.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/script-security.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/ssh-credentials.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/ssh-slaves.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/subversion.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/translation.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/plugins/windows-slaves.hpi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/aborted.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/aborted.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/aborted_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/accept.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/attribute.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/blue.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/blue_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/clock.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/clock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/clock_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/collapse.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/computer-flash.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/computer-x.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/computer-x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/computer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/computer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/disabled.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/disabled_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/document_add.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/document_add.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/document_delete.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/document_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/document_edit.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/document_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/edit-delete.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/edit-delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/edit-select-all.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/edit-select-all.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/empty.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/empty.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/error.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/expand.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/find.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/fingerprint.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/fingerprint.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/folder-error.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/folder-error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/folder-open.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/folder-open.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/folder.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/folder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/gear2.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/gear2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/go-next.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/go-next.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/go_down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/go_top.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/go_up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/green.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/green_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/grey.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/grey.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/grey_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/health-00to19.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/health-00to19.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/health-20to39.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/health-20to39.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/health-40to59.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/health-40to59.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/health-60to79.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/health-60to79.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/health-80plus.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/health-80plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/help.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/help.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/hourglass.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/hourglass.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/lock.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/lock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/nobuilt.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/nobuilt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/nobuilt_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/notepad.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/notepad.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/orange-square.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/package.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/package.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/person.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/person.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/plugin.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/plugin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/red.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/red_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/redo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/redo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/save.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/search.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/secure.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/setting.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/star-gold.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/star-gold.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/star.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/stop.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/stop.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/terminal.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/terminal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/text-error.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/text-error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/text.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/text.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/user.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/warning.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/warning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/yellow.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/16x16/yellow_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/aborted.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/aborted.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/aborted_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/accept.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/attribute.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/blue.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/blue_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/clipboard.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/clipboard.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/clock.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/clock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/clock_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/computer-flash.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/computer-x.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/computer-x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/computer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/computer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/delete-document.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/delete-document.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/disabled.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/disabled_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/document-properties.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/document-properties.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/document.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/document.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/edit-delete.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/edit-delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/empty.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/empty.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/fingerprint.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/fingerprint.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/folder-delete.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/folder-delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/folder.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/folder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/gear.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/gear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/gear2.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/gear2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/graph.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/graph.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/green.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/green_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/grey.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/grey.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/grey_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/health-00to19.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/health-00to19.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/health-20to39.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/health-20to39.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/health-40to59.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/health-40to59.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/health-60to79.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/health-60to79.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/health-80plus.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/health-80plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/help.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/help.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/installer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/installer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/lock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/monitor.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/monitor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/new-computer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/new-computer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/new-document.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/new-document.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/new-package.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/new-package.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/new-user.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/new-user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/next.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/next.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/nobuilt.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/nobuilt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/nobuilt_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/notepad.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/notepad.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/orange-square.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/orange-square.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/package.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/package.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/plugin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/previous.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/previous.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/red.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/red_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/redo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/redo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/refresh.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/refresh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/save.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/save.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/search.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/secure.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/setting.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/setting.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/star-gold.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/star-gold.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/star.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/terminal.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/terminal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/up.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/user.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/yellow.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/24x24/yellow_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/aborted.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/aborted.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/aborted_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/accept.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/attribute.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/blue.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/blue_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/clipboard.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/clipboard.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/clock.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/clock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/clock_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/computer-flash.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/computer-x.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/computer-x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/computer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/computer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/disabled.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/disabled_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/empty.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/empty.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/error.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/folder.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/folder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/gear2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/graph.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/graph.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/green.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/green_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/grey.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/grey.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/grey_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/health-00to19.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/health-00to19.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/health-20to39.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/health-20to39.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/health-40to59.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/health-40to59.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/health-60to79.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/health-60to79.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/health-80plus.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/health-80plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/lock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/nobuilt.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/nobuilt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/nobuilt_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/orange-square.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/package.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/plugin.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/plugin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/red.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/red_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/secure.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/setting.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/setting.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/star-gold.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/star-gold.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/star.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/user.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/yellow.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/32x32/yellow_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/aborted.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/aborted.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/aborted_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/accept.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/attribute.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/blue.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/blue_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/clipboard.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/clipboard.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/computer-flash.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/computer-x.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/computer-x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/computer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/computer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/disabled.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/disabled_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/document.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/document.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/empty.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/empty.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/error.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/fingerprint.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/fingerprint.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/folder-delete.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/folder-delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/folder.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/folder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/gear2.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/gear2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/graph.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/graph.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/green.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/green_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/grey.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/grey.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/grey_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/health-00to19.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/health-00to19.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/health-20to39.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/health-20to39.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/health-40to59.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/health-40to59.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/health-60to79.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/health-60to79.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/health-80plus.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/health-80plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/help.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/help.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/installer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/installer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/lock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/monitor.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/monitor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/network.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/network.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/nobuilt.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/nobuilt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/nobuilt_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/notepad.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/notepad.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/orange-square.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/orange-square.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/package.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/package.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/plugin.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/plugin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/red.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/red_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/redo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/redo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/refresh.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/refresh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/search.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/secure.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/secure.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/setting.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/setting.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/star-gold.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/star-gold.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/star.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/system-log-out.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/system-log-out.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/terminal.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/terminal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/user.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/warning.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/warning.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/yellow.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/48x48/yellow_anime.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/atom.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/bottom-sticker-top-edge.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/grip.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/headless.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/headshot.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/jenkins-redbg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/jenkins.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/none.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/progress-unknown-red.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/progress-unknown.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/rage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/spinner.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/textarea-handle.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/title.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/title.xcf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/top-sticker-bottom-edge.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/topbar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/webstart.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/ajax-loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/asc.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/back-h.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/back-v.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/bar-h.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/bar-v.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/bg-h.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/bg-v.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/blankimage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/check0.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/check1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/check2.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/desc.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/dt-arrow-dn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/dt-arrow-up.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/editor-knob.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/editor-sprite-active.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/editor-sprite.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/header_background.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/hue_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/layout_sprite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/menu-button-arrow-disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/menu-button-arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/menubaritem_submenuindicator.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/menubaritem_submenuindicator_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/menuitem_checkbox.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/menuitem_checkbox_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/menuitem_submenuindicator.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/menuitem_submenuindicator_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/picker_mask.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/split-button-arrow-active.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/split-button-arrow-disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/split-button-arrow-focus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/split-button-arrow-hover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/split-button-arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/sprite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/sprite.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/treeview-loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/treeview-sprite.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/wait.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/connection/connection.swf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/alrt16_1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/blck16_1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/close12_1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/hlp16_1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/info16_1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/tip16_1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/warn16_1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/assets/skins/sam/blankimage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/assets/skins/sam/editor-knob.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/assets/skins/sam/editor-sprite-active.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/assets/skins/sam/editor-sprite.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menu_down_arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menu_down_arrow_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menu_up_arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menu_up_arrow_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menubaritem_submenuindicator.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menubaritem_submenuindicator_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menubaritem_submenuindicator_selected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menuitem_checkbox.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menuitem_checkbox_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menuitem_checkbox_selected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menuitem_submenuindicator.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menuitem_submenuindicator_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menuitem_submenuindicator_selected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/skins/sam/menubaritem_submenuindicator.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/skins/sam/menubaritem_submenuindicator_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/skins/sam/menuitem_checkbox.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/skins/sam/menuitem_checkbox_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/skins/sam/menuitem_submenuindicator.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/skins/sam/menuitem_submenuindicator_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/resize/assets/skins/sam/layout_sprite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/tabview/assets/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/assets/skins/sam/check0.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/assets/skins/sam/check1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/assets/skins/sam/check2.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/assets/skins/sam/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/assets/skins/sam/treeview-loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/assets/skins/sam/treeview-sprite.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/azureSettings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/azure-oauth/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/azure-oauth/WEB-INF/licenses.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/classes/META-INF/licenses.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/classes/META-INF/licenses.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/classes/dependencies.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/hudson" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/ibm-web-bnd.xmi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/jonas-web.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/security/AbstractPasswordBasedSecurityRealm.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/security/SecurityFilters.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/sun-web.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/update-center-rootCAs/hudson-community" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/update-center-rootCAs/hudson-community.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/update-center-rootCAs/jenkins-update-center-root-ca" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/update-center-rootCAs/jenkins-update-center-root-ca.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/WEB-INF/web.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/RRZEIconSet-License.url" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/RRZEIconSet.url" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/TangoProject-License.url" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/atom-license.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/mask-icon.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/title.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/images/topbar.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/behavior.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/combobox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/hudson-behavior.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/prototype.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/animation/animation-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/animation/animation-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/autocomplete.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/button.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/calendar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/carousel.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/colorpicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/container.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/datatable.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/editor.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/imagecropper.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/layout.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/logger.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/menu.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/paginator.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/profilerviewer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/progressbar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/resize.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/simpleeditor.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/skin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/slider.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/tabview.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/treeview.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/assets/skins/sam/yuitest.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/autocomplete/assets/autocomplete-core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/autocomplete/assets/skins/sam/autocomplete-skin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/autocomplete/assets/skins/sam/autocomplete.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/autocomplete/autocomplete-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/autocomplete/autocomplete-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/connection/connection-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/connection/connection-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/connection/connection_core-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/connection/connection_core-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/container-core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/container.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/skins/sam/container-skin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/assets/skins/sam/container.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/container-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/container-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/container_core-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/container/container_core-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/cutdown.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/dom/dom-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/dom/dom-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/assets/editor-core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/assets/simpleeditor-core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/assets/skins/sam/editor-skin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/assets/skins/sam/editor.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/assets/skins/sam/simpleeditor-skin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/assets/skins/sam/simpleeditor.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/editor-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/editor-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/simpleeditor-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/editor/simpleeditor-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/element/element-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/element/element-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/logger/assets/logger-core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/logger/assets/logger.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/logger/assets/skins/sam/logger-skin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/logger/assets/skins/sam/logger.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/logger/logger-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/logger/logger-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menu-core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/menu.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/skins/sam/menu-skin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/assets/skins/sam/menu.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/menu-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/menu/menu-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/resize/assets/resize-core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/resize/assets/skins/sam/resize-skin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/resize/assets/skins/sam/resize.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/resize/resize-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/resize/resize-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/tabview/assets/border_tabs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/tabview/assets/skin-sam.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/tabview/assets/skins/sam/tabview-skin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/tabview/assets/skins/sam/tabview.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/tabview/assets/tabview-core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/tabview/assets/tabview.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/tabview/tabview-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/tabview/tabview-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/assets/skins/sam/treeview-skin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/assets/skins/sam/treeview.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/assets/treeview-core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/treeview-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/tmp/webapp/scripts/yui/treeview/treeview-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/work/jobs/aaa group test/nextBuildNumber" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/surefire/surefire1925943183426941374tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/surefire/surefire_05134826899254915529tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/tmp/.extract_lock" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/annotations/hudson.Extension" afterPath="$PROJECT_DIR$/target/classes/META-INF/annotations/hudson.Extension" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthenticationToken.java" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthenticationToken.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/microsoft/azure/oauth/AzureAuthorizationStrategy.stapler" afterPath="$PROJECT_DIR$/target/classes/com/microsoft/azure/oauth/AzureAuthorizationStrategy.stapler" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/microsoft/azure/oauth/AzureSecurityRealm.stapler" afterPath="$PROJECT_DIR$/target/classes/com/microsoft/azure/oauth/AzureSecurityRealm.stapler" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/findbugs.xml" afterPath="$PROJECT_DIR$/target/findbugs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/findbugsXml.xml" afterPath="$PROJECT_DIR$/target/findbugsXml.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/generated-test-sources/injected/InjectedTest.java" afterPath="$PROJECT_DIR$/target/generated-test-sources/injected/InjectedTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/jenkins-for-test/META-INF/JENKINS.SF" afterPath="$PROJECT_DIR$/target/jenkins-for-test/META-INF/JENKINS.SF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/jenkins-for-test/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/jenkins-for-test/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/jenkins-for-test/help/scm-browsers/list_de.html" afterPath="$PROJECT_DIR$/target/jenkins-for-test/help/scm-browsers/list_de.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/jenkins-for-test/help/system-config/homeDirectory_zh_CN.html" afterPath="$PROJECT_DIR$/target/jenkins-for-test/help/system-config/homeDirectory_zh_CN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/jenkins-for-test/help/system-config/master-slave/numExecutors_zh_CN.html" afterPath="$PROJECT_DIR$/target/jenkins-for-test/help/system-config/master-slave/numExecutors_zh_CN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/jenkins-for-test/help/system-config/master-slave/usage_zh_CN.html" afterPath="$PROJECT_DIR$/target/jenkins-for-test/help/system-config/master-slave/usage_zh_CN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/jenkins-for-test/help/system-config/systemMessage_zh_CN.html" afterPath="$PROJECT_DIR$/target/jenkins-for-test/help/system-config/systemMessage_zh_CN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/jenkins-for-test/help/tools/help-label_de.html" afterPath="$PROJECT_DIR$/target/jenkins-for-test/help/tools/help-label_de.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/jenkins-for-test/help/tools/help-label_zh_CN.html" afterPath="$PROJECT_DIR$/target/jenkins-for-test/help/tools/help-label_zh_CN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/allclasses-frame.html" afterPath="$PROJECT_DIR$/target/site/apidocs/allclasses-frame.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/allclasses-noframe.html" afterPath="$PROJECT_DIR$/target/site/apidocs/allclasses-noframe.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureACL.html" afterPath="$PROJECT_DIR$/target/site/apidocs/com/microsoft/azure/oauth/AzureACL.html" />
@@ -55,10 +696,36 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/index.html" afterPath="$PROJECT_DIR$/target/site/apidocs/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/overview-tree.html" afterPath="$PROJECT_DIR$/target/site/apidocs/overview-tree.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/site/apidocs/serialized-form.html" afterPath="$PROJECT_DIR$/target/site/apidocs/serialized-form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/.owner" afterPath="$PROJECT_DIR$/work/.owner" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/InjectedTest-output.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/InjectedTest-output.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/InjectedTest.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/InjectedTest.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-InjectedTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-InjectedTest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/the.hpl" afterPath="$PROJECT_DIR$/target/test-classes/the.hpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tmp/webapp/META-INF/JENKINS.SF" afterPath="$PROJECT_DIR$/target/tmp/webapp/META-INF/JENKINS.SF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tmp/webapp/help/scm-browsers/list_de.html" afterPath="$PROJECT_DIR$/target/tmp/webapp/help/scm-browsers/list_de.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tmp/webapp/help/system-config/homeDirectory_zh_CN.html" afterPath="$PROJECT_DIR$/target/tmp/webapp/help/system-config/homeDirectory_zh_CN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tmp/webapp/help/system-config/master-slave/numExecutors_zh_CN.html" afterPath="$PROJECT_DIR$/target/tmp/webapp/help/system-config/master-slave/numExecutors_zh_CN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tmp/webapp/help/system-config/master-slave/usage_zh_CN.html" afterPath="$PROJECT_DIR$/target/tmp/webapp/help/system-config/master-slave/usage_zh_CN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tmp/webapp/help/system-config/systemMessage_zh_CN.html" afterPath="$PROJECT_DIR$/target/tmp/webapp/help/system-config/systemMessage_zh_CN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tmp/webapp/help/tools/help-label_de.html" afterPath="$PROJECT_DIR$/target/tmp/webapp/help/tools/help-label_de.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tmp/webapp/help/tools/help-label_zh_CN.html" afterPath="$PROJECT_DIR$/target/tmp/webapp/help/tools/help-label_zh_CN.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/config.xml" afterPath="$PROJECT_DIR$/work/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/ant/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/ant/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/antisamy-markup-formatter/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/antisamy-markup-formatter/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/azure-oauth.hpl" afterPath="$PROJECT_DIR$/work/plugins/azure-oauth.hpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/updates/default.json" afterPath="$PROJECT_DIR$/work/updates/default.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/cvs/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/cvs/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/external-monitor-job/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/external-monitor-job/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/javadoc/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/javadoc/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/ldap/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/ldap/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/matrix-auth/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/matrix-auth/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/maven-plugin/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/maven-plugin/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/maven-plugin/maven-opts_zh_CN.html" afterPath="$PROJECT_DIR$/work/plugins/maven-plugin/maven-opts_zh_CN.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/pam-auth/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/pam-auth/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/script-security/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/script-security/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/ssh-slaves/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/ssh-slaves/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/subversion/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/subversion/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/translation/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/translation/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/plugins/windows-slaves/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/work/plugins/windows-slaves/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/work/secrets/filepath-filters.d/30-default.conf" afterPath="$PROJECT_DIR$/work/secrets/filepath-filters.d/30-default.conf" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -75,13 +742,13 @@
       <file leaf-file-name="AzureACL.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+            <state relative-caret-position="409">
+              <caret line="196" column="77" lean-forward="false" selection-start-line="196" selection-start-column="77" selection-end-line="196" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3108#3116#0" expanded="true" />
-                <element signature="e#7182#7190#0" expanded="true" />
-                <element signature="e#7239#7247#0" expanded="true" />
+                <element signature="e#7231#7239#0" expanded="true" />
+                <element signature="e#7288#7296#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,13 +757,22 @@
       <file leaf-file-name="AzureUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
+            <state relative-caret-position="765">
               <caret line="69" column="5" lean-forward="false" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
               <folding>
-                <element signature="e#1492#1493#0" expanded="true" />
-                <element signature="e#1523#1524#0" expanded="true" />
-                <element signature="e#1558#1559#0" expanded="true" />
-                <element signature="e#1589#1590#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#770#771#0" expanded="false" />
+                <element signature="e#793#794#0" expanded="false" />
+                <element signature="e#993#994#0" expanded="false" />
+                <element signature="e#1020#1021#0" expanded="false" />
+                <element signature="e#1182#1183#0" expanded="false" />
+                <element signature="e#1209#1210#0" expanded="false" />
+                <element signature="e#1266#1267#0" expanded="false" />
+                <element signature="e#1293#1294#0" expanded="false" />
+                <element signature="e#1355#1356#0" expanded="false" />
+                <element signature="e#1382#1383#0" expanded="false" />
+                <element signature="e#1430#1431#0" expanded="false" />
+                <element signature="e#1457#1458#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -105,12 +781,9 @@
       <file leaf-file-name="AzureAdApi.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-              <folding>
-                <element signature="e#672#713#0" expanded="true" />
-                <element signature="e#1303#1344#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="295">
+              <caret line="52" column="50" lean-forward="true" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,10 +799,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>createService</find>
-      <find>config</find>
-      <find>method</find>
-      <find>getAccessTokenExtractor</find>
       <find>getAccessToken</find>
       <find>class</find>
       <find>extra</find>
@@ -149,13 +818,17 @@
       <find>apitoken</find>
       <find>@data</find>
       <find>dofinish</find>
-      <find>check</find>
       <find>che</find>
       <find>FULL_CONTROL</find>
       <find>owner</find>
       <find>create</find>
       <find>groupid</find>
       <find>AzureAuthenticationToken</find>
+      <find>==</find>
+      <find>isingr</find>
+      <find>group</find>
+      <find>haspermiss</find>
+      <find>check</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -244,20 +917,6 @@
           <option name="myItemId" value="Azure OAuth Plugin" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Azure OAuth Plugin" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
       </PATH>
       <PATH>
         <PATH_ELEMENT>
@@ -276,10 +935,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="724" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -299,6 +957,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -464,7 +1123,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -474,7 +1132,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="SearchEverywhereHistoryKey" value="user&#9;FILE&#9;file://C:/Users/t-wanl/workspace/azure-oauth-plugin-dev/src/main/java/com/microsoft/azure/oauth/AzureUser.java&#10;pom&#9;FILE&#9;file://C:/Users/t-wanl/workspace/azure-oauth-plugin/pom.xml" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../active-directory-java-webapp-openidconnect" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -728,28 +1386,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="mvnRunConfigurationType" factoryName="Mvn">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list />
-            </option>
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method />
-    </configuration>
     <configuration default="false" name="Unnamed" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -795,64 +1431,70 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="724" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33150986" sideWeight="0.297593" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14989059" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822758" sideWeight="0.702407" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.521855" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3238512" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24945295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Azure Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33150986" sideWeight="0.297593" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14943457" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="HDInsight Spark Submission" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32753164" sideWeight="0.702407" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Azure Activity Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5218094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24878837" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26868907" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26740506" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3238512" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Azure Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33150986" sideWeight="0.297593" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5678337" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33150986" sideWeight="0.297593" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14943457" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Azure Activity Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24945295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4037199" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.702407" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26868907" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="HDInsight Spark Submission" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32753164" sideWeight="0.702407" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36761487" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32502708" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5218094" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3238512" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -893,24 +1535,6 @@
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java</url>
-          <line>155</line>
-          <properties />
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java</url>
-          <line>148</line>
-          <properties />
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/Permission.class</url>
-          <line>122</line>
-          <properties />
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Class.java</url>
           <line>642</line>
           <properties />
@@ -920,7 +1544,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="88" />
+      <option name="time" value="90" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="MavenRunConfiguration">
@@ -942,22 +1566,8 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/User.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="208" column="23" lean-forward="true" selection-start-line="208" selection-start-column="23" selection-end-line="208" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/model/Token.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/User.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/model/Token.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureSecurityRealm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -968,49 +1578,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar!/org/apache/http/client/methods/HttpRequestBase.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Set.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="296" column="23" lean-forward="true" selection-start-line="296" selection-start-column="23" selection-end-line="296" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/oauth/OAuth20ServiceImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-226">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="e#1889#1890#0" expanded="true" />
-            <element signature="e#1953#1954#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3.jar!/org/apache/http/StatusLine.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar!/org/apache/http/client/methods/HttpGet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar!/org/apache/http/client/methods/HttpRequestBase.class" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Set.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/scribe/scribe/1.3.3/scribe-1.3.3.jar!/org/scribe/oauth/OAuth20ServiceImpl.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3.jar!/org/apache/http/StatusLine.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar!/org/apache/http/client/methods/HttpGet.class" />
     <entry file="file://$PROJECT_DIR$/work/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1023,7 +1595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="162" column="44" lean-forward="false" selection-start-line="162" selection-start-column="44" selection-end-line="162" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,11 +1610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1727#1728#0" expanded="true" />
-            <element signature="e#1758#1759#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1051,10 +1617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
-          <folding>
-            <element signature="e#2014#2015#0" expanded="true" />
-            <element signature="e#2046#2047#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1071,20 +1633,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/AuthorizationStrategy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/AuthorizationStrategy.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAuthorizationStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-467">
           <caret line="18" column="52" lean-forward="false" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1093,67 +1648,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="486" column="0" lean-forward="false" selection-start-line="486" selection-start-column="0" selection-end-line="486" selection-end-column="0" />
-          <folding>
-            <element signature="e#17521#17522#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/ACL.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Node.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
-          <folding>
-            <element signature="e#8252#8253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/Functions.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="582" column="58" lean-forward="false" selection-start-line="582" selection-start-column="58" selection-end-line="582" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="497" column="0" lean-forward="false" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/ACL.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Node.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/Functions.class" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/reflect/Method.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar!/org/apache/commons/jexl/util/introspection/UberspectImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="216" column="0" lean-forward="false" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1161,7 +1668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1169,7 +1675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1177,7 +1682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1185,7 +1689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1193,23 +1696,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/ExpressionFactory2.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/ExpressionFactory2.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar!/org/apache/commons/jelly/expression/ExpressionSupport.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1217,66 +1711,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/lib/JenkinsTagLib.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/lib/JenkinsTagLib.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-all/1.8.9/groovy-all-1.8.9.jar!/org/codehaus/groovy/runtime/callsite/CallSiteArray.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/widgets/BuildQueueWidget/index.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/UnwrapSecurityExceptionFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/security/ExceptionTranslationFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/widgets/BuildQueueWidget/index.groovy" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/UnwrapSecurityExceptionFilter.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/security/ExceptionTranslationFilter.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar!/org/acegisecurity/providers/anonymous/AnonymousProcessingFilter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/Permission.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="174" column="78" lean-forward="false" selection-start-line="174" selection-start-column="78" selection-end-line="174" selection-end-column="78" />
-          <folding>
-            <element signature="e#4311#4312#0" expanded="true" />
-            <element signature="e#4372#4373#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1284,7 +1736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="82" column="64" lean-forward="false" selection-start-line="82" selection-start-column="64" selection-end-line="82" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1292,31 +1743,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/ChainedServletFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/security/BasicHeaderProcessor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/ChainedServletFilter.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/jenkins/security/BasicHeaderProcessor.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar!/org/acegisecurity/ui/AbstractProcessingFilter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1324,67 +1759,62 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Messages.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="636" column="30" lean-forward="false" selection-start-line="636" selection-start-column="30" selection-end-line="636" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Item.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-290">
-          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2981">
-          <caret line="642" column="0" lean-forward="false" selection-start-line="642" selection-start-column="0" selection-end-line="642" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Messages.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/model/Item.class" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Class.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
+        <state relative-caret-position="765">
           <caret line="69" column="5" lean-forward="false" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
           <folding>
-            <element signature="e#1492#1493#0" expanded="true" />
-            <element signature="e#1523#1524#0" expanded="true" />
-            <element signature="e#1558#1559#0" expanded="true" />
-            <element signature="e#1589#1590#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#770#771#0" expanded="false" />
+            <element signature="e#793#794#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+            <element signature="e#1020#1021#0" expanded="false" />
+            <element signature="e#1182#1183#0" expanded="false" />
+            <element signature="e#1209#1210#0" expanded="false" />
+            <element signature="e#1266#1267#0" expanded="false" />
+            <element signature="e#1293#1294#0" expanded="false" />
+            <element signature="e#1355#1356#0" expanded="false" />
+            <element signature="e#1382#1383#0" expanded="false" />
+            <element signature="e#1430#1431#0" expanded="false" />
+            <element signature="e#1457#1458#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.645/jenkins-core-1.645.jar!/hudson/security/Permission.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1458">
+          <caret line="122" column="40" lean-forward="false" selection-start-line="122" selection-start-column="40" selection-end-line="122" selection-end-column="40" />
+          <folding>
+            <element signature="e#4311#4312#0" expanded="true" />
+            <element signature="e#4372#4373#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-          <folding>
-            <element signature="e#672#713#0" expanded="true" />
-            <element signature="e#1303#1344#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="295">
+          <caret line="52" column="50" lean-forward="true" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/microsoft/azure/oauth/AzureACL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state relative-caret-position="409">
+          <caret line="196" column="77" lean-forward="false" selection-start-line="196" selection-start-column="77" selection-end-line="196" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3108#3116#0" expanded="true" />
-            <element signature="e#7182#7190#0" expanded="true" />
-            <element signature="e#7239#7247#0" expanded="true" />
+            <element signature="e#7231#7239#0" expanded="true" />
+            <element signature="e#7288#7296#0" expanded="true" />
           </folding>
         </state>
       </provider>

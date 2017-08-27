@@ -13,7 +13,7 @@
       <groupNameList class="linked-list">
         <string>352f8ed2-876d-40c7-b1d6-ea7f5832c98d</string>
       </groupNameList>
-      <authenticatedUserReadPermission>false</authenticatedUserReadPermission>
+      <authenticatedUserReadPermission>true</authenticatedUserReadPermission>
       <authenticatedUserCreateJobPermission>false</authenticatedUserCreateJobPermission>
       <allowAnonymousReadPermission>false</allowAnonymousReadPermission>
       <allowAnonymousJobStatusPermission>false</allowAnonymousJobStatusPermission>

@@ -7,10 +7,10 @@ import java.util.*;
 public class InjectedTest extends junit.framework.TestCase {
   public static junit.framework.Test suite() throws Exception {
     Map parameters = new HashMap();
-    parameters.put("basedir","C:\\Users\\t-wanl\\workspace\\azure-oauth-plugin-dev");
+    parameters.put("basedir","/Users/albertxavier/workspace/azure-oauth-plugin");
     parameters.put("artifactId","azure-oauth");
-    parameters.put("outputDirectory","C:\\Users\\t-wanl\\workspace\\azure-oauth-plugin-dev\\target\\classes");
-    parameters.put("testOutputDirectory","C:\\Users\\t-wanl\\workspace\\azure-oauth-plugin-dev\\target\\test-classes");
+    parameters.put("outputDirectory","/Users/albertxavier/workspace/azure-oauth-plugin/target/classes");
+    parameters.put("testOutputDirectory","/Users/albertxavier/workspace/azure-oauth-plugin/target/test-classes");
     parameters.put("requirePI","true");
     return new org.jvnet.hudson.test.PluginAutomaticTestBuilder().build(parameters);
   }

@@ -156,6 +156,7 @@ public class AzureACL extends ACL{
         if (permission.equals(Item.CREATE) ||
                 permission.equals(Item.READ) ||
                 permission.equals(Item.CONFIGURE) ||
+                permission.equals(Item.BUILD) ||
                 permission.equals(Item.DELETE) ||
                 permission.equals(Item.EXTENDED_READ) ||
                 permission.equals(Item.CANCEL)) {
@@ -193,12 +194,13 @@ public class AzureACL extends ACL{
 
             while (!queue.isEmpty()) {
                 String curGroup = queue.poll();
-                visited.add(curGroup);
                 Set<AbstractMap.SimpleEntry<String, String>> members = AzureAdApi.getGroupMembers(curGroup, accessToken, tenent, true);
                 for (Iterator<AbstractMap.SimpleEntry<String, String>> it = members.iterator(); it.hasNext();) {
                     AbstractMap.SimpleEntry<String, String> member = it.next();
-                    if (member.getKey() == oid) return true;
-                    if (member.getValue() == "Group" && !visited.contains(member.getKey())) queue.offer(member.getKey());
+                    System.out.println("user: " + oid + "; member : " + member.getKey() + "; group: " + curGroup);
+                    if (member.getKey().equals(oid)) return true;
+                    if (member.getValue().equals("Group") && !visited.contains(member.getKey())) queue.offer(member.getKey());
+                    visited.add(curGroup);
                 }
             }
 
