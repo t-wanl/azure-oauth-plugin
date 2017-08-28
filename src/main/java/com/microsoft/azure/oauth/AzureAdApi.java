@@ -13,21 +13,23 @@ import java.util.*;
  * Created by t-wanl on 8/24/2017.
  */
 public class AzureAdApi {
-    public static Set<AbstractMap.SimpleEntry<String, String>> getGroupMembers(List<String> groupList, String accessToken, String tenant)
+    /*
+        get all members (user ID, user type) from group list
+     */
+    public static Map<String, String> getGroupMembers(List<String> groupList, String accessToken, String tenant)
             throws IOException, JSONException {
-        Map<String, String> groupNameId = getAllAadGroupsNameIdPair(accessToken, tenant);
-        Set<AbstractMap.SimpleEntry<String, String>> members = new HashSet<AbstractMap.SimpleEntry<String, String>>();
-        for (Map.Entry<String, String> group : groupNameId.entrySet()) {
-            String name = group.getKey();
-            String id = group.getValue();
-            if (!groupList.contains(name)) continue;
-            members.addAll(getGroupMembers(id, accessToken, tenant, true));
+        Map<String, String> members = new HashMap<String, String>();
+        for (String groupID : groupList) {
+            members.putAll(getGroupMembers(groupID, accessToken, tenant, true));
         }
         return members;
     }
 
-    public static Set<AbstractMap.SimpleEntry<String, String>> getGroupMembers(String groupID, String accessToken, String tenant, boolean recursive) throws IOException, JSONException {
-        Set<AbstractMap.SimpleEntry<String, String>> members = new HashSet<AbstractMap.SimpleEntry<String, String>>();
+    /*
+        get group members from single group
+     */
+    public static Map<String, String> getGroupMembers(String groupID, String accessToken, String tenant, boolean recursive) throws IOException, JSONException {
+        Map<String, String> members = new HashMap<String, String>();
 
         String url = String.format("https://graph.windows.net/%s/groups/%s/members?api-version=1.6", tenant, groupID);
         HttpResponse response = HttpHelper.sendGet(url, accessToken);
@@ -39,11 +41,11 @@ public class AzureAdApi {
             JSONObject member =  memberArray.getJSONObject(i);
             if (recursive && member.getString("objectType").equals("Group")) {
                 String subGroupID = member.getString("objectId");
-                Set<AbstractMap.SimpleEntry<String, String>> subMembers = getGroupMembers(subGroupID, accessToken, tenant, recursive);
-                members.addAll(subMembers);
+                Map<String, String> subMembers = getGroupMembers(subGroupID, accessToken, tenant, recursive);
+                members.putAll(subMembers);
             } else if (member.getString("objectType").equals("User")) {
                 String userID = member.getString("objectId");
-                members.add(new AbstractMap.SimpleEntry<String, String>(userID, "User"));
+                members.put(userID, "User");
             }
         }
 

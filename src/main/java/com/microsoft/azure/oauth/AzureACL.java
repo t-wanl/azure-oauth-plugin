@@ -194,9 +194,8 @@ public class AzureACL extends ACL{
 
             while (!queue.isEmpty()) {
                 String curGroup = queue.poll();
-                Set<AbstractMap.SimpleEntry<String, String>> members = AzureAdApi.getGroupMembers(curGroup, accessToken, tenent, true);
-                for (Iterator<AbstractMap.SimpleEntry<String, String>> it = members.iterator(); it.hasNext();) {
-                    AbstractMap.SimpleEntry<String, String> member = it.next();
+                Map<String, String> members = AzureAdApi.getGroupMembers(curGroup, accessToken, tenent, false);
+                for (Map.Entry<String, String> member : members.entrySet()) {
                     System.out.println("user: " + oid + "; member : " + member.getKey() + "; group: " + curGroup);
                     if (member.getKey().equals(oid)) return true;
                     if (member.getValue().equals("Group") && !visited.contains(member.getKey())) queue.offer(member.getKey());
