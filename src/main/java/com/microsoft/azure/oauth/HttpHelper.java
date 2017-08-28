@@ -3,12 +3,16 @@ package com.microsoft.azure.oauth;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +30,22 @@ public class HttpHelper {
         return response;
     }
 
+    public static HttpResponse sendPost(String url, String accessToken, JSONObject body) throws IOException {
+        HttpClient client = new DefaultHttpClient();
+        HttpPost request = new HttpPost(url);
+
+        Map<String, String> headers = generateHeaders(request, accessToken);
+        request = (HttpPost) addHeaders(request, headers);
+        request = addBody(request, body);
+        HttpResponse response = client.execute(request);
+        return response;
+    }
+
+    private static HttpPost addBody(HttpPost post, JSONObject body) throws UnsupportedEncodingException {
+        post.setEntity(new StringEntity(body.toString()));
+        return post;
+    }
+
     private static Map<String, String> generateHeaders(HttpRequestBase request, String accessToken) {
         Map<String, String> headers = new HashMap<String, String>();
 
@@ -34,7 +54,10 @@ public class HttpHelper {
             headers.put("Authorization", "Bearer " + accessToken);
             headers.put("Accept", "application/json;odata=minimalmetadata");
         } else {
-            // TODO
+            headers.put("api-version", "beta");
+            headers.put("Authorization", "Bearer " + accessToken);
+            headers.put("Accept", "application/json, text/plain, */*");
+            headers.put("Content-Type", "application/json;charset=UTF-8");
         }
 
         return headers;

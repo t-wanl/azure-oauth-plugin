@@ -74,6 +74,23 @@ public class AzureACL extends ACL{
 
             // for group user
             if (!groupNameList.isEmpty()) {
+
+                // debug
+                try {
+                    String token = ((AzureAuthenticationToken) a).getAzureApiToken().getToken();
+                    String tenant = ((AzureAuthenticationToken) a).getAzureUser().getTenantID();
+                    String userID = ((AzureAuthenticationToken) a).getAzureUser().getObjectID();
+                    Set<String> groupId = null;
+                    groupId = AzureAdApi.getGroups(token, tenant, userID);
+                    for (Iterator<String> it = groupId.iterator(); it.hasNext(); ) {
+                        System.out.println("group = " + it.next());
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
                 try {
                     String token = ((AzureAuthenticationToken) a).getAzureApiToken().getToken();
                     String tenant = ((AzureAuthenticationToken) a).getAzureUser().getTenantID();

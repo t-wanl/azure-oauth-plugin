@@ -30,6 +30,9 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     private static final Cache<String, Set<String>> groupMembers =
             CacheBuilder.newBuilder().expireAfterWrite(1, CACHE_EXPIRY).build();
 
+    private static final Cache<String, Set<String>> userVsGroups =
+            CacheBuilder.newBuilder().expireAfterWrite(1, CACHE_EXPIRY).build();
+
     public AzureAuthenticationToken(AzureApiToken azureApiToken) {
         this.azureApiToken = azureApiToken;
 
