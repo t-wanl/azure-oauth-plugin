@@ -11,6 +11,8 @@ import org.scribe.model.Token;
 import com.microsoft.azure.oauth.AzureUser.AzureUserResponce;
 
 import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 
@@ -27,10 +29,7 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     private AzureUser azureUser;
     public static final TimeUnit CACHE_EXPIRY = TimeUnit.HOURS;
 
-    private static final Cache<String, Set<String>> groupMembers =
-            CacheBuilder.newBuilder().expireAfterWrite(1, CACHE_EXPIRY).build();
-
-    private static final Cache<String, Set<String>> userVsGroups =
+    private static final Cache<String, Set<String>> groupsByUserId =
             CacheBuilder.newBuilder().expireAfterWrite(1, CACHE_EXPIRY).build();
 
     public AzureAuthenticationToken(AzureApiToken azureApiToken) {
@@ -78,5 +77,20 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 
     public AzureUser getAzureUser() {
         return azureUser;
+    }
+
+    public Set<String> getMemberGroups() throws ExecutionException {
+        String userId = azureUser.getObjectID();
+        System.out.println("getMemberGroups ");
+        return groupsByUserId.get(userId, new Callable<Set<String>>() {
+            @Override
+            public Set<String> call() throws Exception {
+                String accessToken = azureApiToken.getToken();
+                String tenant = azureUser.getTenantID();
+                String userId = azureUser.getObjectID();
+                System.out.println("Get member group via azure ad api");
+                return AzureAdApi.getGroupsByUserId(accessToken, tenant, userId);
+            }
+        });
     }
 }

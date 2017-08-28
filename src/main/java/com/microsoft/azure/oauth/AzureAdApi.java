@@ -87,7 +87,7 @@ public class AzureAdApi {
         return groupId;
     }
 
-    public static Set<String> getGroups(String accessToken, String tenant, String userID) throws IOException, JSONException {
+    public static Set<String> getGroupsByUserId(String accessToken, String tenant, String userID) throws IOException, JSONException {
         String url = String.format("https://graph.windows.net/%s/users/%s/getMemberGroups?api-version=1.6", tenant, userID);
 
         JSONObject body = new JSONObject();

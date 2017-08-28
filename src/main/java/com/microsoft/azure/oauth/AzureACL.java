@@ -10,6 +10,7 @@ import org.json.JSONException;
 import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 
 /**
@@ -75,41 +76,41 @@ public class AzureACL extends ACL{
             // for group user
             if (!groupNameList.isEmpty()) {
 
-                // debug
                 try {
-                    String token = ((AzureAuthenticationToken) a).getAzureApiToken().getToken();
-                    String tenant = ((AzureAuthenticationToken) a).getAzureUser().getTenantID();
-                    String userID = ((AzureAuthenticationToken) a).getAzureUser().getObjectID();
-                    Set<String> groupId = null;
-                    groupId = AzureAdApi.getGroups(token, tenant, userID);
-                    for (Iterator<String> it = groupId.iterator(); it.hasNext(); ) {
-                        System.out.println("group = " + it.next());
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                try {
-                    String token = ((AzureAuthenticationToken) a).getAzureApiToken().getToken();
-                    String tenant = ((AzureAuthenticationToken) a).getAzureUser().getTenantID();
-                    Set<String> allGroupsID = null;
-
-                    allGroupsID = AzureAdApi.getAllAadGroupsId(token, tenant);
+                    Set<String> groupsIncludeUser = ((AzureAuthenticationToken) a).getMemberGroups();
                     Set<String> intersection = new HashSet<String>(groupNameList);
-                    intersection.retainAll(allGroupsID);
-                    if (!intersection.isEmpty() && isInGroup(a) && checkAadGroupPermission(permission)) {
+                    intersection.retainAll(groupsIncludeUser);
+                    if (!intersection.isEmpty() && checkAadGroupPermission(permission)) {
                         log.finest("Granting Authenticated User read permission to group "
                                 + intersection.iterator().next());
-                        System.out.println("grant permission = " + permission);
+                        System.out.println("user is in the group list");
+                        System.out.println("grant permission  = " + permission);
                         return true;
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
+
+                } catch (ExecutionException e) {
                     e.printStackTrace();
                 }
+
+//                try {
+//                    String token = ((AzureAuthenticationToken) a).getAzureApiToken().getToken();
+//                    String tenant = ((AzureAuthenticationToken) a).getAzureUser().getTenantID();
+//                    Set<String> allGroupsID = null;
+//
+//                    allGroupsID = AzureAdApi.getAllAadGroupsId(token, tenant);
+//                    Set<String> intersection = new HashSet<String>(groupNameList);
+//                    intersection.retainAll(allGroupsID);
+//                    if (!intersection.isEmpty() && isInGroup(a) && checkAadGroupPermission(permission)) {
+//                        log.finest("Granting Authenticated User read permission to group "
+//                                + intersection.iterator().next());
+//                        System.out.println("grant permission = " + permission);
+//                        return true;
+//                    }
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
 
             }
 
