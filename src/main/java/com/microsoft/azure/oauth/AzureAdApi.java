@@ -2,6 +2,7 @@ package com.microsoft.azure.oauth;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.http.HttpResponse;
+import org.apache.http.entity.ContentType;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -88,11 +89,12 @@ public class AzureAdApi {
     }
 
     public static Set<String> getGroupsByUserId(String accessToken, String tenant, String userID) throws IOException, JSONException {
+        Utils.TimeUtil.setBeginDate();
         String url = String.format("https://graph.windows.net/%s/users/%s/getMemberGroups?api-version=1.6", tenant, userID);
 
         JSONObject body = new JSONObject();
         body.put("securityEnabledOnly", false);
-        HttpResponse response = HttpHelper.sendPost(url, accessToken, body);
+        HttpResponse response = HttpHelper.sendPost(url, accessToken, body, ContentType.APPLICATION_JSON);
         String responseContent = HttpHelper.getContent(response);
 
         JSONObject json = new JSONObject(responseContent);
@@ -103,6 +105,8 @@ public class AzureAdApi {
             String aadGroupId = groups.getString(i);
             groupId.add(aadGroupId);
         }
+        Utils.TimeUtil.setEndDate();
+        System.out.println("time for getGroupsByUserId = " + Utils.TimeUtil.getTimeDifference() + " ms");
         return groupId;
     }
 }

@@ -25,6 +25,7 @@ import hudson.model.User;
 import hudson.security.GroupDetails;
 import hudson.security.SecurityRealm;
 import hudson.security.UserMayOrMayNotExistException;
+import hudson.util.FormValidation;
 import jenkins.model.Jenkins;
 import org.acegisecurity.Authentication;
 import org.acegisecurity.AuthenticationException;
@@ -35,22 +36,28 @@ import org.acegisecurity.userdetails.UserDetails;
 import org.acegisecurity.userdetails.UserDetailsService;
 import org.acegisecurity.userdetails.UsernameNotFoundException;
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.NameValuePair;
+import org.apache.http.*;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.tools.ant.taskdefs.condition.Http;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.kohsuke.stapler.*;
+import org.kohsuke.stapler.Header;
+import org.kohsuke.stapler.HttpResponse;
 import org.scribe.builder.ServiceBuilder;
 import org.scribe.model.OAuthConfig;
 import org.scribe.model.Token;
 import org.scribe.model.Verifier;
 import org.scribe.oauth.OAuthService;
+import org.scribe.utils.OAuthEncoder;
 import org.springframework.dao.DataAccessException;
 
 import java.io.BufferedReader;
@@ -426,6 +433,35 @@ public class AzureSecurityRealm extends SecurityRealm {
 
         public DescriptorImpl(Class<? extends SecurityRealm> clazz) {
             super(clazz);
+        }
+
+        public FormValidation doVerifyConfiguration(@QueryParameter String clientID,
+                                                    @QueryParameter String clientSecret,
+                                                    @QueryParameter String tenant) throws IOException, JSONException {
+            // try to get app-only token
+            String url = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenant);
+//            JSONObject body = new JSONObject();
+//            body.put("grant_type", "client_credentials");
+//            body.put("client_id", clientID);
+//            body.put("client_secret", clientSecret);
+//            body.put("scope", OAuthEncoder.encode("https://graph.windows.net/.default"));
+//            String bodyStr = String.format("grant_type=client_credentials&client_id=%s&client_secret=%s&scope=%s", clientID, clientSecret, OAuthEncoder.encode("https://graph.windows.net"));
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair("client_id", clientID));
+            urlParameters.add(new BasicNameValuePair("scope", OAuthEncoder.encode("https://graph.windows.net")));
+            urlParameters.add(new BasicNameValuePair("client_secret", clientSecret));
+            urlParameters.add(new BasicNameValuePair("grant_type", "client_credentials"));
+            HttpEntity formEntity=new UrlEncodedFormEntity(urlParameters,ContentType.APPLICATION_FORM_URLENCODED.getCharset());
+
+            org.apache.http.HttpResponse response = HttpHelper.sendPost(url, null, formEntity, ContentType.APPLICATION_FORM_URLENCODED);
+            int statusCode = HttpHelper.getStatusCode(response);
+            String content = HttpHelper.getContent(response);
+            if(statusCode != 200) {
+                JSONObject errJson = new JSONObject(content);
+                return FormValidation.error(errJson.getString("error_description"));
+            }
+            return FormValidation.ok("Successfully verified");
         }
     }
 

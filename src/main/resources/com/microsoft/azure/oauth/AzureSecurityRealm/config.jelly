@@ -12,5 +12,6 @@
         <f:entry title="Tenant" field="tenant" help="/plugin/bitbucket-oauth/help/realm/client-secret-help.html">
             <f:textbox />
         </f:entry>
+        <f:validateButton title="Verify" method="verifyConfiguration" progress="Verifying..." with="clientID,clientSecret,tenant" ></f:validateButton>
     </f:section>
 </j:jelly>
