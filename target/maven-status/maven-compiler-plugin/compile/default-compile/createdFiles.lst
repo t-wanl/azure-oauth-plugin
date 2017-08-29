@@ -16,6 +16,7 @@ com\microsoft\azure\oauth\AzureSecurityRealm.stapler
 com\microsoft\azure\oauth\AzureAuthenticationToken$1.class
 com\microsoft\azure\oauth\AzureSecurityRealm$ConverterImpl.class
 com\microsoft\azure\oauth\AzureApiToken.class
+com\microsoft\azure\oauth\AzureAuthorizationStrategy\DescriptorImpl\doVerifyConfiguration.stapler
 com\microsoft\azure\oauth\AzureSecurityRealm$2.class
 com\microsoft\azure\oauth\AzureAuthorizationStrategy.class
 com\microsoft\azure\oauth\AzureApi$1.class

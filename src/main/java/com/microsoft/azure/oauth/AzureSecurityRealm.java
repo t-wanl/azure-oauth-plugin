@@ -440,12 +440,6 @@ public class AzureSecurityRealm extends SecurityRealm {
                                                     @QueryParameter String tenant) throws IOException, JSONException {
             // try to get app-only token
             String url = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenant);
-//            JSONObject body = new JSONObject();
-//            body.put("grant_type", "client_credentials");
-//            body.put("client_id", clientID);
-//            body.put("client_secret", clientSecret);
-//            body.put("scope", OAuthEncoder.encode("https://graph.windows.net/.default"));
-//            String bodyStr = String.format("grant_type=client_credentials&client_id=%s&client_secret=%s&scope=%s", clientID, clientSecret, OAuthEncoder.encode("https://graph.windows.net"));
 
             List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
             urlParameters.add(new BasicNameValuePair("client_id", clientID));

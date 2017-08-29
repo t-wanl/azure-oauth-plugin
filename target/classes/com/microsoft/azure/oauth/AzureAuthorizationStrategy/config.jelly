@@ -1,10 +1,10 @@
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
     <f:section title="Azure Authorization Settings">
-        <f:entry title="Admin User Names"  field="adminUserNames">
+        <f:entry title="Admin User IDs"  field="adminUserNames">
             <f:textbox />
         </f:entry>
-        <f:entry title="Participant in Group"  field="groupNames">
+        <f:entry title="Group IDs"  field="groupNames">
             <f:textbox />
         </f:entry>
 
@@ -24,6 +24,7 @@
             <f:checkbox />
         </f:entry>
 
+        <f:validateButton title="Verify" method="verifyConfiguration" progress="Verifying..." with="tenant,adminUserNames,groupNames" ></f:validateButton>
 
     </f:section>
 </j:jelly>

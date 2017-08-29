@@ -93,4 +93,5 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
             }
         });
     }
+
 }
