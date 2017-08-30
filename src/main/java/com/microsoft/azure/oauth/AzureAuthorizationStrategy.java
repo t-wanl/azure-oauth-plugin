@@ -130,6 +130,7 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
                 @QueryParameter String tenant) throws IOException, JSONException {
 
 
+
             org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
             int statusCode = HttpHelper.getStatusCode(response);
             String content = HttpHelper.getContent(response);
