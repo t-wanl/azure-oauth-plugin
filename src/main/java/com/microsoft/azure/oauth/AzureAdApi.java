@@ -1,11 +1,16 @@
 package com.microsoft.azure.oauth;
 
 import org.apache.commons.lang3.tuple.Pair;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.entity.ContentType;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.scribe.utils.OAuthEncoder;
 
 import java.io.IOException;
 import java.util.*;
@@ -109,4 +114,36 @@ public class AzureAdApi {
         System.out.println("time for getGroupsByUserId = " + Utils.TimeUtil.getTimeDifference() + " ms");
         return groupId;
     }
+
+    public static HttpResponse getAppOnlyAccessTokenResponce(String clientID, String clientSecret, String tenant) throws IOException {
+        // try to get app-only token
+        String url = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenant);
+
+        List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+        urlParameters.add(new BasicNameValuePair("client_id", clientID));
+        urlParameters.add(new BasicNameValuePair("scope", OAuthEncoder.encode("https://graph.windows.net")));
+        urlParameters.add(new BasicNameValuePair("client_secret", clientSecret));
+        urlParameters.add(new BasicNameValuePair("grant_type", "client_credentials"));
+        HttpEntity formEntity=new UrlEncodedFormEntity(urlParameters,ContentType.APPLICATION_FORM_URLENCODED.getCharset());
+
+        HttpResponse response = HttpHelper.sendPost(url, null, formEntity, ContentType.APPLICATION_FORM_URLENCODED);
+
+        return response;
+    }
+
+    public static HttpResponse getUserResponse(String tenant, String userID, String accessToken) throws IOException {
+        return getAadObjectResponse(tenant, userID, accessToken, "users");
+    }
+
+    public static HttpResponse getGroupResponse(String tenant, String groupID, String accessToken) throws IOException {
+        return getAadObjectResponse(tenant, groupID, accessToken, "groups");
+    }
+
+    private static HttpResponse getAadObjectResponse(String tenant, String id, String accessToken, String type) throws IOException {
+        String url = String.format("https://graph.windows.net/%s/%s/%s", tenant, type, OAuthEncoder.encode(id));
+        HttpResponse response = HttpHelper.sendGet(url, accessToken);
+        return response;
+    }
+
+
 }

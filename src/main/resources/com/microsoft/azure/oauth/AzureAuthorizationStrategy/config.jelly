@@ -8,6 +8,8 @@
             <f:textbox />
         </f:entry>
 
+        <f:validateButton title="Verify" method="verifyConfiguration" progress="Verifying..." with="adminUserNames,groupNames,clientid,tenant,clientsecret" ></f:validateButton>
+
         <f:entry title="Grant READ permissions to all Authenticated Users" field="authenticatedUserReadPermission" help="/plugin/github-oauth/help/auth/grant-read-to-authenticated-help.html">
             <f:checkbox />
         </f:entry>
@@ -24,7 +26,6 @@
             <f:checkbox />
         </f:entry>
 
-        <f:validateButton title="Verify" method="verifyConfiguration" progress="Verifying..." with="tenant,adminUserNames,groupNames" ></f:validateButton>
 
     </f:section>
 </j:jelly>

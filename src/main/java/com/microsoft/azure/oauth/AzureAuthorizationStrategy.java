@@ -10,6 +10,7 @@ import hudson.security.AuthorizationStrategy;
 import hudson.util.FormValidation;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.entity.ContentType;
@@ -103,27 +104,40 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
 
     @Extension
     public static final class DescriptorImpl extends Descriptor<AuthorizationStrategy> {
+        @Override
         public String getDisplayName() {
             return "Azure AD Authorization Strategy";
         }
 
-        public FormValidation doVerifyConfiguration(@QueryParameter String adminUserNames,
-                                                    @QueryParameter String groupNames,
-                                                    @QueryParameter String tenant) throws IOException, JSONException {
+        @Override
+        public String getHelpFile() {
+            return "";
+        }
 
-            // try to get app-only token
-            String url = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenant);
+        public DescriptorImpl() {
+            super();
+        }
 
-            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-            urlParameters.add(new BasicNameValuePair("client_id", "f8e021e7-cecb-402e-a503-ce022c16bc64"));
-            urlParameters.add(new BasicNameValuePair("scope", OAuthEncoder.encode("https://graph.windows.net")));
-            urlParameters.add(new BasicNameValuePair("client_secret", "vi0eulNg8U9Q3jrqc4qpEHK65MqaP6v47xAJfr8ynMc="));
-            urlParameters.add(new BasicNameValuePair("grant_type", "client_credentials"));
-            HttpEntity formEntity=new UrlEncodedFormEntity(urlParameters,ContentType.APPLICATION_FORM_URLENCODED.getCharset());
+        public DescriptorImpl(Class<? extends AuthorizationStrategy> clazz) {
+            super(clazz);
+        }
 
-            org.apache.http.HttpResponse response = HttpHelper.sendPost(url, null, formEntity, ContentType.APPLICATION_FORM_URLENCODED);
+        public FormValidation doVerifyConfiguration(
+                @QueryParameter String adminUserNames,
+                @QueryParameter String groupNames,
+                @QueryParameter String clientsecret,
+                @QueryParameter String clientid,
+                @QueryParameter String tenant) throws IOException, JSONException {
+
+
+            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
             int statusCode = HttpHelper.getStatusCode(response);
             String content = HttpHelper.getContent(response);
+            if (statusCode != 200) {
+                JSONObject errJson = new JSONObject(content);
+                return FormValidation.error(content);
+            }
+
             JSONObject json = new JSONObject(content);
             String accessToken = json.getString("access_token");
 
@@ -131,8 +145,7 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
             String[] admins = adminUserNames.split(",");
 
             for (String admin : admins) {
-                url = String.format("https://graph.windows.net/%s/users/%s", tenant, OAuthEncoder.encode(admin));
-                response = HttpHelper.sendGet(url, accessToken);
+                response = AzureAdApi.getUserResponse(tenant, admin, accessToken);
                 statusCode = HttpHelper.getStatusCode(response);
                 content = HttpHelper.getContent(response);
                 if (statusCode != 200) {
@@ -144,8 +157,7 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
             List<String> groupList = new LinkedList<String>();
             String[] groups = groupNames.split(",");
             for (String group : groups) {
-                url = String.format("https://graph.windows.net/%s/groups/%s", tenant, OAuthEncoder.encode(group));
-                response = HttpHelper.sendGet(url, accessToken);
+                response = AzureAdApi.getGroupResponse(tenant, group, accessToken);
                 statusCode = HttpHelper.getStatusCode(response);
                 content = HttpHelper.getContent(response);
                 if (statusCode != 200) {

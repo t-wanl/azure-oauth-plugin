@@ -30,7 +30,7 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     public static final TimeUnit CACHE_EXPIRY = TimeUnit.HOURS;
 
     private static final Cache<String, Set<String>> groupsByUserId =
-            CacheBuilder.newBuilder().expireAfterWrite(1, CACHE_EXPIRY).build();
+            CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
 
     public AzureAuthenticationToken(AzureApiToken azureApiToken) {
         this.azureApiToken = azureApiToken;

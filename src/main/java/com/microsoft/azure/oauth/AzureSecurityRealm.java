@@ -29,14 +29,10 @@ import org.acegisecurity.userdetails.UserDetails;
 import org.acegisecurity.userdetails.UserDetailsService;
 import org.acegisecurity.userdetails.UsernameNotFoundException;
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.*;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,14 +44,11 @@ import org.scribe.model.OAuthConfig;
 import org.scribe.model.Token;
 import org.scribe.model.Verifier;
 import org.scribe.oauth.OAuthService;
-import org.scribe.utils.OAuthEncoder;
 import org.springframework.dao.DataAccessException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -66,28 +59,28 @@ public class AzureSecurityRealm extends SecurityRealm {
     private static final Token EMPTY_TOKEN = null;
     private static final Logger LOGGER = Logger.getLogger(AzureSecurityRealm.class.getName());
     private static final String azurePortalUrl = "https://ms.portal.azure.com";
-    private String clientID;
-    private String clientSecret;
+    private String clientid;
+    private String clientsecret;
     private String tenant;
 
     public String getAzurePortalUrl() {
         return azurePortalUrl;
     }
 
-    public String getClientID() {
-        return clientID;
+    public String getClientid() {
+        return clientid;
     }
 
-    public void setClientID(String clientID) {
-        this.clientID = clientID;
+    public void setClientid(String clientid) {
+        this.clientid = clientid;
     }
 
-    public String getClientSecret() {
-        return clientSecret;
+    public String getClientsecret() {
+        return clientsecret;
     }
 
-    public void setClientSecret(String clientSecret) {
-        this.clientSecret = clientSecret;
+    public void setClientsecret(String clientsecret) {
+        this.clientsecret = clientsecret;
     }
 
     public String getTenant() {
@@ -101,9 +94,9 @@ public class AzureSecurityRealm extends SecurityRealm {
     private OAuthService getService() {
         AzureApi api = new AzureApi();
         api.setTenant(this.getTenant());
-        OAuthConfig config = new OAuthConfig(clientID, clientSecret, getCallback(), null, null, null);
+        OAuthConfig config = new OAuthConfig(clientid, clientsecret, getCallback(), null, null, null);
         OAuthService service = new ServiceBuilder().provider(AzureApi.class)
-                .apiKey(clientID).apiSecret(clientSecret).callback(getCallback())
+                .apiKey(clientid).apiSecret(clientsecret).callback(getCallback())
                 .build();
 
         return service;
@@ -125,11 +118,11 @@ public class AzureSecurityRealm extends SecurityRealm {
     }
 
     @DataBoundConstructor
-    public AzureSecurityRealm(String tenant, String clientID, String clientSecret) {
+    public AzureSecurityRealm(String tenant, String clientid, String clientsecret) {
         super();
-        OAuthConfig config = new OAuthConfig(clientID, clientSecret, this.getCallback(), null, null, null);
-        this.clientID = clientID;
-        this.clientSecret = clientSecret;
+        OAuthConfig config = new OAuthConfig(clientid, clientsecret, this.getCallback(), null, null, null);
+        this.clientid = clientid;
+        this.clientsecret = clientsecret;
         this.tenant = tenant;
     }
 
@@ -338,12 +331,12 @@ public class AzureSecurityRealm extends SecurityRealm {
 
             AzureSecurityRealm realm = (AzureSecurityRealm) source;
 
-            writer.startNode("clientID");
-            writer.setValue(realm.getClientID());
+            writer.startNode("clientid");
+            writer.setValue(realm.getClientid());
             writer.endNode();
 
-            writer.startNode("clientSecret");
-            writer.setValue(realm.getClientSecret());
+            writer.startNode("clientsecret");
+            writer.setValue(realm.getClientsecret());
             writer.endNode();
 
             writer.startNode("tenant");
@@ -410,9 +403,9 @@ public class AzureSecurityRealm extends SecurityRealm {
         private void setValue(AzureSecurityRealm realm, String node, String value) {
 
             if (node.equalsIgnoreCase("clientid")) {
-                realm.setClientID(value);
+                realm.setClientid(value);
             } else if (node.equalsIgnoreCase("clientsecret")) {
-                realm.setClientSecret(value);
+                realm.setClientsecret(value);
             } else if (node.equalsIgnoreCase("tenant")) {
                 realm.setTenant(value);
             } else {
@@ -443,20 +436,11 @@ public class AzureSecurityRealm extends SecurityRealm {
             super(clazz);
         }
 
-        public FormValidation doVerifyConfiguration(@QueryParameter String clientID,
-                                                    @QueryParameter String clientSecret,
+        public FormValidation doVerifyConfiguration(@QueryParameter String clientid,
+                                                    @QueryParameter String clientsecret,
                                                     @QueryParameter String tenant) throws IOException, JSONException {
-            // try to get app-only token
-            String url = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenant);
 
-            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-            urlParameters.add(new BasicNameValuePair("client_id", clientID));
-            urlParameters.add(new BasicNameValuePair("scope", OAuthEncoder.encode("https://graph.windows.net")));
-            urlParameters.add(new BasicNameValuePair("client_secret", clientSecret));
-            urlParameters.add(new BasicNameValuePair("grant_type", "client_credentials"));
-            HttpEntity formEntity=new UrlEncodedFormEntity(urlParameters,ContentType.APPLICATION_FORM_URLENCODED.getCharset());
-
-            org.apache.http.HttpResponse response = HttpHelper.sendPost(url, null, formEntity, ContentType.APPLICATION_FORM_URLENCODED);
+            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
             int statusCode = HttpHelper.getStatusCode(response);
             String content = HttpHelper.getContent(response);
             if(statusCode != 200) {
