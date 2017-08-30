@@ -4,13 +4,6 @@ package com.microsoft.azure.oauth;
 //import com.microsoft.azure.oauth.api.AzureActiveDirectoryApiService;
 //import com.microsoft.azure.oauth.api.AzureActiveDirectoryConfig;
 
-import com.microsoft.azure.AzureEnvironment;
-import com.microsoft.azure.credentials.ApplicationTokenCredentials;
-import com.microsoft.azure.management.Azure;
-import com.microsoft.azure.management.compute.KnownLinuxVirtualMachineImage;
-import com.microsoft.azure.management.compute.VirtualMachine;
-import com.microsoft.azure.management.compute.VirtualMachineSizeTypes;
-import com.microsoft.azure.management.resources.fluentcore.arm.Region;
 import com.thoughtworks.xstream.converters.ConversionException;
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
@@ -39,13 +32,11 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.http.*;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.tools.ant.taskdefs.condition.Http;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,10 +65,15 @@ public class AzureSecurityRealm extends SecurityRealm {
     private static final String ACCESS_TOKEN_ATTRIBUTE = AzureSecurityRealm.class.getName() + ".access_token";
     private static final Token EMPTY_TOKEN = null;
     private static final Logger LOGGER = Logger.getLogger(AzureSecurityRealm.class.getName());
-
+    private static final String azurePortalUrl = "https://ms.portal.azure.com";
     private String clientID;
     private String clientSecret;
     private String tenant;
+
+    public String getAzurePortalUrl() {
+        return azurePortalUrl;
+    }
+
     public String getClientID() {
         return clientID;
     }
@@ -269,6 +265,18 @@ public class AzureSecurityRealm extends SecurityRealm {
 
         System.out.println(result.toString());
 
+    }
+
+    @Override
+    protected String getPostLogOutUrl(StaplerRequest req, Authentication auth) {
+        // if we just redirect to the root and anonymous does not have Overall read then we will start a login all over again.
+        // we are actually anonymous here as the security context has been cleared
+        Jenkins j = Jenkins.getInstance();
+        assert j != null;
+        if (j.hasPermission(Jenkins.READ)) {
+            return super.getPostLogOutUrl(req, auth);
+        }
+        return req.getContextPath()+ "/" + AzureLogoutAction.POST_LOGOUT_URL;
     }
 
     @Override

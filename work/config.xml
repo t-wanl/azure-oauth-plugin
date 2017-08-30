@@ -5,8 +5,25 @@
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
-  <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
-  <securityRealm class="hudson.security.SecurityRealm$None"/>
+  <authorizationStrategy class="com.microsoft.azure.oauth.AzureAuthorizationStrategy" plugin="azure-oauth@1.0-SNAPSHOT">
+    <rootACL>
+      <adminUserNameList class="linked-list">
+        <string>ece6fe95-0d71-41d5-8d13-9477b8d9de29</string>
+      </adminUserNameList>
+      <groupNameList class="linked-list">
+        <string>352f8ed2-876d-40c7-b1d6-ea7f5832c98d</string>
+      </groupNameList>
+      <authenticatedUserReadPermission>true</authenticatedUserReadPermission>
+      <authenticatedUserCreateJobPermission>false</authenticatedUserCreateJobPermission>
+      <allowAnonymousReadPermission>false</allowAnonymousReadPermission>
+      <allowAnonymousJobStatusPermission>false</allowAnonymousJobStatusPermission>
+    </rootACL>
+  </authorizationStrategy>
+  <securityRealm class="com.microsoft.azure.oauth.AzureSecurityRealm">
+    <clientID>f8e021e7-cecb-402e-a503-ce022c16bc64</clientID>
+    <clientSecret>vi0eulNg8U9Q3jrqc4qpEHK65MqaP6v47xAJfr8ynMc=</clientSecret>
+    <tenant>15a9950e-5270-4308-a56e-f446137a868e</tenant>
+  </securityRealm>
   <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>

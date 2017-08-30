@@ -65,9 +65,9 @@ public class AzureACL extends ACL{
             AzureAuthenticationToken authenticationToken = (AzureAuthenticationToken) a;
 
             String candidateName = a.getName();
-
+            String userID = ((AzureAuthenticationToken) a).getAzureUser().getObjectID();
             // candidate is an admin user, grant admin rights
-            if (adminUserNameList.contains(candidateName)) {
+            if (adminUserNameList.contains(userID)) {
                 log.finest("Granting Admin rights to user " + candidateName);
                 return true;
             }

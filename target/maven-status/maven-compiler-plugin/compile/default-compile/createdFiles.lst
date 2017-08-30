@@ -5,8 +5,10 @@ com\microsoft\azure\oauth\AzureApi$2.class
 com\microsoft\azure\oauth\AzureAdApi.class
 com\microsoft\azure\oauth\Utils.class
 com\microsoft\azure\oauth\AzureSecurityRealm\DescriptorImpl\doVerifyConfiguration.stapler
+META-INF\annotations\org.kohsuke.accmod.Restricted
 com\microsoft\azure\oauth\HttpHelper.class
 com\microsoft\azure\oauth\AzureSecurityRealm$DescriptorImpl.class
+com\microsoft\azure\oauth\AzureLogoutAction.class
 com\microsoft\azure\oauth\Utils$TimeUtil.class
 com\microsoft\azure\oauth\AzureUser$AzureUserResponce.class
 com\microsoft\azure\oauth\AzureApi$Service.class
