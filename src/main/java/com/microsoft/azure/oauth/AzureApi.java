@@ -64,7 +64,7 @@ public class AzureApi extends DefaultApi20 {
     @Override
     public String getAccessTokenEndpoint() {
         StringBuilder url = new StringBuilder();
-        url.append("https://login.microsoftonline.com/");
+        url.append(Constants.DEFAULT_AUTHENTICATION_ENDPOINT);
         if ((tenant != null)&&(!tenant.isEmpty())) {
             url.append(tenant);
         } else {
@@ -112,7 +112,7 @@ public class AzureApi extends DefaultApi20 {
     @Override
     public String getAuthorizationUrl(OAuthConfig config) {
         StringBuilder url = new StringBuilder();
-        url.append("https://login.microsoftonline.com/");
+        url.append(Constants.DEFAULT_AUTHENTICATION_ENDPOINT);
         if ((tenant != null)&&(!tenant.isEmpty())) {
             url.append(tenant);
         } else {
@@ -131,7 +131,7 @@ public class AzureApi extends DefaultApi20 {
                                     SCOPED_AUTHORIZE_PARAMS, OAuthEncoder.encode(config.getApiKey()),
                     OAuthEncoder.encode(config.getApiSecret()),
                     OAuthEncoder.encode(config.getCallback()),
-                    OAuthEncoder.encode("https://graph.windows.net"),
+                    OAuthEncoder.encode(Constants.DEFAULT_RESOURCE),
                     OAuthEncoder.encode(config.getScope())
             );
         } else {
@@ -145,7 +145,7 @@ public class AzureApi extends DefaultApi20 {
                                     AUTHORIZE_PARAMS, OAuthEncoder.encode(config.getApiKey()),
                     OAuthEncoder.encode(config.getApiSecret()),
                     OAuthEncoder.encode(config.getCallback()),
-                    OAuthEncoder.encode("https://graph.windows.net")
+                    OAuthEncoder.encode(Constants.DEFAULT_RESOURCE)
             );
         }
     }
