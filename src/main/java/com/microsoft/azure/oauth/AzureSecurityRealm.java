@@ -104,12 +104,17 @@ public class AzureSecurityRealm extends SecurityRealm {
 
 //    private AzureOAuth2Service service;
 
-    private String getCallback() {
+    private String getRootUrl() {
         Jenkins jenkins = Jenkins.getInstance();
         if (jenkins == null) {
             throw new RuntimeException("Jenkins is not started yet.");
         }
         String rootUrl = jenkins.getRootUrl();
+        return rootUrl;
+    }
+
+    private String getCallback() {
+        String rootUrl = getRootUrl();
         if (StringUtils.endsWith(rootUrl, "/")) {
             rootUrl = StringUtils.left(rootUrl, StringUtils.length(rootUrl) - 1);
         }
@@ -155,7 +160,15 @@ public class AzureSecurityRealm extends SecurityRealm {
 
         if (StringUtils.isBlank(code)) {
             LOGGER.log(Level.SEVERE, "doFinishLogin() code = null");
-            return HttpResponses.redirectToContextRoot();
+//            return HttpResponses.redirectToContextRoot();
+            String rootUrl = this.getRootUrl();
+            String redirect = null;
+            if (StringUtils.endsWith(rootUrl, "/")) {
+                redirect = rootUrl + AzureAuthFailAction.POST_LOGOUT_URL;
+            } else {
+                redirect = rootUrl + "/" + AzureAuthFailAction.POST_LOGOUT_URL;
+            }
+            return HttpResponses.redirectTo(redirect);
         }
 
 //        Token requestToken = (Token) request.getSession().getAttribute(ACCESS_TOKEN_ATTRIBUTE);

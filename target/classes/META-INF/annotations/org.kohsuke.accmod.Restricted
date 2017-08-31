@@ -1,1 +1,2 @@
+com.microsoft.azure.oauth.AzureAuthFailAction
 com.microsoft.azure.oauth.AzureLogoutAction

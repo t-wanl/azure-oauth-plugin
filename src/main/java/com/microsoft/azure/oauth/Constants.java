@@ -10,7 +10,9 @@ public class Constants {
     public static final String DEFAULT_RESOURCE_MANAGER_ENDPOINT = "https://management.azure.com/";
     public static final String DEFAULT_GRAPH_ENDPOINT = "https://graph.windows.net/";
     public static final String DEFAULT_OAUTH_PREFIX = "https://login.windows.net/<TenantId>";
-    public static final String DEFAULT_RESOURCE = DEFAULT_GRAPH_ENDPOINT;
+    public static final String DEFAULT_RESOURCE = DEFAULT_RESOURCE_MANAGER_ENDPOINT;
+//    public static final String DEFAULT_RESOURCE = DEFAULT_GRAPH_ENDPOINT;
+
 
     public Constants() {
     }

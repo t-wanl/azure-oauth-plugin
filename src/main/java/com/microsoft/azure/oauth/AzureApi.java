@@ -135,7 +135,7 @@ public class AzureApi extends DefaultApi20 {
                     OAuthEncoder.encode(config.getScope())
             );
         } else {
-            return String.format(offline ?
+            String authorizationUrl =  String.format(offline ?
                             url.toString() +
                                     "?" +
                                     AUTHORIZE_PARAMS + SUFFIX_OFFLINE
@@ -147,6 +147,7 @@ public class AzureApi extends DefaultApi20 {
                     OAuthEncoder.encode(config.getCallback()),
                     OAuthEncoder.encode(Constants.DEFAULT_RESOURCE)
             );
+            return authorizationUrl;
         }
     }
 
