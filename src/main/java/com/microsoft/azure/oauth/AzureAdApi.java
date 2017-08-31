@@ -37,7 +37,7 @@ public class AzureAdApi {
     public static Map<String, String> getGroupMembers(String groupID, String accessToken, String tenant, boolean recursive) throws IOException, JSONException {
         Map<String, String> members = new HashMap<String, String>();
 
-        String url = String.format("https://graph.windows.net/%s/groups/%s/members?api-version=1.6", tenant, groupID);
+        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + "%s/groups/%s/members?api-version=1.6", tenant, groupID);
         HttpResponse response = HttpHelper.sendGet(url, accessToken);
         String responseContent = HttpHelper.getContent(response);
 
@@ -60,7 +60,7 @@ public class AzureAdApi {
 
     public static Map<String, String> getAllAadGroupsNameIdPair(String accessToken, String tenant)
             throws IOException, JSONException {
-        String url = String.format("https://graph.windows.net/%s/groups?api-version=1.6", tenant);
+        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + "%s/groups?api-version=1.6", tenant);
 
         HttpResponse response = HttpHelper.sendGet(url, accessToken);
         String responseContent = HttpHelper.getContent(response);
@@ -78,7 +78,7 @@ public class AzureAdApi {
 
     public static Set<String> getAllAadGroupsId(String accessToken, String tenant)
             throws IOException, JSONException {
-        String url = String.format("https://graph.windows.net/%s/groups?api-version=1.6", tenant);
+        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + "%s/groups?api-version=1.6", tenant);
 
         HttpResponse response = HttpHelper.sendGet(url, accessToken);
         String responseContent = HttpHelper.getContent(response);
@@ -95,7 +95,7 @@ public class AzureAdApi {
 
     public static Set<String> getGroupsByUserId(String accessToken, String tenant, String userID) throws IOException, JSONException {
         Utils.TimeUtil.setBeginDate();
-        String url = String.format("https://graph.windows.net/%s/users/%s/getMemberGroups?api-version=1.6", tenant, userID);
+        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + "%s/users/%s/getMemberGroups?api-version=1.6", tenant, userID);
 
         JSONObject body = new JSONObject();
         body.put("securityEnabledOnly", false);
@@ -117,11 +117,11 @@ public class AzureAdApi {
 
     public static HttpResponse getAppOnlyAccessTokenResponce(String clientID, String clientSecret, String tenant) throws IOException {
         // try to get app-only token
-        String url = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenant);
+        String url = String.format(Constants.DEFAULT_AUTHENTICATION_ENDPOINT+ "%s/oauth2/token", tenant);
 
         List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
         urlParameters.add(new BasicNameValuePair("client_id", clientID));
-        urlParameters.add(new BasicNameValuePair("scope", OAuthEncoder.encode("https://graph.windows.net")));
+        urlParameters.add(new BasicNameValuePair("scope", OAuthEncoder.encode(Constants.DEFAULT_RESOURCE)));
         urlParameters.add(new BasicNameValuePair("client_secret", clientSecret));
         urlParameters.add(new BasicNameValuePair("grant_type", "client_credentials"));
         HttpEntity formEntity=new UrlEncodedFormEntity(urlParameters,ContentType.APPLICATION_FORM_URLENCODED.getCharset());
@@ -140,7 +140,7 @@ public class AzureAdApi {
     }
 
     private static HttpResponse getAadObjectResponse(String tenant, String id, String accessToken, String type) throws IOException {
-        String url = String.format("https://graph.windows.net/%s/%s/%s", tenant, type, OAuthEncoder.encode(id));
+        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + "%s/%s/%s", tenant, type, OAuthEncoder.encode(id));
         HttpResponse response = HttpHelper.sendGet(url, accessToken);
         return response;
     }
