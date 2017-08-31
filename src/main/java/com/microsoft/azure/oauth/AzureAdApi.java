@@ -121,7 +121,7 @@ public class AzureAdApi {
 
         List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
         urlParameters.add(new BasicNameValuePair("client_id", clientID));
-        urlParameters.add(new BasicNameValuePair("scope", OAuthEncoder.encode(Constants.DEFAULT_RESOURCE)));
+        urlParameters.add(new BasicNameValuePair("scope", OAuthEncoder.encode(Constants.DEFAULT_GRAPH_ENDPOINT)));
         urlParameters.add(new BasicNameValuePair("client_secret", clientSecret));
         urlParameters.add(new BasicNameValuePair("grant_type", "client_credentials"));
         HttpEntity formEntity=new UrlEncodedFormEntity(urlParameters,ContentType.APPLICATION_FORM_URLENCODED.getCharset());

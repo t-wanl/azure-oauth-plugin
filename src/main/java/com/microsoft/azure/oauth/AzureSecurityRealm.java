@@ -187,7 +187,7 @@ public class AzureSecurityRealm extends SecurityRealm {
             AzureAuthenticationToken auth = null;
             if (accessToken instanceof AzureApiToken) {
                 AzureApiToken azureApiToken = (AzureApiToken)accessToken;
-                auth = new AzureAuthenticationToken(azureApiToken);
+                auth = new AzureAuthenticationToken(azureApiToken, clientid, clientsecret);
             }
             else
                 return HttpResponses.redirectToContextRoot(); // TODO

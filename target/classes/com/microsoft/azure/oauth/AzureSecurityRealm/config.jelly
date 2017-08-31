@@ -13,6 +13,6 @@
             <f:textbox />
         </f:entry>
 
-        <f:validateButton title="Verify" method="verifyConfiguration" progress="Verifying..." with="clientid,clientsecret,tenant" ></f:validateButton>
+        <f:validateButton title="Verify Application" method="verifyConfiguration" progress="Verifying..." with="clientid,clientsecret,tenant" ></f:validateButton>
     </f:section>
 </j:jelly>
