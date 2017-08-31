@@ -1,3 +1,4 @@
 com\microsoft\azure\oauth\Constants.class
+com\microsoft\azure\oauth\MyGlobalSecurityConfiguration.class
 com\microsoft\azure\oauth\AzureLogoutAction.class
 com\microsoft\azure\oauth\AzureAuthFailAction.class

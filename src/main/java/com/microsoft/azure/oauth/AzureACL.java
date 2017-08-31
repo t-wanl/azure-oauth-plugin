@@ -80,6 +80,10 @@ public class AzureACL extends ACL{
                     Set<String> groupsIncludeUser = ((AzureAuthenticationToken) a).getMemberGroups();
                     Set<String> intersection = new HashSet<String>(groupNameList);
                     intersection.retainAll(groupsIncludeUser);
+                    // debug
+                    if (!intersection.isEmpty()) {
+                        System.out.println("debug group permission = " + permission);
+                    }
                     if (!intersection.isEmpty() && checkAadGroupPermission(permission)) {
                         log.finest("Granting Authenticated User read permission to group "
                                 + intersection.iterator().next());
@@ -165,6 +169,9 @@ public class AzureACL extends ACL{
         System.out.println("check permission = " + permission);
 
         if (permission.getId().equals("hudson.model.Hudson.Read")
+                || permission.getId().equals("hudson.model.Hudson.Administer")
+                || permission.getId().equals("hudson.model.View.Configure")
+                || permission.getId().equals("com.cloudbees.plugins.credentials.CredentialsProvider,View")
                 || permission.getId().equals("hudson.model.Item.Workspace")
                 || permission.getId().equals("hudson.model.Item.Read")
                 || permission.getId().equals("hudson.model.Item.Create")) {

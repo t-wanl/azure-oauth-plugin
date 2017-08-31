@@ -190,7 +190,7 @@ public class AzureSecurityRealm extends SecurityRealm {
                 auth = new AzureAuthenticationToken(azureApiToken, clientid, clientsecret);
             }
             else
-                return HttpResponses.redirectToContextRoot(); // TODO
+                return HttpResponses.redirectToContextRoot(); // TODO: redirect to token fail page
 
             SecurityContextHolder.getContext().setAuthentication(auth);
 
