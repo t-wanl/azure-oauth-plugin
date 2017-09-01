@@ -48,7 +48,7 @@ public class HttpHelper {
         return response;
     }
 
-    public HttpResponse sendPut(String url, String accessToken, Object body, ContentType contentType) throws IOException {
+    public static HttpResponse sendPut(String url, String accessToken, Object body, ContentType contentType) throws IOException {
         HttpClient client = new DefaultHttpClient();
         HttpPut request = new HttpPut(url);
         Map<String, String> headers = generateHeaders(request, accessToken, contentType);
@@ -102,6 +102,7 @@ public class HttpHelper {
                 contentTypeStr = ContentType.APPLICATION_JSON.getMimeType();
                 charSetStr = "charset=" + ContentType.APPLICATION_JSON.getCharset().toString();
             }
+            headers.put("Authorization", "Bearer " + accessToken);
             headers.put("api-version", "beta");
             headers.put("Accept", "application/json, text/plain, */*");
             headers.put("Content-Type", contentTypeStr + ";" + charSetStr);

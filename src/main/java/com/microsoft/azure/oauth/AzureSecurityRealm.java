@@ -458,21 +458,29 @@ public class AzureSecurityRealm extends SecurityRealm {
 
 
 
-            String content = AzureAuthenticationToken.getAppOnlyToken().get(AzureAuthenticationToken.APP_ONLY_TOKEN_KEY, new Callable<String>() {
-                @Override
-                public String call() throws Exception {
-                    org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
-                    int statusCode = HttpHelper.getStatusCode(response);
-                    String content = HttpHelper.getContent(response);
-                    if (statusCode != 200) return null;
-                    return content;
-                }
-            });
+//            String content = AzureAuthenticationToken.getAppOnlyToken().get(AzureAuthenticationToken.APP_ONLY_TOKEN_KEY, new Callable<String>() {
+//                @Override
+//                public String call() throws Exception {
+//                    org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+//                    int statusCode = HttpHelper.getStatusCode(response);
+//                    String content = HttpHelper.getContent(response);
+//                    if (statusCode != 200) return null;
+//                    return content;
+//                }
+//            });
 
-            if(content == null) {
-                JSONObject errJson = new JSONObject(content);
-                return FormValidation.error(errJson.getString("error_description"));
+            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+            int statusCode = HttpHelper.getStatusCode(response);
+            String content = HttpHelper.getContent(response);
+            if (statusCode != 200) {
+//                JSONObject errJson = new JSONObject(content);
+                return FormValidation.error(content);
             }
+
+//            if(content == null) {
+//                JSONObject errJson = new JSONObject(content);
+//                return FormValidation.error(errJson.getString("error_description"));
+//            }
             return FormValidation.ok("Successfully verified");
         }
     }

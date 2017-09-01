@@ -1,5 +1,6 @@
 package com.microsoft.azure.oauth;
 
+import net.sf.json.JSON;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -22,6 +23,11 @@ public class AzureAdApi {
     /*
         get all members (user ID, user type) from group list
      */
+
+
+
+    public static final String RESPONSE_CONTENT_KEY = "responseContent";
+    public static final String STATUS_CODE_KEY = "statusCode";
     public static Map<String, String> getGroupMembers(List<String> groupList, String accessToken, String tenant)
             throws IOException, JSONException {
         Map<String, String> members = new HashMap<String, String>();
@@ -145,40 +151,54 @@ public class AzureAdApi {
         return response;
     }
 
-    public static String getServicePrincipalIdByAppId(String tenant, String appId, String accessToken) throws IOException, JSONException {
-        String url = String.format("https://graph.windows.net/%s/servicePrincipals?api-version=1.6&$filter=appId%20eq%20'%s'", tenant, appId);
+    public static AzureResponse getServicePrincipalIdByAppId(String tenant, String appId, String accessToken) throws IOException, JSONException {
+//        String url = String.format("https://graph.windows.net/%s/servicePrincipals?api-version=1.6&$filter=appId%20eq%20'%s'", tenant, appId);
+        String url = String.format("https://graph.windows.net/%s/servicePrincipalsByAppId/%s/objectId?api-version=1.6", tenant, appId);
         HttpResponse response = HttpHelper.sendGet(url, accessToken);
         String responseContent = HttpHelper.getContent(response);
-        JSONObject json = new JSONObject(responseContent);
-        JSONArray spList = json.getJSONArray("value");
-        String oid = spList.getJSONObject(0).getString("objectId");
-        return oid;
+        int statusCode = HttpHelper.getStatusCode(response);
+
+        return new AzureResponse(statusCode, 200, responseContent);
+//        JSONObject json = new JSONObject(responseContent);
+////        JSONArray spList = json.getJSONArray("value");
+//        Object sp = json.get("value");
+//        if (sp instanceof String) {
+//            return ((String) sp);
+//        } else if (sp instanceof JSONArray){
+//            String oid = ((JSONArray) sp).getString(0);
+//            return oid;
+//        }
+//        return null;
     }
 
-    public static String getAzureRbacRoleId(String subscription, String accessToken) throws IOException, JSONException {
-        String url = String.format("https://management.azure.com/subscriptions/%s/providers/Microsoft.Authorization/roleDefinitions?api-version=1.6", subscription);
+    public static AzureResponse getAzureRbacRoleId(String subscription, String accessToken) throws IOException, JSONException {
+        String url = String.format("https://management.azure.com/subscriptions/%s/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01", subscription);
         HttpResponse response = HttpHelper.sendGet(url, accessToken);
         String responseContent = HttpHelper.getContent(response);
-        JSONObject json = new JSONObject(responseContent);
-        JSONArray roleList = json.getJSONArray("value");
-        String debugId = roleList.getJSONObject(0).getString("id");
-        return debugId;
+        int statusCode = HttpHelper.getStatusCode(response);
+
+        return new AzureResponse(statusCode, 200, responseContent);
+
+//        JSONObject json = new JSONObject(responseContent);
+//        JSONArray roleList = json.getJSONArray("value");
+//        String debugId = roleList.getJSONObject(0).getString("id");//TODO: get contributor
+//        return debugId;
     }
 
-    public static boolean assginRbacRoleToServicePrincipal(String subscription, String accessToken, String roleDefinitionId, String principalId) throws JSONException, IOException {
+    public static AzureResponse assginRbacRoleToServicePrincipal(String subscription, String accessToken, String roleDefinitionId, String principalId) throws JSONException, IOException {
         UUID guid = java.util.UUID.randomUUID();
-        String url = String.format("https://management.azure.com/subscriptions/%s/providers/microsoft.authorization/roleassignments/%s?api-version=1.6", subscription, guid);
+        String url = String.format("https://management.azure.com/subscriptions/%s/providers/microsoft.authorization/roleassignments/%s?api-version=2015-07-01", subscription, guid);
 
         JSONObject body = new JSONObject();
         JSONObject properties = new JSONObject();
         properties.put("roleDefinitionId", roleDefinitionId);
         properties.put("principalId", principalId);
         body.put("properties", properties);
-        HttpResponse response = HttpHelper.sendPost(url, accessToken, body, ContentType.APPLICATION_JSON);
+        HttpResponse response = HttpHelper.sendPut(url, accessToken, body, ContentType.APPLICATION_JSON);
         String responseContent = HttpHelper.getContent(response);
         int statusCode = HttpHelper.getStatusCode(response);
-        if (statusCode == 201) return true;
-        return false;
+
+        return new AzureResponse(statusCode, 201, responseContent);
     }
 
 

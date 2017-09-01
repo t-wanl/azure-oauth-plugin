@@ -133,24 +133,24 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
 
 
 
-//            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
-//            int statusCode = HttpHelper.getStatusCode(response);
-//            String content = HttpHelper.getContent(response);
-//            if (statusCode != 200) {
+            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+            int statusCode = HttpHelper.getStatusCode(response);
+            String content = HttpHelper.getContent(response);
+            if (statusCode != 200) {
 //                JSONObject errJson = new JSONObject(content);
-//                return FormValidation.error(content);
-//            }
+                return FormValidation.error(content);
+            }
 
-            String content = AzureAuthenticationToken.getAppOnlyToken().get(AzureAuthenticationToken.APP_ONLY_TOKEN_KEY, new Callable<String>() {
-                @Override
-                public String call() throws Exception {
-                    org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
-                    int statusCode = HttpHelper.getStatusCode(response);
-                    String content = HttpHelper.getContent(response);
-                    if (statusCode != 200) return null;
-                    return content;
-                }
-            });
+//            String content = AzureAuthenticationToken.getAppOnlyToken().get(AzureAuthenticationToken.APP_ONLY_TOKEN_KEY, new Callable<String>() {
+//                @Override
+//                public String call() throws Exception {
+//                    org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+//                    int statusCode = HttpHelper.getStatusCode(response);
+//                    String content = HttpHelper.getContent(response);
+//                    if (statusCode != 200) return null;
+//                    return content;
+//                }
+//            });
 
             if (content == null) {
                 JSONObject errJson = new JSONObject(content);
@@ -164,8 +164,8 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
             String[] admins = adminUserNames.split(",");
 
             for (String admin : admins) {
-                HttpResponse response = AzureAdApi.getUserResponse(tenant, admin, accessToken);
-                int statusCode = HttpHelper.getStatusCode(response);
+                response = AzureAdApi.getUserResponse(tenant, admin, accessToken);
+                statusCode = HttpHelper.getStatusCode(response);
                 content = HttpHelper.getContent(response);
                 if (statusCode != 200) {
                     JSONObject errJson = new JSONObject(content);
@@ -176,8 +176,8 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
             List<String> groupList = new LinkedList<String>();
             String[] groups = groupNames.split(",");
             for (String group : groups) {
-                HttpResponse response = AzureAdApi.getGroupResponse(tenant, group, accessToken);
-                int statusCode = HttpHelper.getStatusCode(response);
+                response = AzureAdApi.getGroupResponse(tenant, group, accessToken);
+                statusCode = HttpHelper.getStatusCode(response);
                 content = HttpHelper.getContent(response);
                 if (statusCode != 200) {
                     JSONObject errJson = new JSONObject(content);

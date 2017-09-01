@@ -102,7 +102,7 @@
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure</artifactId>
-            <version>1.0.0</version>
+            <version>${azuresdk.version}</version>
         </dependency>
         <dependency>
             <groupId>com.microsoft.azure</groupId>
@@ -118,6 +118,11 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
             <version>4.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>credentials</artifactId>
+            <version>2.1.7</version>
         </dependency>
 
     </dependencies>
@@ -161,5 +166,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <jenkins.version>1.645</jenkins.version>
+        <azuresdk.version>1.0.0-beta5</azuresdk.version>
+        <azure-keyvault.version>1.0.0</azure-keyvault.version>
+
     </properties>
 </project>

@@ -8,21 +8,22 @@
   <authorizationStrategy class="com.microsoft.azure.oauth.AzureAuthorizationStrategy" plugin="azure-oauth@1.0-SNAPSHOT">
     <rootACL>
       <adminUserNameList class="linked-list">
-        <string>ece6fe95-0d71-41d5-8d13-9477b8d9de29</string>
+        <string>5f6d4c09-e0f2-49f2-a981-52e5b3bfff8a</string>
+        <string>7dc3a716-7132-40e9-a141-412ec3f6f693</string>
       </adminUserNameList>
       <groupNameList class="linked-list">
-        <string>352f8ed2-876d-40c7-b1d6-ea7f5832c98d</string>
+        <string></string>
       </groupNameList>
-      <authenticatedUserReadPermission>false</authenticatedUserReadPermission>
+      <authenticatedUserReadPermission>true</authenticatedUserReadPermission>
       <authenticatedUserCreateJobPermission>false</authenticatedUserCreateJobPermission>
       <allowAnonymousReadPermission>false</allowAnonymousReadPermission>
       <allowAnonymousJobStatusPermission>false</allowAnonymousJobStatusPermission>
     </rootACL>
   </authorizationStrategy>
   <securityRealm class="com.microsoft.azure.oauth.AzureSecurityRealm">
-    <clientid>f8e021e7-cecb-402e-a503-ce022c16bc64</clientid>
-    <clientsecret>vi0eulNg8U9Q3jrqc4qpEHK65MqaP6v47xAJfr8ynMc=</clientsecret>
-    <tenant>15a9950e-5270-4308-a56e-f446137a868e</tenant>
+    <clientid>5978eb66-3c0d-4cf0-8370-dcdc4ff2d239</clientid>
+    <clientsecret>pTPfsMTXhsKGnV9q3lta1xJJbwV+FEBnZDFgvKdlZTU=</clientsecret>
+    <tenant>cd236629-6aa9-4323-98a2-f51cddcc721d</tenant>
   </securityRealm>
   <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>

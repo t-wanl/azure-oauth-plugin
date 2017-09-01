@@ -45,12 +45,18 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     private static final Cache<String, String> appOnlyToken =
             CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
 
-    public AzureAuthenticationToken(AzureApiToken azureApiToken, String clientID, String clientSecret) {
-        this.azureApiToken = azureApiToken;
+//    private static final Cache<String, AzureApiToken> userToken =
+//            CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
 
+    public AzureAuthenticationToken(AzureApiToken azureApiToken, String clientID, String clientSecret) {
+        // extract user
         Gson gson = new Gson();
-        String userInfo = this.azureApiToken.getUserInfo();
+        String userInfo = azureApiToken.getUserInfo();
         this.azureUser = gson.fromJson(userInfo, AzureUser.class);
+
+        // store token
+        this.azureApiToken = azureApiToken;
+//        userToken.put(this.azureUser.getObjectID(), azureApiToken);
 
         this.clientID = clientID;
         this.clientSecret = clientSecret;
@@ -72,7 +78,18 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     /**
      * @return the azureApiToken
      */
-    public Token getAzureApiToken() {
+//    public static Token getAzureApiToken(String userID) throws ExecutionException {
+//        return userToken.get(userID, new Callable<AzureApiToken>() {
+//            @Override
+//            public AzureApiToken call() throws Exception {
+//                // TODO: refresh token
+//                return null;
+//            }
+//        });
+//    }
+
+
+    public AzureApiToken getAzureApiToken() {
         return azureApiToken;
     }
 
@@ -84,8 +101,25 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         AzureAuthenticationToken.servicePrincipal = servicePrincipal;
     }
 
-    public static Cache<String, String> getAppOnlyToken() {
-        return appOnlyToken;
+    public static String getAppOnlyToken(final String clientid, final String clientsecret, final String tenant) throws ExecutionException {
+        String accessToken = appOnlyToken.get("", new Callable<String>() {
+                @Override
+                public String call() throws Exception {
+                    org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+                    int statusCode = HttpHelper.getStatusCode(response);
+                    String content = HttpHelper.getContent(response);
+                    if (statusCode == 200) {
+                        JSONObject json = new JSONObject(content);
+                        String accessToken = json.getString("access_token");
+                        return accessToken;
+                    } else {
+                        return null;
+                    }
+                }
+        });
+
+        return accessToken;
+
     }
 
     @Override

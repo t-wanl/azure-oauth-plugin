@@ -30,6 +30,7 @@ public class Utils {
         }
 
         public static long getTimeDifference() {
+            if (beginDate == null || endDate == null) return -1;
             long diff = endDate.getTime() - beginDate.getTime();
             beginDate = null;
             endDate = null;
