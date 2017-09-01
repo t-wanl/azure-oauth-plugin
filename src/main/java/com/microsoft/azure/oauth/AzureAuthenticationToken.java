@@ -34,10 +34,15 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     private String clientSecret;
     private AzureApiToken azureApiToken;
     private AzureUser azureUser;
+    public static final String APP_ONLY_TOKEN_KEY = "APP_ONLY_TOKEN_KEY";
     public static final TimeUnit CACHE_EXPIRY = TimeUnit.HOURS;
     private static final Logger LOGGER = Logger.getLogger(AbstractAuthenticationToken.class.getName());
+    private static String servicePrincipal;
 
     private static final Cache<String, Set<String>> groupsByUserId =
+            CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
+
+    private static final Cache<String, String> appOnlyToken =
             CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
 
     public AzureAuthenticationToken(AzureApiToken azureApiToken, String clientID, String clientSecret) {
@@ -69,6 +74,18 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
      */
     public Token getAzureApiToken() {
         return azureApiToken;
+    }
+
+    public static String getServicePrincipal() {
+        return servicePrincipal;
+    }
+
+    public static void setServicePrincipal(String servicePrincipal) {
+        AzureAuthenticationToken.servicePrincipal = servicePrincipal;
+    }
+
+    public static Cache<String, String> getAppOnlyToken() {
+        return appOnlyToken;
     }
 
     @Override

@@ -1,4 +1,4 @@
-com\microsoft\azure\oauth\Constants.class
-com\microsoft\azure\oauth\MyGlobalSecurityConfiguration.class
-com\microsoft\azure\oauth\AzureLogoutAction.class
-com\microsoft\azure\oauth\AzureAuthFailAction.class
+com/microsoft/azure/oauth/AzureAuthorizationStrategy$DescriptorImpl$1.class
+com/microsoft/azure/oauth/MyGlobalSecurityConfiguration.class
+com/microsoft/azure/oauth/AzureSecurityRealm$DescriptorImpl$1.class
+com/microsoft/azure/oauth/MyGlobalSecurityConfiguration$DescriptorImpl.class

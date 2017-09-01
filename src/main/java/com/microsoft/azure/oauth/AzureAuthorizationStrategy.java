@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by t-wanl on 8/23/2017.
@@ -123,18 +125,34 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
         }
 
         public FormValidation doVerifyConfiguration(
-                @QueryParameter String adminUserNames,
-                @QueryParameter String groupNames,
-                @QueryParameter String clientsecret,
-                @QueryParameter String clientid,
-                @QueryParameter String tenant) throws IOException, JSONException {
+                @QueryParameter final String adminUserNames,
+                @QueryParameter final String groupNames,
+                @QueryParameter final String clientsecret,
+                @QueryParameter final String clientid,
+                @QueryParameter final String tenant) throws IOException, JSONException, ExecutionException {
 
 
 
-            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
-            int statusCode = HttpHelper.getStatusCode(response);
-            String content = HttpHelper.getContent(response);
-            if (statusCode != 200) {
+//            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+//            int statusCode = HttpHelper.getStatusCode(response);
+//            String content = HttpHelper.getContent(response);
+//            if (statusCode != 200) {
+//                JSONObject errJson = new JSONObject(content);
+//                return FormValidation.error(content);
+//            }
+
+            String content = AzureAuthenticationToken.getAppOnlyToken().get(AzureAuthenticationToken.APP_ONLY_TOKEN_KEY, new Callable<String>() {
+                @Override
+                public String call() throws Exception {
+                    org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+                    int statusCode = HttpHelper.getStatusCode(response);
+                    String content = HttpHelper.getContent(response);
+                    if (statusCode != 200) return null;
+                    return content;
+                }
+            });
+
+            if (content == null) {
                 JSONObject errJson = new JSONObject(content);
                 return FormValidation.error(content);
             }
@@ -146,8 +164,8 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
             String[] admins = adminUserNames.split(",");
 
             for (String admin : admins) {
-                response = AzureAdApi.getUserResponse(tenant, admin, accessToken);
-                statusCode = HttpHelper.getStatusCode(response);
+                HttpResponse response = AzureAdApi.getUserResponse(tenant, admin, accessToken);
+                int statusCode = HttpHelper.getStatusCode(response);
                 content = HttpHelper.getContent(response);
                 if (statusCode != 200) {
                     JSONObject errJson = new JSONObject(content);
@@ -158,8 +176,8 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
             List<String> groupList = new LinkedList<String>();
             String[] groups = groupNames.split(",");
             for (String group : groups) {
-                response = AzureAdApi.getGroupResponse(tenant, group, accessToken);
-                statusCode = HttpHelper.getStatusCode(response);
+                HttpResponse response = AzureAdApi.getGroupResponse(tenant, group, accessToken);
+                int statusCode = HttpHelper.getStatusCode(response);
                 content = HttpHelper.getContent(response);
                 if (statusCode != 200) {
                     JSONObject errJson = new JSONObject(content);

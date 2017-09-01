@@ -45,10 +45,13 @@ import org.scribe.model.Token;
 import org.scribe.model.Verifier;
 import org.scribe.oauth.OAuthService;
 import org.springframework.dao.DataAccessException;
+import sun.misc.Cache;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -449,14 +452,24 @@ public class AzureSecurityRealm extends SecurityRealm {
             super(clazz);
         }
 
-        public FormValidation doVerifyConfiguration(@QueryParameter String clientid,
-                                                    @QueryParameter String clientsecret,
-                                                    @QueryParameter String tenant) throws IOException, JSONException {
+        public FormValidation doVerifyConfiguration(@QueryParameter final String clientid,
+                                                    @QueryParameter final String clientsecret,
+                                                    @QueryParameter final String tenant) throws IOException, JSONException, ExecutionException {
 
-            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
-            int statusCode = HttpHelper.getStatusCode(response);
-            String content = HttpHelper.getContent(response);
-            if(statusCode != 200) {
+
+
+            String content = AzureAuthenticationToken.getAppOnlyToken().get(AzureAuthenticationToken.APP_ONLY_TOKEN_KEY, new Callable<String>() {
+                @Override
+                public String call() throws Exception {
+                    org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+                    int statusCode = HttpHelper.getStatusCode(response);
+                    String content = HttpHelper.getContent(response);
+                    if (statusCode != 200) return null;
+                    return content;
+                }
+            });
+
+            if(content == null) {
                 JSONObject errJson = new JSONObject(content);
                 return FormValidation.error(errJson.getString("error_description"));
             }

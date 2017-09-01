@@ -5,9 +5,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.client.methods.*;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -44,16 +42,28 @@ public class HttpHelper {
         Map<String, String> headers = generateHeaders(request, accessToken, contentType);
         request = (HttpPost) addHeaders(request, headers);
         if (body != null) {
-            request = addBody(request, body, contentType);
+            request = (HttpPost) addBody(request, body, contentType);
         }
         HttpResponse response = client.execute(request);
         return response;
     }
 
-    private static HttpPost addBody(HttpPost post, Object body, ContentType contentType) throws UnsupportedEncodingException {
-        if (body instanceof JSONObject) post.setEntity(new StringEntity(((JSONObject) body).toString(), contentType));
-        else if (body instanceof HttpEntity) post.setEntity((HttpEntity) body);
-        return post;
+    public HttpResponse sendPut(String url, String accessToken, Object body, ContentType contentType) throws IOException {
+        HttpClient client = new DefaultHttpClient();
+        HttpPut request = new HttpPut(url);
+        Map<String, String> headers = generateHeaders(request, accessToken, contentType);
+        request = (HttpPut) addHeaders(request, headers);
+        if (body != null) {
+            request = (HttpPut) addBody(request, body, contentType);
+        }
+        HttpResponse response = client.execute(request);
+        return response;
+    }
+
+    private static HttpEntityEnclosingRequestBase addBody(HttpEntityEnclosingRequestBase request, Object body, ContentType contentType) throws UnsupportedEncodingException {
+        if (body instanceof JSONObject) request.setEntity(new StringEntity(((JSONObject) body).toString(), contentType));
+        else if (body instanceof HttpEntity) request.setEntity((HttpEntity) body);
+        return request;
     }
 
     private static Map<String, String> generateHeaders(HttpRequestBase request, String accessToken, ContentType contentType) {
@@ -62,7 +72,7 @@ public class HttpHelper {
             headers.put("api-version", "1.6");
             if (accessToken != null) headers.put("Authorization", "Bearer " + accessToken);
             headers.put("Accept", "application/json;odata=minimalmetadata");
-        } else {
+        } else if (request instanceof HttpPost) {
             String contentTypeStr = null;
             String charSetStr = null;
             if (contentType != null) {
@@ -82,6 +92,19 @@ public class HttpHelper {
                 headers.put("Accept", "application/json, text/plain, */*");
                 headers.put("Content-Type", contentTypeStr + ";" + charSetStr);
             }
+        } else if (request instanceof HttpPut) {
+            String contentTypeStr = null;
+            String charSetStr = null;
+            if (contentType != null) {
+                contentTypeStr = contentType.getMimeType();
+                charSetStr = "charset=" + contentType.getCharset().toString();
+            } else {
+                contentTypeStr = ContentType.APPLICATION_JSON.getMimeType();
+                charSetStr = "charset=" + ContentType.APPLICATION_JSON.getCharset().toString();
+            }
+            headers.put("api-version", "beta");
+            headers.put("Accept", "application/json, text/plain, */*");
+            headers.put("Content-Type", contentTypeStr + ";" + charSetStr);
         }
         return headers;
     }

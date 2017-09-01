@@ -145,5 +145,41 @@ public class AzureAdApi {
         return response;
     }
 
+    public static String getServicePrincipalIdByAppId(String tenant, String appId, String accessToken) throws IOException, JSONException {
+        String url = String.format("https://graph.windows.net/%s/servicePrincipals?api-version=1.6&$filter=appId%20eq%20'%s'", tenant, appId);
+        HttpResponse response = HttpHelper.sendGet(url, accessToken);
+        String responseContent = HttpHelper.getContent(response);
+        JSONObject json = new JSONObject(responseContent);
+        JSONArray spList = json.getJSONArray("value");
+        String oid = spList.getJSONObject(0).getString("objectId");
+        return oid;
+    }
+
+    public static String getAzureRbacRoleId(String subscription, String accessToken) throws IOException, JSONException {
+        String url = String.format("https://management.azure.com/subscriptions/%s/providers/Microsoft.Authorization/roleDefinitions?api-version=1.6", subscription);
+        HttpResponse response = HttpHelper.sendGet(url, accessToken);
+        String responseContent = HttpHelper.getContent(response);
+        JSONObject json = new JSONObject(responseContent);
+        JSONArray roleList = json.getJSONArray("value");
+        String debugId = roleList.getJSONObject(0).getString("id");
+        return debugId;
+    }
+
+    public static boolean assginRbacRoleToServicePrincipal(String subscription, String accessToken, String roleDefinitionId, String principalId) throws JSONException, IOException {
+        UUID guid = java.util.UUID.randomUUID();
+        String url = String.format("https://management.azure.com/subscriptions/%s/providers/microsoft.authorization/roleassignments/%s?api-version=1.6", subscription, guid);
+
+        JSONObject body = new JSONObject();
+        JSONObject properties = new JSONObject();
+        properties.put("roleDefinitionId", roleDefinitionId);
+        properties.put("principalId", principalId);
+        body.put("properties", properties);
+        HttpResponse response = HttpHelper.sendPost(url, accessToken, body, ContentType.APPLICATION_JSON);
+        String responseContent = HttpHelper.getContent(response);
+        int statusCode = HttpHelper.getStatusCode(response);
+        if (statusCode == 201) return true;
+        return false;
+    }
+
 
 }
