@@ -17,19 +17,18 @@ import hudson.Extension;
 import hudson.security.ACL;
 import hudson.security.SecurityRealm;
 import hudson.util.FormValidation;
+import hudson.util.ListBoxModel;
 import hudson.util.Secret;
 import jenkins.model.Jenkins;
 import org.acegisecurity.Authentication;
-import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 
@@ -601,6 +600,34 @@ public class AzureCredentials extends BaseStandardCredentials {
     @Extension
     public static class DescriptorImpl
             extends BaseStandardCredentials.BaseStandardCredentialsDescriptor {
+        private static final String SPID = "SPID";
+        private static final String SECRET = "SECRET";
+        private static final String SUBS = "SUBS";
+        private static final String TENANT = "TENANT";
+        private String spId;
+        private String clientSecret;
+        private String subId;
+        private String tenant;
+
+        public static String getSPID() {
+            return SPID;
+        }
+
+        public static String getSECRET() {
+            return SECRET;
+        }
+
+        public static String getSUBS() {
+            return SUBS;
+        }
+
+        public static String getTENANT() {
+            return TENANT;
+        }
+
+        public String getTenant() {
+            return tenant;
+        }
 
         @Override
         public String getDisplayName() {
@@ -656,6 +683,15 @@ public class AzureCredentials extends BaseStandardCredentials {
             return FormValidation.ok(Messages.Azure_Config_Success());
         }
 
+        public String doMyFill() throws JSONException {
+            JSONObject json = new JSONObject();
+            json.put(SPID, spId);
+            json.put(SECRET, clientSecret);
+            json.put(SUBS, subId);
+            json.put(TENANT, tenant);
+            return json.toString();
+        }
+
         public FormValidation doGenerateServicePrincipal() throws ExecutionException, IOException, JSONException {
             Jenkins jenkins = Jenkins.getInstance();
             if (jenkins == null) {
@@ -665,17 +701,18 @@ public class AzureCredentials extends BaseStandardCredentials {
             if (realm instanceof AzureSecurityRealm) {
                 AzureSecurityRealm azureSecurityRealm = (AzureSecurityRealm) realm;
                 String clientID = azureSecurityRealm.getClientid();
-                String clientSecret = azureSecurityRealm.getClientsecret();
-                String tenant = azureSecurityRealm.getTenant();
-                String subId = "cdc4e8bc-8210-4fa9-9e0b-4ef745e515ea"; // TODO: generate subid from rest api
+                clientSecret = azureSecurityRealm.getClientsecret();
+                tenant = azureSecurityRealm.getTenant();
+                subId = "cdc4e8bc-8210-4fa9-9e0b-4ef745e515ea"; // TODO: generate subid from rest api
                 String appOnlyAccessToken = AzureAuthenticationToken.getAppOnlyToken(clientID, clientSecret, tenant);
 
                 // get service principal oid
                 AzureResponse spResponse = AzureAdApi.getServicePrincipalIdByAppId(tenant, clientID, appOnlyAccessToken);
                 if (!spResponse.isSuccess())
                     return FormValidation.error(spResponse.getResponseContent());
-                String spId = spResponse.getServicePrincipal();
+                spId = spResponse.getServicePrincipal();
 
+                // get user token
                 Authentication auth = Jenkins.getAuthentication();
                 if (!(auth instanceof AzureAuthenticationToken))
                     return FormValidation.error("Unauthentication");
@@ -688,12 +725,41 @@ public class AzureCredentials extends BaseStandardCredentials {
                     return FormValidation.error(roleResponse.getResponseContent());
                 String roleId = roleResponse.getRoleId();
                 AzureResponse assignResult = AzureAdApi.assginRbacRoleToServicePrincipal(subId, userToken, roleId, spId);
-                if (!assignResult.isSuccess())
+                if (!assignResult.isSuccess() && assignResult.getStatusCode() != 409)
                     return FormValidation.error(assignResult.getResponseContent());
-                return FormValidation.ok("Successfully generate service principal");
+                if (assignResult.getStatusCode() == assignResult.getSuccessCode())
+                    return FormValidation.ok("Successfully generate service principal");
+                else if (assignResult.getStatusCode() == 409)
+                    return FormValidation.ok("The role assignment already exists. Use the existing service principal.");
             }
             return FormValidation.error("Fail to get Security Realm");
         }
+
+        public ListBoxModel doFillSubscriptionsItems() throws IOException, JSONException {
+            ListBoxModel model = new ListBoxModel();
+
+            // get user token
+            Authentication auth = Jenkins.getAuthentication();
+            if (!(auth instanceof AzureAuthenticationToken))
+                return null;
+            AzureAuthenticationToken azureAuth = (AzureAuthenticationToken) auth;
+            String userToken = azureAuth.getAzureApiToken().getToken();
+
+            AzureResponse response = AzureAdApi.getSubscriptions(userToken);
+            if (!response.isSuccess()) {
+                return null;
+            }
+
+            Map<String, String> subscriptions = response.getSubscriptions();
+            for (Map.Entry<String, String> subscription : subscriptions.entrySet()) {
+                model.add(subscription.getValue() + " (" + subscription.getKey() + ")");
+            }
+            return model;
+        }
+
+
+
+
 
     }
 }

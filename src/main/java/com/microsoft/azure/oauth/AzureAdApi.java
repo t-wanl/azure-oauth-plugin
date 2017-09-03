@@ -152,42 +152,26 @@ public class AzureAdApi {
     }
 
     public static AzureResponse getServicePrincipalIdByAppId(String tenant, String appId, String accessToken) throws IOException, JSONException {
-//        String url = String.format("https://graph.windows.net/%s/servicePrincipals?api-version=1.6&$filter=appId%20eq%20'%s'", tenant, appId);
-        String url = String.format("https://graph.windows.net/%s/servicePrincipalsByAppId/%s/objectId?api-version=1.6", tenant, appId);
+        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + "%s/servicePrincipalsByAppId/%s/objectId?api-version=1.6", tenant, appId);
         HttpResponse response = HttpHelper.sendGet(url, accessToken);
         String responseContent = HttpHelper.getContent(response);
         int statusCode = HttpHelper.getStatusCode(response);
 
         return new AzureResponse(statusCode, 200, responseContent);
-//        JSONObject json = new JSONObject(responseContent);
-////        JSONArray spList = json.getJSONArray("value");
-//        Object sp = json.get("value");
-//        if (sp instanceof String) {
-//            return ((String) sp);
-//        } else if (sp instanceof JSONArray){
-//            String oid = ((JSONArray) sp).getString(0);
-//            return oid;
-//        }
-//        return null;
     }
 
     public static AzureResponse getAzureRbacRoleId(String subscription, String accessToken) throws IOException, JSONException {
-        String url = String.format("https://management.azure.com/subscriptions/%s/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01", subscription);
+        String url = String.format(Constants.DEFAULT_RESOURCE_MANAGER_ENDPOINT + "subscriptions/%s/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01", subscription);
         HttpResponse response = HttpHelper.sendGet(url, accessToken);
         String responseContent = HttpHelper.getContent(response);
         int statusCode = HttpHelper.getStatusCode(response);
 
         return new AzureResponse(statusCode, 200, responseContent);
-
-//        JSONObject json = new JSONObject(responseContent);
-//        JSONArray roleList = json.getJSONArray("value");
-//        String debugId = roleList.getJSONObject(0).getString("id");//TODO: get contributor
-//        return debugId;
     }
 
     public static AzureResponse assginRbacRoleToServicePrincipal(String subscription, String accessToken, String roleDefinitionId, String principalId) throws JSONException, IOException {
         UUID guid = java.util.UUID.randomUUID();
-        String url = String.format("https://management.azure.com/subscriptions/%s/providers/microsoft.authorization/roleassignments/%s?api-version=2015-07-01", subscription, guid);
+        String url = String.format(Constants.DEFAULT_RESOURCE_MANAGER_ENDPOINT + "subscriptions/%s/providers/microsoft.authorization/roleassignments/%s?api-version=2015-07-01", subscription, guid);
 
         JSONObject body = new JSONObject();
         JSONObject properties = new JSONObject();
@@ -201,5 +185,14 @@ public class AzureAdApi {
         return new AzureResponse(statusCode, 201, responseContent);
     }
 
+    public static AzureResponse getSubscriptions(String accessToken) throws IOException {
+        String url = Constants.DEFAULT_RESOURCE_MANAGER_ENDPOINT +  "subscriptions?api-version=2016-06-01";
+        HttpResponse response = HttpHelper.sendGet(url, accessToken);
+
+        String responseContent = HttpHelper.getContent(response);
+        int statusCode = HttpHelper.getStatusCode(response);
+
+        return new AzureResponse(statusCode, 200, responseContent);
+    }
 
 }

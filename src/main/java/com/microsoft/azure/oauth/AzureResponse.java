@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.*;
 
 /**
  * Created by t-wanl on 9/1/2017.
@@ -54,7 +55,25 @@ class AzureResponse {
     public String getRoleId() throws JSONException {
         JSONObject json = new JSONObject(responseContent);
         JSONArray roleList = json.getJSONArray("value");
-        String debugId = roleList.getJSONObject(0).getString("id");//TODO: get contributor
-        return debugId;
+        //get Contributer id
+        for(int i = 0; i < roleList.length(); i++) {
+            System.out.println("role = " + roleList.getJSONObject(i).toString());
+            if (roleList.getJSONObject(i).getJSONObject("properties").getString("roleName").equals("Contributor")) {
+                return roleList.getJSONObject(i).getString("id");
+            }
+        }
+        return null;
+    }
+
+    public Map<String, String> getSubscriptions() throws JSONException {
+        JSONObject json = new JSONObject(responseContent);
+        JSONArray subcriptionsList = json.getJSONArray("value");
+        Map<String, String> subscriptions = new HashMap<String, String>();
+        for (int i = 0; i < subcriptionsList.length(); i++) {
+            String id = subcriptionsList.getJSONObject(i).getString("subscriptionId");
+            String name = subcriptionsList.getJSONObject(i).getString("displayName");
+            subscriptions.put(id, name);
+        }
+        return subscriptions;
     }
 }
