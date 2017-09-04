@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
  */
 public class AzureApi extends DefaultApi20 {
 
-    private static final String AUTHORIZE_PARAMS = "response_type=code&client_id=%s&client_secret=%s&redirect_uri=%s&resource=%s";
+    private static final String AUTHORIZE_PARAMS = "response_type=code&client_id=%s&redirect_uri=%s&resource=%s";
     private static final String SCOPED_AUTHORIZE_PARAMS = AUTHORIZE_PARAMS + "&scope=%s";
     private static final String SUFFIX_OFFLINE = "&access_type=offline&approval_prompt=force";
 
@@ -70,6 +70,8 @@ public class AzureApi extends DefaultApi20 {
         } else {
             url.append("common");
         }
+//        // TODO: debug
+//        url.append("715a9950e-5270-4308-a56e-f446137a868e");
         url.append("/oauth2/token");
         return url.toString();
     }
@@ -129,7 +131,7 @@ public class AzureApi extends DefaultApi20 {
                             url.toString() +
                                     "?" +
                                     SCOPED_AUTHORIZE_PARAMS, OAuthEncoder.encode(config.getApiKey()),
-                    OAuthEncoder.encode(config.getApiSecret()),
+//                    OAuthEncoder.encode(config.getApiSecret()),
                     OAuthEncoder.encode(config.getCallback()),
                     OAuthEncoder.encode(Constants.DEFAULT_RESOURCE),
                     OAuthEncoder.encode(config.getScope())
@@ -143,12 +145,24 @@ public class AzureApi extends DefaultApi20 {
                             url.toString() +
                                     "?" +
                                     AUTHORIZE_PARAMS, OAuthEncoder.encode(config.getApiKey()),
-                    OAuthEncoder.encode(config.getApiSecret()),
+//                    OAuthEncoder.encode(config.getApiSecret()),
                     OAuthEncoder.encode(config.getCallback()),
-                    OAuthEncoder.encode(Constants.DEFAULT_RESOURCE)
-            );
+                    OAuthEncoder.encode(Constants.DEFAULT_RESOURCE));
             return authorizationUrl;
         }
+    }
+
+
+    public Token rereshToken(Token accessToken, String clientID, String clientSecret, String resource) {
+        OAuthRequest request = new OAuthRequest(Verb.POST,Constants.DEFAULT_AUTHENTICATION_ENDPOINT + "common/oauth2/token");
+        request.addBodyParameter("grant_type", "refresh_token");
+        request.addBodyParameter("refresh_token", accessToken.getSecret()); // were accessToken is the Token object you want to refresh.
+        request.addBodyParameter("client_id", clientID);
+        request.addBodyParameter("client_secret", clientSecret);
+        request.addBodyParameter("resource", resource);
+        Response response = request.send();
+        return getAccessTokenExtractor().extract(response.getBody());
+
     }
 
     @Override
@@ -210,6 +224,8 @@ public class AzureApi extends DefaultApi20 {
             Response response = request.send();
             return api.getAccessTokenExtractor().extract(response.getBody());
         }
+
+
     }
 
 }

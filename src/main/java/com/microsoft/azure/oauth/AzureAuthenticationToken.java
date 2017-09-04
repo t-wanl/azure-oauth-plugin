@@ -9,10 +9,14 @@ import org.acegisecurity.GrantedAuthority;
 import org.acegisecurity.providers.AbstractAuthenticationToken;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpResponse;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.scribe.model.Token;
 import com.microsoft.azure.oauth.AzureUser.AzureUserResponce;
+import org.scribe.utils.OAuthEncoder;
 
+import java.io.IOException;
+import java.util.Date;
 import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -42,8 +46,7 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     private static final Cache<String, Set<String>> groupsByUserId =
             CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
 
-    private static final Cache<String, String> appOnlyToken =
-            CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
+    private static AzureApiToken appOnlyToken;
 
 //    private static final Cache<String, AzureApiToken> userToken =
 //            CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
@@ -66,6 +69,8 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         if (azureUser != null) {
             authenticated = true;
         }
+
+        appOnlyToken = null;
 
         setAuthenticated(authenticated);
     }
@@ -90,7 +95,15 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 
 
     public AzureApiToken getAzureApiToken() {
-        return azureApiToken;
+        if (azureApiToken != null && azureApiToken.getExpiry().after(new Date()))
+            return azureApiToken;
+        else { // refresh token
+            System.out.println("refresh user token");
+            AzureApi api = new AzureApi();
+            AzureApiToken newToken = (AzureApiToken) api.rereshToken(azureApiToken, clientID, clientSecret, Constants.DEFAULT_RESOURCE);
+            this.azureApiToken = newToken;
+            return newToken;
+        }
     }
 
     public static String getServicePrincipal() {
@@ -101,24 +114,45 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         AzureAuthenticationToken.servicePrincipal = servicePrincipal;
     }
 
-    public static String getAppOnlyToken(final String clientid, final String clientsecret, final String tenant) throws ExecutionException {
-        String accessToken = appOnlyToken.get("", new Callable<String>() {
-                @Override
-                public String call() throws Exception {
-                    org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+    public static AzureApiToken getAppOnlyToken(final String clientid, final String clientsecret, final String tenant) throws ExecutionException, IOException, JSONException {
+//        String accessToken = appOnlyToken.get("", new Callable<String>() {
+//                @Override
+//                public String call() throws Exception {
+//                    org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+//                    int statusCode = HttpHelper.getStatusCode(response);
+//                    String content = HttpHelper.getContent(response);
+//                    if (statusCode == 200) {
+//                        JSONObject json = new JSONObject(content);
+//                        String accessToken = json.getString("access_token");
+//                        return accessToken;
+//                    } else {
+//                        return null;
+//                    }
+//                }
+//        });
+
+//        return accessToken;
+
+
+        //
+        if (appOnlyToken != null && appOnlyToken.getExpiry().after(new Date())) {
+            return appOnlyToken;
+        } else { // refresh token
+            System.out.println("refresh app only token");
+            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
                     int statusCode = HttpHelper.getStatusCode(response);
                     String content = HttpHelper.getContent(response);
                     if (statusCode == 200) {
                         JSONObject json = new JSONObject(content);
-                        String accessToken = json.getString("access_token");
-                        return accessToken;
+                        String accessToken = OAuthEncoder.decode(json.getString("access_token"));
+//                        String refreshToken = OAuthEncoder.decode(json.getString("refresh_token"));
+                        int lifeTime = Integer.parseInt(OAuthEncoder.decode(json.getString("expires_in")));
+                        Date expiry = new Date(System.currentTimeMillis() + lifeTime * 1000);
+                        return new AzureApiToken(accessToken, "", expiry, content);
                     } else {
                         return null;
                     }
-                }
-        });
-
-        return accessToken;
+        }
 
     }
 

@@ -704,8 +704,8 @@ public class AzureCredentials extends BaseStandardCredentials {
                 clientSecret = azureSecurityRealm.getClientsecret();
                 tenant = azureSecurityRealm.getTenant();
                 subId = "cdc4e8bc-8210-4fa9-9e0b-4ef745e515ea"; // TODO: generate subid from rest api
-                String appOnlyAccessToken = AzureAuthenticationToken.getAppOnlyToken(clientID, clientSecret, tenant);
-
+                AzureApiToken token = AzureAuthenticationToken.getAppOnlyToken(clientID, clientSecret, tenant);
+                String appOnlyAccessToken = token.getToken();
                 // get service principal oid
                 AzureResponse spResponse = AzureAdApi.getServicePrincipalIdByAppId(tenant, clientID, appOnlyAccessToken);
                 if (!spResponse.isSuccess())

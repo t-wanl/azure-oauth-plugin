@@ -12,7 +12,6 @@ com/microsoft/azure/oauth/AzureAuthFailAction.class
 com/microsoft/azure/oauth/AzureCredentials.stapler
 com/microsoft/azure/oauth/AzureSecurityRealm$ConverterImpl.class
 com/microsoft/azure/oauth/AzureApi$2.class
-com/microsoft/azure/oauth/AzureAuthenticationToken$2.class
 com/microsoft/azure/oauth/AzureAuthenticationToken.class
 com/microsoft/azure/oauth/AzureCredentials$DescriptorImpl.class
 com/microsoft/azure/oauth/AzureUser$AzureUserResponce.class

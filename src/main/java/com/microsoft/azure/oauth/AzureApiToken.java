@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
  */
 public class AzureApiToken extends Token {
 
-    private final Date expiry;
+    private Date expiry;
     private String userInfo;
 
     public AzureApiToken(java.lang.String token, java.lang.String secret, Date expiry, java.lang.String rawResponse) throws JSONException {
@@ -35,15 +35,20 @@ public class AzureApiToken extends Token {
 
     private void setUserInfo(String response) throws JSONException {
         JSONObject  tokenResponse = new JSONObject(response);
+        if (tokenResponse.has("id_token")) {
             String idToken = tokenResponse.getString("id_token");
             setUserInfoByIdToken(idToken);
+        }
 
-
-        this.userInfo = userInfo;
+//        this.userInfo = userInfo;
     }
 
     public Date getExpiry() {
         return new Date(expiry.getTime());
+    }
+
+    public void setExpiry(Date expiry) {
+        this.expiry = expiry;
     }
 
     private String base64UrlDecode(String input) {

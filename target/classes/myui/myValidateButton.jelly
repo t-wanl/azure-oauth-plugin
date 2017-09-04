@@ -48,106 +48,106 @@ THE SOFTWARE.
     </st:documentation>
 
     <script type="text/javascript">
-        function validateButton2(checkUrl,paramList,button) {
-        console.log("checkUrl = ", checkUrl);
+function validateButton2(checkUrl, paramList, button) {
+    console.log("checkUrl = ", checkUrl);
 
-        button = button._button;
+    button = button._button;
 
-        var parameters = {};
+    var parameters = {};
 
-        paramList.split(',').each(function(name) {
-        var p = findPreviousFormItem(button,name);
-        if(p!=null) {
-        if(p.type=="checkbox")  parameters[name] = p.checked;
-        else                    parameters[name] = p.value;
+    paramList.split(',').each(function(name) {
+        var p = findPreviousFormItem(button, name);
+        if (p != null) {
+            if (p.type == "checkbox") parameters[name] = p.checked;
+            else parameters[name] = p.value;
         }
-        });
+    });
 
-        var spinner = $(button).up("DIV").next();
-        var target = spinner.next();
-        spinner.style.display="block";
+    var spinner = $(button).up("DIV").next();
+    var target = spinner.next();
+    spinner.style.display = "block";
 
-        new Ajax.Request(checkUrl, {
+    new Ajax.Request(checkUrl, {
         parameters: parameters,
         onComplete: function(rsp) {
-        console.log("rsp = ", rsp);
-        console.log("target = ", target);
-        spinner.style.display="none";
-        applyErrorMessage(target, rsp);
-        layoutUpdateCallback.call();
-        var s = rsp.getResponseHeader("script");
+            console.log("rsp = ", rsp);
+            console.log("target = ", target);
+            spinner.style.display = "none";
+            applyErrorMessage(target, rsp);
+            layoutUpdateCallback.call();
+            var s = rsp.getResponseHeader("script");
 
-        var s = rsp.getResponseHeader("script");
-        parts = checkUrl.split('/');
-        newCheckUrl = "";
-        parts.length = parts.length - 1;
-        newCheckUrl = parts.join('/');
-        newCheckUrl += "/myFill";
-        console.log("newCheckUrl = ", newCheckUrl);
-        myFill(newCheckUrl, paramList, button);
-
-        try {
-        geval(s);
-        } catch(e) {
-        window.alert("failed to evaluate "+s+"\n"+e.message);
+            var status = rsp["status"];
+            if (status == "200") {
+                var parts = checkUrl.split('/');
+                parts.length = parts.length - 1;
+                var newCheckUrl = parts.join('/');
+                newCheckUrl += "/myFill";
+                console.log("newCheckUrl = ", newCheckUrl);
+                myFill(newCheckUrl, paramList, button);
+            }
+            try {
+                geval(s);
+            } catch (e) {
+                window.alert("failed to evaluate " + s + "\n" + e.message);
+            }
         }
+    });
+}
+
+function myFill(checkUrl, paramList, button) {
+    button = button._button;
+
+    var parameters = {};
+
+    paramList.split(',').each(function(name) {
+        var p = findPreviousFormItem(button, name);
+        if (p != null) {
+            if (p.type == "checkbox") parameters[name] = p.checked;
+            else parameters[name] = p.value;
         }
-        });
-        }
+    });
 
-        function myFill(checkUrl,paramList,button) {
-        button = button._button;
+    // var spinner = $(button).up("DIV").next();
+    // var target = spinner.next();
+    // spinner.style.display="block";
 
-        var parameters = {};
-
-        paramList.split(',').each(function(name) {
-        var p = findPreviousFormItem(button,name);
-        if(p!=null) {
-        if(p.type=="checkbox")  parameters[name] = p.checked;
-        else                    parameters[name] = p.value;
-        }
-        });
-
-        // var spinner = $(button).up("DIV").next();
-        // var target = spinner.next();
-        // spinner.style.display="block";
-
-        new Ajax.Request(checkUrl, {
+    new Ajax.Request(checkUrl, {
         parameters: parameters,
         onComplete: function(rsp) {
-        console.log("myfill rsp = ", rsp);
+            console.log("myfill rsp = ", rsp);
 
-        content = rsp["responseText"];
-        console.log("???content = ", content);
-        json = JSON.parse(content);
+            var content = rsp["responseText"];
+            console.log("???content = ", content);
+            var json = JSON.parse(content);
 
-        sub = json["SUBS"];
-        spId = json["SPID"];
-        spSecret = json["SECRET"];
-        tenant = json["TENANT"];
+            var sub = json["SUBS"];
+            var spId = json["SPID"];
+            var spSecret = json["SECRET"];
+            var tenant = json["TENANT"];
 
-        eleSub = document.getElementsByName("_.subscriptionId");
-        eleSpId = document.getElementsByName("_.clientId");
-        eleSpSecret = document.getElementsByName("_.clientSecret");
-        eleTenant = document.getElementsByName("_.oauth2TokenEndpoint");
+            var eleSub = document.getElementsByName("_.subscriptionId");
+            var eleSpId = document.getElementsByName("_.clientId");
+            var eleSpSecret = document.getElementsByName("_.clientSecret");
+            var eleTenant = document.getElementsByName("_.oauth2TokenEndpoint");
 
-        eleSub[0].value = sub;
-        eleSpId[0].value = spId;
-        eleSpSecret[0].value = spSecret;
-        eleTenant[0].value = "https://login.windows.net/" + tenant;
+            eleSub[0].value = sub;
+            eleSpId[0].value = spId;
+            eleSpSecret[0].value = spSecret;
+            eleTenant[0].value = "https://login.windows.net/" + tenant;
 
-        // spinner.style.display="none";
-        // applyErrorMessage(target, rsp);
-        layoutUpdateCallback.call();
-        var s = rsp.getResponseHeader("script");
-        try {
-        geval(s);
-        } catch(e) {
-        window.alert("failed to evaluate "+s+"\n"+e.message);
+            // spinner.style.display="none";
+            // applyErrorMessage(target, rsp);
+            layoutUpdateCallback.call();
+            var s = rsp.getResponseHeader("script");
+            try {
+                geval(s);
+            } catch (e) {
+                window.alert("failed to evaluate " + s + "\n" + e.message);
+            }
         }
-        }
-        });
-        }
+    });
+}
     </script>
     <f:entry>
         <div style="float:right">
