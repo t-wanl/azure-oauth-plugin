@@ -122,7 +122,7 @@ function myFill(checkUrl, paramList, button) {
             var json = JSON.parse(content);
 
             var sub = json["SUBS"];
-            var spId = json["SPID"];
+            var spId = json["CLIENTID"];
             var spSecret = json["SECRET"];
             var tenant = json["TENANT"];
 
