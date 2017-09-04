@@ -8,6 +8,7 @@ com/microsoft/azure/oauth/AzureLogoutAction.class
 com/microsoft/azure/oauth/AzureCredentials$ServicePrincipal.class
 com/microsoft/azure/oauth/AzureSecurityRealm/DescriptorImpl/doVerifyConfiguration.stapler
 com/microsoft/azure/oauth/AzureCredentials$Constants.class
+com/microsoft/azure/oauth/AzureCredentials/DescriptorImpl/doGenerateServicePrincipal.stapler
 com/microsoft/azure/oauth/AzureAuthFailAction.class
 com/microsoft/azure/oauth/AzureCredentials.stapler
 com/microsoft/azure/oauth/AzureSecurityRealm$ConverterImpl.class
