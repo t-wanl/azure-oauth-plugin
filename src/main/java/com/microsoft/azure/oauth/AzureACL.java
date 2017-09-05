@@ -49,9 +49,11 @@ public class AzureACL extends ACL{
         }
 
         this.authenticatedUserReadPermission = authenticatedUserReadPermission;
-        this.authenticatedUserCreateJobPermission = authenticatedUserCreateJobPermission;
+//        this.authenticatedUserCreateJobPermission = authenticatedUserCreateJobPermission;
+        this.authenticatedUserCreateJobPermission = false;
         this.allowAnonymousReadPermission = allowAnonymousReadPermission;
-        this.allowAnonymousJobStatusPermission = allowAnonymousJobStatusPermission;
+//        this.allowAnonymousJobStatusPermission = allowAnonymousJobStatusPermission;
+        this.allowAnonymousJobStatusPermission = false;
         this.item = null;
     }
 

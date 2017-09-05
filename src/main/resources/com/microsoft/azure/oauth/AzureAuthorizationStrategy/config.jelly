@@ -14,17 +14,17 @@
             <f:checkbox />
         </f:entry>
 
-        <f:entry title="Grant CREATE Job permissions to all Authenticated Users" field="authenticatedUserCreateJobPermission" help="/plugin/github-oauth/help/auth/grant-create-job-to-authenticated-help.html">
-            <f:checkbox />
-        </f:entry>
+        <!--<f:entry title="Grant CREATE Job permissions to all Authenticated Users" field="authenticatedUserCreateJobPermission" help="/plugin/github-oauth/help/auth/grant-create-job-to-authenticated-help.html">-->
+            <!--<f:checkbox />-->
+        <!--</f:entry>-->
 
         <f:entry title="Grant READ permissions for Anonymous Users" field="allowAnonymousReadPermission" help="/plugin/github-oauth/help/auth/grant-read-to-anonymous-help.html">
             <f:checkbox />
         </f:entry>
 
-        <f:entry title="Grant ViewStatus permissions for Anonymous Users" field="allowAnonymousJobStatusPermission" help="/plugin/github-oauth/help/auth/grant-viewstatus-to-anonymous-help.html">
-            <f:checkbox />
-        </f:entry>
+        <!--<f:entry title="Grant ViewStatus permissions for Anonymous Users" field="allowAnonymousJobStatusPermission" help="/plugin/github-oauth/help/auth/grant-viewstatus-to-anonymous-help.html">-->
+            <!--<f:checkbox />-->
+        <!--</f:entry>-->
 
 
     </f:section>
