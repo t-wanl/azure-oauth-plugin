@@ -10,9 +10,9 @@ Implementation-Version: 1.0-SNAPSHOT
 Group-Id: com.microsoft.azure
 Short-Name: azure-oauth
 Long-Name: Azure OAuth Plugin
-Plugin-Version: 1.0-SNAPSHOT (private-95c821bd-albertxavier)
-Hudson-Version: 1.645
-Jenkins-Version: 1.645
+Plugin-Version: 1.0-SNAPSHOT (private-3fccabe2-albertxavier)
+Hudson-Version: 1.625.3
+Jenkins-Version: 1.625.3
 Plugin-Dependencies: credentials:2.1.7
 Plugin-Developers: Wanpeng Li:t-wanl:t-wanl@microsoft.com
 

@@ -280,6 +280,13 @@ public class AzureSecurityRealm extends SecurityRealm {
     protected String getPostLogOutUrl(StaplerRequest req, Authentication auth) {
         // if we just redirect to the root and anonymous does not have Overall read then we will start a login all over again.
         // we are actually anonymous here as the security context has been cleared
+
+        // invalidate
+        if (auth instanceof AzureAuthenticationToken) {
+            AzureAuthenticationToken azureToken = (AzureAuthenticationToken) auth;
+            azureToken.invalidate();
+            System.out.println("invalidate cache entry when sign out");
+        }
         Jenkins j = Jenkins.getInstance();
         assert j != null;
         if (j.hasPermission(Jenkins.READ)) {

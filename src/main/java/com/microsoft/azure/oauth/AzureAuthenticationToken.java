@@ -200,4 +200,9 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         });
     }
 
+    public void invalidate() {
+        String userId = azureUser.getObjectID();
+        groupsByUserId.invalidate(userId);
+    }
+
 }
