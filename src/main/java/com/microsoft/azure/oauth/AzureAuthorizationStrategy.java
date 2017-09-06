@@ -166,6 +166,7 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
 
             for (String admin : admins) {
                 admin = admin.trim();
+                if (admin.equals("")) continue;
                 response = AzureAdApi.getUserResponse(tenant, admin, accessToken);
                 statusCode = HttpHelper.getStatusCode(response);
                 content = HttpHelper.getContent(response);
@@ -179,6 +180,7 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
             String[] groups = groupNames.split(",");
             for (String group : groups) {
                 group = group.trim();
+                if (group.equals("")) continue;
                 response = AzureAdApi.getGroupResponse(tenant, group, accessToken);
                 statusCode = HttpHelper.getStatusCode(response);
                 content = HttpHelper.getContent(response);

@@ -4,24 +4,24 @@
   <version>1.0</version>
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
-  <useSecurity>false</useSecurity>
+  <useSecurity>true</useSecurity>
   <authorizationStrategy class="com.microsoft.azure.oauth.AzureAuthorizationStrategy" plugin="azure-oauth@1.0-SNAPSHOT">
     <rootACL>
       <adminUserNameList class="linked-list">
-        <string>5f6d4c09-e0f2-49f2-a981-52e5b3bfff8a</string>
+        <string>5fd2137e-89f0-4abc-99eb-ec1defc48cb7</string>
       </adminUserNameList>
       <groupNameList class="linked-list">
         <string></string>
       </groupNameList>
-      <authenticatedUserReadPermission>true</authenticatedUserReadPermission>
+      <authenticatedUserReadPermission>false</authenticatedUserReadPermission>
       <authenticatedUserCreateJobPermission>false</authenticatedUserCreateJobPermission>
       <allowAnonymousReadPermission>false</allowAnonymousReadPermission>
       <allowAnonymousJobStatusPermission>false</allowAnonymousJobStatusPermission>
     </rootACL>
   </authorizationStrategy>
   <securityRealm class="com.microsoft.azure.oauth.AzureSecurityRealm">
-    <clientid>76f3c0c8-37e3-4ead-8555-fb858b26abae</clientid>
-    <clientsecret>6H0yqLbhQto/8xu2tg9osxHj7uvpqyUnOfcaQTozrf0=</clientsecret>
+    <clientid>970bed2e-5a92-44ac-b36c-530b14a36d88</clientid>
+    <clientsecret>iYl5wQBHBK/qlYGjKlFZL9DbiRsovA1ZN7aW59Ny18c=</clientsecret>
     <tenant>cd236629-6aa9-4323-98a2-f51cddcc721d</tenant>
   </securityRealm>
   <disableRememberMe>false</disableRememberMe>

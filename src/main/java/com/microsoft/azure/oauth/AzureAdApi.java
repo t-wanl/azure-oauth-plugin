@@ -146,7 +146,7 @@ public class AzureAdApi {
     }
 
     private static HttpResponse getAadObjectResponse(String tenant, String id, String accessToken, String type) throws IOException {
-        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + "%s/%s/%s", tenant, type, OAuthEncoder.encode(id));
+        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + "%s/%s/%s?api-version=1.6", tenant, type, OAuthEncoder.encode(id));
         HttpResponse response = HttpHelper.sendGet(url, accessToken);
         return response;
     }
