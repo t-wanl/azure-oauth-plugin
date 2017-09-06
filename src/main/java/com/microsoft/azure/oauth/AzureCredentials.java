@@ -706,6 +706,7 @@ public class AzureCredentials extends BaseStandardCredentials {
         }
 
         public FormValidation doGenerateServicePrincipal(@QueryParameter final String subscriptions) throws ExecutionException, IOException, JSONException {
+            System.out.println("doGenerateServicePrincipal:");
             Jenkins jenkins = Jenkins.getInstance();
             if (jenkins == null) {
                 throw new RuntimeException("Jenkins is not started yet.");
@@ -720,7 +721,6 @@ public class AzureCredentials extends BaseStandardCredentials {
                 int end = subscriptions.lastIndexOf(')');
                 String subscriptionID = subscriptions.substring(beg, end);
                 subId = subscriptionID;
-                System.out.println("sub id = " + subId);
                 AzureApiToken token = AzureAuthenticationToken.getAppOnlyToken(clientId, clientSecret, tenant);
                 String appOnlyAccessToken = token.getToken();
                 // get service principal oid

@@ -159,6 +159,7 @@ public class AzureAuthorizationStrategy extends AuthorizationStrategy {
 
             JSONObject json = new JSONObject(content);
             String accessToken = json.getString("access_token");
+            System.out.println("Get app only token = \n" + accessToken);
 
             List<String> adminUserNameList = new LinkedList<String>();
             String[] admins = adminUserNames.split(",");

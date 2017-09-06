@@ -9,7 +9,6 @@
     <rootACL>
       <adminUserNameList class="linked-list">
         <string>5f6d4c09-e0f2-49f2-a981-52e5b3bfff8a</string>
-        <string>68af0cf0-93af-406c-8b0f-1011a68f0424</string>
       </adminUserNameList>
       <groupNameList class="linked-list">
         <string></string>
@@ -21,8 +20,8 @@
     </rootACL>
   </authorizationStrategy>
   <securityRealm class="com.microsoft.azure.oauth.AzureSecurityRealm">
-    <clientid>5978eb66-3c0d-4cf0-8370-dcdc4ff2d239</clientid>
-    <clientsecret>pTPfsMTXhsKGnV9q3lta1xJJbwV+FEBnZDFgvKdlZTU=</clientsecret>
+    <clientid>76f3c0c8-37e3-4ead-8555-fb858b26abae</clientid>
+    <clientsecret>6H0yqLbhQto/8xu2tg9osxHj7uvpqyUnOfcaQTozrf0=</clientsecret>
     <tenant>cd236629-6aa9-4323-98a2-f51cddcc721d</tenant>
   </securityRealm>
   <disableRememberMe>false</disableRememberMe>
