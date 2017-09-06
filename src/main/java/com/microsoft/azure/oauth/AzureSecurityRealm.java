@@ -199,6 +199,7 @@ public class AzureSecurityRealm extends SecurityRealm {
 
             User u = User.current();
             if (u != null) {
+                u.setDescription("Azure Active Directory User");
                 u.setFullName(auth.getName());
             }
 
