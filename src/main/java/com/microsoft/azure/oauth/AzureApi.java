@@ -153,7 +153,7 @@ public class AzureApi extends DefaultApi20 {
     }
 
 
-    public Token rereshToken(Token accessToken, String clientID, String clientSecret, String resource) {
+    public AzureApiToken rereshToken(Token accessToken, String clientID, String clientSecret, String resource) {
         OAuthRequest request = new OAuthRequest(Verb.POST,Constants.DEFAULT_AUTHENTICATION_ENDPOINT + "common/oauth2/token");
         request.addBodyParameter("grant_type", "refresh_token");
         request.addBodyParameter("refresh_token", accessToken.getSecret()); // were accessToken is the Token object you want to refresh.
@@ -161,8 +161,13 @@ public class AzureApi extends DefaultApi20 {
         request.addBodyParameter("client_secret", clientSecret);
         request.addBodyParameter("resource", resource);
         Response response = request.send();
-        return getAccessTokenExtractor().extract(response.getBody());
+        return (AzureApiToken) getAccessTokenExtractor().extract(response.getBody());
 
+    }
+
+
+    public AzureApiToken getAccessTokenByRefreshToken(Token refreshToken, String clientID, String clientSecret, String resource) {
+        return rereshToken(refreshToken, clientID, clientSecret, resource);
     }
 
     @Override

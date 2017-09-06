@@ -14,7 +14,6 @@ import com.microsoft.azure.credentials.ApplicationTokenCredentials;
 import com.microsoft.azure.management.Azure;
 import com.microsoft.azure.management.resources.Subscription;
 import hudson.Extension;
-import hudson.cli.CLI;
 import hudson.security.ACL;
 import hudson.security.SecurityRealm;
 import hudson.util.FormValidation;
@@ -37,9 +36,6 @@ import java.util.concurrent.ExecutionException;
  * Generated localization support class.
  *
  */
-
-import org.jvnet.localizer.Localizable;
-import org.jvnet.localizer.ResourceBundleHolder;
 
 @SuppressWarnings({
         "",
@@ -734,7 +730,7 @@ public class AzureCredentials extends BaseStandardCredentials {
                 if (!(auth instanceof AzureAuthenticationToken))
                     return FormValidation.error("Unauthentication");
                 AzureAuthenticationToken azureAuth = (AzureAuthenticationToken) auth;
-                String userToken = azureAuth.getAzureApiToken().getToken();
+                String userToken = azureAuth.getAzureRmToken().getToken();
 
                 // get role id
                 AzureResponse roleResponse = AzureAdApi.getAzureRbacRoleId(subId, userToken);
@@ -760,7 +756,7 @@ public class AzureCredentials extends BaseStandardCredentials {
             if (!(auth instanceof AzureAuthenticationToken))
                 return null;
             AzureAuthenticationToken azureAuth = (AzureAuthenticationToken) auth;
-            String userToken = azureAuth.getAzureApiToken().getToken();
+            String userToken = azureAuth.getAzureRmToken().getToken();
 
             AzureResponse response = AzureAdApi.getSubscriptions(userToken);
             if (!response.isSuccess()) {

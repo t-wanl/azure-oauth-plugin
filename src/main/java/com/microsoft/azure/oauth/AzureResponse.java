@@ -11,12 +11,14 @@ import java.util.*;
 /**
  * Created by t-wanl on 9/1/2017.
  */
-class AzureResponse {
+public class AzureResponse {
     private int statusCode;
     private int successCode;
     private String responseContent;
 
-    public AzureResponse(int statusCode, int successCode, String responseContent) {
+    public AzureResponse(HttpResponse response, int successCode) throws IOException {
+        String responseContent = HttpHelper.getContent(response);
+        int statusCode = HttpHelper.getStatusCode(response);
         this.statusCode = statusCode;
         this.successCode = successCode;
         this.responseContent = responseContent;
@@ -40,7 +42,7 @@ class AzureResponse {
     }
 
     public String getServicePrincipal() throws JSONException {
-        if (statusCode != 200) return null;
+        if (!isSuccess()) return null;
         JSONObject json = new JSONObject(responseContent);
         Object sp = json.get("value");
         if (sp instanceof String) {
@@ -53,6 +55,7 @@ class AzureResponse {
     }
 
     public String getRoleId() throws JSONException {
+        if (!isSuccess()) return null;
         JSONObject json = new JSONObject(responseContent);
         JSONArray roleList = json.getJSONArray("value");
         //get Contributer id
@@ -66,6 +69,7 @@ class AzureResponse {
     }
 
     public Map<String, String> getSubscriptions() throws JSONException {
+        if (!isSuccess()) return null;
         JSONObject json = new JSONObject(responseContent);
         JSONArray subcriptionsList = json.getJSONArray("value");
         Map<String, String> subscriptions = new HashMap<String, String>();
@@ -75,5 +79,20 @@ class AzureResponse {
             subscriptions.put(id, name);
         }
         return subscriptions;
+    }
+
+    public Set<String> getGroupsByUserId() throws JSONException {
+        if (!isSuccess()) return null;
+        JSONObject json = new JSONObject(responseContent);
+        JSONArray groups = json.getJSONArray("value");
+
+        Set<String> groupId = new HashSet<String>();
+        for (int i = 0; i < groups.length(); i++) {
+            String aadGroupId = groups.getString(i);
+            groupId.add(aadGroupId);
+        }
+        Utils.TimeUtil.setEndDate();
+        System.out.println("time for getGroupsByUserId = " + Utils.TimeUtil.getTimeDifference() + " ms");
+        return groupId;
     }
 }

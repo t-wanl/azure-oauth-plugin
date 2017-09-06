@@ -41,8 +41,9 @@ public class AzureUser implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.uniqueName;
+//        return this.uniqueName;
 //        return
+        return this.givenName + " " + this.familyName;
     }
 
     @Override

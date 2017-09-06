@@ -3,16 +3,12 @@ package com.microsoft.azure.oauth;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import hudson.util.FormValidation;
 import org.acegisecurity.GrantedAuthority;
 import org.acegisecurity.providers.AbstractAuthenticationToken;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.scribe.model.Token;
-import com.microsoft.azure.oauth.AzureUser.AzureUserResponce;
 import org.scribe.utils.OAuthEncoder;
 
 import java.io.IOException;
@@ -36,7 +32,8 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 
     private String clientID;
     private String clientSecret;
-    private AzureApiToken azureApiToken;
+    private AzureApiToken azureRmToken;
+    private AzureApiToken azureAdToken;
     private AzureUser azureUser;
     public static final String APP_ONLY_TOKEN_KEY = "APP_ONLY_TOKEN_KEY";
     public static final TimeUnit CACHE_EXPIRY = TimeUnit.HOURS;
@@ -51,15 +48,19 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 //    private static final Cache<String, AzureApiToken> userToken =
 //            CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
 
-    public AzureAuthenticationToken(AzureApiToken azureApiToken, String clientID, String clientSecret) {
+    public AzureAuthenticationToken(AzureApiToken azureRmToken, String clientID, String clientSecret) {
         // extract user
         Gson gson = new Gson();
-        String userInfo = azureApiToken.getUserInfo();
+        String userInfo = azureRmToken.getUserInfo();
         this.azureUser = gson.fromJson(userInfo, AzureUser.class);
 
         // store token
-        this.azureApiToken = azureApiToken;
-//        userToken.put(this.azureUser.getObjectID(), azureApiToken);
+        this.azureRmToken = azureRmToken;
+//        userToken.put(this.azureUser.getObjectID(), azureRmToken);
+
+
+        // get aad token by rm reshresh token
+//        this.azureAdToken = getAzureAdToken();
 
         this.clientID = clientID;
         this.clientSecret = clientSecret;
@@ -81,9 +82,9 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     }
 
     /**
-     * @return the azureApiToken
+     * @return the azureRmToken
      */
-//    public static Token getAzureApiToken(String userID) throws ExecutionException {
+//    public static Token getAzureRmToken(String userID) throws ExecutionException {
 //        return userToken.get(userID, new Callable<AzureApiToken>() {
 //            @Override
 //            public AzureApiToken call() throws Exception {
@@ -94,14 +95,26 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 //    }
 
 
-    public AzureApiToken getAzureApiToken() {
-        if (azureApiToken != null && azureApiToken.getExpiry().after(new Date()))
-            return azureApiToken;
+    public AzureApiToken getAzureRmToken() {
+        if (azureRmToken != null && azureRmToken.getExpiry().after(new Date()))
+            return azureRmToken;
         else { // refresh token
             System.out.println("refresh user token");
             AzureApi api = new AzureApi();
-            AzureApiToken newToken = (AzureApiToken) api.rereshToken(azureApiToken, clientID, clientSecret, Constants.DEFAULT_RESOURCE);
-            this.azureApiToken = newToken;
+            AzureApiToken newToken = (AzureApiToken) api.rereshToken(azureRmToken, clientID, clientSecret, Constants.DEFAULT_RESOURCE);
+            this.azureRmToken = newToken;
+            return newToken;
+        }
+    }
+
+    public AzureApiToken getAzureAdToken() {
+        if (azureAdToken != null && azureAdToken.getExpiry().after(new Date()))
+            return azureAdToken;
+        else { // refresh token
+            System.out.println("refresh user token");
+            AzureApi api = new AzureApi();
+            AzureApiToken newToken = api.getAccessTokenByRefreshToken(this.getAzureRmToken(), clientID, clientSecret, Constants.DEFAULT_GRAPH_ENDPOINT);
+            this.azureAdToken = newToken;
             return newToken;
         }
     }
@@ -163,7 +176,8 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 
     @Override
     public Object getPrincipal() {
-        return getName();
+//        return getName();
+        return azureUser.getObjectID();
     }
 
     @Override
@@ -181,7 +195,7 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         return groupsByUserId.get(userId, new Callable<Set<String>>() {
             @Override
             public Set<String> call() throws Exception {
-//                String accessToken = azureApiToken.getToken();
+//                String accessToken = azureRmToken.getToken();
                 String tenant = azureUser.getTenantID();
                 String userId = azureUser.getObjectID();
                 HttpResponse accessTokenResponce = AzureAdApi.getAppOnlyAccessTokenResponce(clientID, clientSecret, tenant);
@@ -195,7 +209,8 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
                 String accessToken = json.getString("access_token");
 
                 System.out.println("Get member group via azure ad api");
-                return AzureAdApi.getGroupsByUserId(accessToken, tenant, userId);
+                AzureResponse response = AzureAdApi.getGroupsByUserId(accessToken, tenant, userId);
+                return response.getGroupsByUserId();
             }
         });
     }

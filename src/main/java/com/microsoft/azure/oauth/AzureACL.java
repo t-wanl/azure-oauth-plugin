@@ -99,7 +99,7 @@ public class AzureACL extends ACL{
                 }
 
 //                try {
-//                    String token = ((AzureAuthenticationToken) a).getAzureApiToken().getToken();
+//                    String token = ((AzureAuthenticationToken) a).getAzureRmToken().getToken();
 //                    String tenant = ((AzureAuthenticationToken) a).getAzureUser().getTenantID();
 //                    Set<String> allGroupsID = null;
 //
@@ -209,7 +209,7 @@ public class AzureACL extends ACL{
     public boolean isInGroup(Authentication a) throws IOException, JSONException {
         if (a instanceof AzureAuthenticationToken) {
             String oid = ((AzureAuthenticationToken) a).getAzureUser().getObjectID();
-            String accessToken = ((AzureAuthenticationToken) a).getAzureApiToken().getToken();
+            String accessToken = ((AzureAuthenticationToken) a).getAzureRmToken().getToken();
             String tenent = ((AzureAuthenticationToken) a).getAzureUser().getTenantID();
 
             Queue<String> queue = new LinkedList<String>();

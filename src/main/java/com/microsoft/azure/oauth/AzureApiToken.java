@@ -26,6 +26,7 @@ public class AzureApiToken extends Token {
         setUserInfo(rawResponse);
     }
 
+
     private void setUserInfoByIdToken(String idToken) throws JSONException {
             String parts[] = idToken.split("\\.");
             userInfo = base64UrlDecode(parts[1]);

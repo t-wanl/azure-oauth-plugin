@@ -26,29 +26,29 @@ package com.michelin.cio.hudson.plugins.rolestrategy;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.google.common.collect.MapMaker;
+//import com.microsoft.azure.AzureResponseBuilder;
+import com.microsoft.azure.oauth.AzureAdApi;
+import com.microsoft.azure.oauth.AzureResponse;
+import com.microsoft.azure.oauth.AzureAuthenticationToken;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.Macro;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.RoleMacroExtension;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.RoleType;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import hudson.PluginManager;
 import hudson.model.User;
 import hudson.security.AccessControlled;
 import hudson.security.Permission;
 import hudson.security.SidACL;
 
-import java.util.Arrays;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,16 +56,14 @@ import java.util.regex.Matcher;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import jenkins.model.Jenkins;
+import org.acegisecurity.Authentication;
 import org.acegisecurity.BadCredentialsException;
 import org.acegisecurity.GrantedAuthority;
 import org.acegisecurity.acls.sid.Sid;
 import org.acegisecurity.userdetails.UserDetails;
-import org.apache.commons.lang.StringUtils;
 import org.jenkinsci.plugins.rolestrategy.Settings;
-import org.jenkinsci.plugins.rolestrategy.permissions.DangerousPermissionHandlingMode;
 import org.jenkinsci.plugins.rolestrategy.permissions.DangerousPermissionHelper;
-import org.kohsuke.accmod.Restricted;
-import org.kohsuke.accmod.restrictions.NoExternalUse;
+import org.json.JSONException;
 import org.springframework.dao.DataAccessException;
 
 /**
@@ -99,57 +97,86 @@ public class RoleMap {
    * Check if the given sid has the provided {@link Permission}.
    * @return True if the sid's granted permission
    */
-  private boolean hasPermission(String sid, Permission p, RoleType roleType, AccessControlled controlledItem) {
-    System.out.println("Role Map has Permission: " + " Sid = " + sid + " Permission = " + p + " RoleType = " + roleType + " ControlledItem = " + controlledItem);
+  private boolean hasPermission(String sid, Permission p, RoleType roleType, AccessControlled controlledItem) throws IOException, JSONException {
+      // generate set of parent of sid and sid itself
+      Set<String> set = null;
+      Authentication auth = Jenkins.getAuthentication();
+      if (auth instanceof AzureAuthenticationToken) {
+          String accessToken = ((AzureAuthenticationToken) auth).getAzureRmToken().getToken();
+          String tenant = ((AzureAuthenticationToken) auth).getAzureUser().getTenantID();
+          String userId = ((AzureAuthenticationToken) auth).getAzureUser().getObjectID();
+          System.out.println("user ID = " + userId);
+          AzureResponse response = AzureAdApi.getGroupsByUserId(accessToken, tenant, userId);
+          set = response.getGroupsByUserId();
+          // check one by one
+          for (String ele : set) {
+              boolean hasPermission = checkPermission(ele, p, roleType, controlledItem);
+              if (hasPermission) return true;
+          }
+          return false;
+      } else {
+          return checkPermission(sid, p, roleType, controlledItem);
+      }
 
-      if (DangerousPermissionHelper.isDangerous(p)) {
+
+
+  }
+
+
+    private boolean checkPermission(String sid, Permission p, RoleType roleType, AccessControlled controlledItem) {
+        System.out.println("Role Map has Permission: " + " Sid = " + sid + " Permission = " + p + " RoleType = " + roleType + " ControlledItem = " + controlledItem);
+
+
+        if (DangerousPermissionHelper.isDangerous(p)) {
       /* if this is a dangerous permission, fall back to Administer unless we're in compat mode */
-      p = Jenkins.ADMINISTER;
-    }
-
-    for(Role role : getRolesHavingPermission(p)) {
-        
-        if(this.grantedRoles.get(role).contains(sid)) {
-            // Handle roles macro
-            if (/*Macro.isMacro(role)*/false) {
-                Macro macro = RoleMacroExtension.getMacro(role.getName());
-                if (macro != null) {
-                    RoleMacroExtension macroExtension = RoleMacroExtension.getMacroExtension(macro.getName());
-                    if (macroExtension.IsApplicable(roleType) && macroExtension.hasPermission(sid, p, roleType, controlledItem, macro)) {
-                        return true;
-                    }
-                }
-            } // Default handling
-            else {
-                return true;
-            }
-        } else if (Settings.TREAT_USER_AUTHORITIES_AS_ROLES) {
-            try {
-                UserDetails userDetails = cache.getIfPresent(sid);
-                if (userDetails == null) {
-                    userDetails = Jenkins.getActiveInstance().getSecurityRealm().loadUserByUsername(sid);
-                    cache.put(sid, userDetails);
-                }
-                for (GrantedAuthority grantedAuthority : userDetails.getAuthorities()) {
-                    if (grantedAuthority.getAuthority().equals(role.getName())) {
-                        return true;
-                    }
-                }
-            } catch (BadCredentialsException e) {
-                LOGGER.log(Level.FINE, "Bad credentials", e);
-            } catch (DataAccessException e) {
-                LOGGER.log(Level.FINE, "failed to access the data", e);
-            } catch (RuntimeException ex) {
-                // There maybe issues in the logic, which lead to IllegalStateException in Acegi Security (JENKINS-35652)
-                // So we want to ensure this method does not fail horribly in such case
-                LOGGER.log(Level.WARNING, "Unhandled exception during user authorities processing", ex);
-            }
+            System.out.println("dangerous permissions = " + p);
+            p = Jenkins.ADMINISTER;
         }
 
-        // TODO: Handle users macro
+        for(Role role : getRolesHavingPermission(p)) {
+
+            if(this.grantedRoles.get(role).contains(sid)) {
+                // Handle roles macro
+                if (/*Macro.isMacro(role)*/false) {
+                    Macro macro = RoleMacroExtension.getMacro(role.getName());
+                    if (macro != null) {
+                        RoleMacroExtension macroExtension = RoleMacroExtension.getMacroExtension(macro.getName());
+                        if (macroExtension.IsApplicable(roleType) && macroExtension.hasPermission(sid, p, roleType, controlledItem, macro)) {
+                            return true;
+                        }
+                    }
+                } // Default handling
+                else {
+                    return true;
+                }
+            } else if (Settings.TREAT_USER_AUTHORITIES_AS_ROLES) {
+                try {
+                    UserDetails userDetails = cache.getIfPresent(sid);
+                    if (userDetails == null) {
+                        userDetails = Jenkins.getActiveInstance().getSecurityRealm().loadUserByUsername(sid);
+                        cache.put(sid, userDetails);
+                    }
+                    for (GrantedAuthority grantedAuthority : userDetails.getAuthorities()) {
+                        if (grantedAuthority.getAuthority().equals(role.getName())) {
+                            return true;
+                        }
+                    }
+                } catch (BadCredentialsException e) {
+                    LOGGER.log(Level.FINE, "Bad credentials", e);
+                } catch (DataAccessException e) {
+                    LOGGER.log(Level.FINE, "failed to access the data", e);
+                } catch (RuntimeException ex) {
+                    // There maybe issues in the logic, which lead to IllegalStateException in Acegi Security (JENKINS-35652)
+                    // So we want to ensure this method does not fail horribly in such case
+                    LOGGER.log(Level.WARNING, "Unhandled exception during user authorities processing", ex);
+                }
+            }
+
+            // TODO: Handle users macro
+        }
+        return false;
     }
-    return false;
-  }
+
 
   /**
    * Check if the {@link RoleMap} contains the given {@link Role}.
@@ -422,10 +449,16 @@ public class RoleMap {
     @Override
     @CheckForNull
     protected Boolean hasPermission(Sid p, Permission permission) {
-      if (RoleMap.this.hasPermission(toString(p), permission, roleType, item)) {
-        return true;
-      }
-      return null;
+        try {
+            if (RoleMap.this.hasPermission(toString(p), permission, roleType, item)) {
+              return true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
   }
 

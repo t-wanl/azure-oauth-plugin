@@ -39,24 +39,35 @@
           <permission>hudson.model.Computer.Disconnect</permission>
           <permission>hudson.model.Run.Update</permission>
         </permissions>
-        <assignedSIDs>
-          <sid>anonymous</sid>
-        </assignedSIDs>
+        <assignedSIDs/>
       </role>
-      <role name="role1" pattern=".*">
+      <role name="anonymous" pattern=".*">
         <permissions>
           <permission>hudson.model.Hudson.Read</permission>
         </permissions>
         <assignedSIDs>
-          <sid>azure</sid>
+          <sid>anonymous</sid>
+        </assignedSIDs>
+      </role>
+      <role name="reader" pattern=".*">
+        <permissions>
+          <permission>hudson.model.Hudson.Read</permission>
+          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update</permission>
+          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View</permission>
+          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create</permission>
+          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete</permission>
+          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains</permission>
+        </permissions>
+        <assignedSIDs>
+          <sid>5f6d4c09-e0f2-49f2-a981-52e5b3bfff8a</sid>
         </assignedSIDs>
       </role>
     </roleMap>
     <roleMap type="slaveRoles"/>
   </authorizationStrategy>
   <securityRealm class="com.microsoft.azure.oauth.AzureSecurityRealm">
-    <clientid>970bed2e-5a92-44ac-b36c-530b14a36d88</clientid>
-    <clientsecret>NTqA8B1US2F1AACPERckwKYVNLgBmtunWWAdOEOs/Fg=</clientsecret>
+    <clientid>3e439767-7719-4a69-82c4-8bd00eb7bba5</clientid>
+    <clientsecret>vqw6dysqyd1RXe7N37F+WRaT7ndoY0qsZuFtJMtW60M=</clientsecret>
     <tenant>cd236629-6aa9-4323-98a2-f51cddcc721d</tenant>
   </securityRealm>
   <disableRememberMe>false</disableRememberMe>
