@@ -198,6 +198,8 @@
             <plugin>
                 <groupId>org.jenkins-ci.tools</groupId>
                 <artifactId>maven-hpi-plugin</artifactId>
+                <configuration>
+                </configuration>
             </plugin>
             <!--<plugin>-->
                 <!--<groupId>org.apache.maven.plugins</groupId>-->
@@ -214,6 +216,9 @@
                     <!--<parallel>methods</parallel>-->
                 <!--</configuration>-->
             <!--</plugin>-->
+
+
+
 
         </plugins>
     </build>

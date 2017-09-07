@@ -45,7 +45,7 @@ import org.scribe.model.Token;
 import org.scribe.model.Verifier;
 import org.scribe.oauth.OAuthService;
 import org.springframework.dao.DataAccessException;
-import sun.misc.Cache;
+//import sun.misc.Cache;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -94,12 +94,13 @@ public class AzureSecurityRealm extends SecurityRealm {
         this.tenant = tenant;
     }
 
-    private OAuthService getService() {
+    private OAuthService getService(String resource) {
+        if (resource == null) resource = Constants.DEFAULT_RESOURCE;
         AzureApi api = new AzureApi();
         api.setTenant(this.getTenant());
         OAuthConfig config = new OAuthConfig(clientid, clientsecret, getCallback(), null, null, null);
         OAuthService service = new ServiceBuilder().provider(AzureApi.class)
-                .apiKey(clientid).apiSecret(clientsecret).callback(getCallback())
+                .apiKey(clientid).apiSecret(clientsecret).callback(getCallback()).scope(resource)
                 .build();
 
         return service;
@@ -151,7 +152,7 @@ public class AzureSecurityRealm extends SecurityRealm {
 //        request.getSession().setAttribute(ACCESS_TOKEN_ATTRIBUTE, requestToken);
 //
 //        return new HttpRedirect(service.getAuthorizationUrl(requestToken));
-        OAuthService service = getService();
+        OAuthService service = getService(Constants.DEFAULT_RESOURCE);
         Utils.TimeUtil.setBeginDate();
         return new HttpRedirect(service.getAuthorizationUrl(EMPTY_TOKEN));
     }
@@ -160,6 +161,7 @@ public class AzureSecurityRealm extends SecurityRealm {
         Utils.TimeUtil.setEndDate();
         System.out.println("Requesting oauth code time = " + Utils.TimeUtil.getTimeDifference() + " ms");
         String code = request.getParameter("code");
+//        int tokenType = Integer.parseInt(request.getParameter("state"));
 
         if (StringUtils.isBlank(code)) {
             LOGGER.log(Level.SEVERE, "doFinishLogin() code = null");
@@ -177,7 +179,7 @@ public class AzureSecurityRealm extends SecurityRealm {
 //        Token requestToken = (Token) request.getSession().getAttribute(ACCESS_TOKEN_ATTRIBUTE);
         Verifier v = new Verifier(code);
 
-        OAuthService service = getService();
+        OAuthService service = getService(Constants.DEFAULT_RESOURCE);
 
         Utils.TimeUtil.setBeginDate();
         Token accessToken = null;
@@ -190,7 +192,11 @@ public class AzureSecurityRealm extends SecurityRealm {
             AzureAuthenticationToken auth = null;
             if (accessToken instanceof AzureApiToken) {
                 AzureApiToken azureApiToken = (AzureApiToken)accessToken;
-                auth = new AzureAuthenticationToken(azureApiToken, clientid, clientsecret);
+                auth = new AzureAuthenticationToken(azureApiToken, clientid, clientsecret, 0);
+//                if (tokenType == 0) {
+//                    OAuthService service1 = getService(Constants.DEFAULT_GRAPH_ENDPOINT);
+//                    HttpHelper.sendGet(service1.getAuthorizationUrl(EMPTY_TOKEN), null);
+//                }
             }
             else
                 return HttpResponses.redirectToContextRoot(); // TODO: redirect to token fail page
@@ -198,8 +204,10 @@ public class AzureSecurityRealm extends SecurityRealm {
             SecurityContextHolder.getContext().setAuthentication(auth);
 
             User u = User.current();
+
             if (u != null) {
-                u.setDescription("Azure Active Directory User");
+                String description = generateDescription(auth);
+                u.setDescription(description);
                 u.setFullName(auth.getName());
             }
 
@@ -285,7 +293,8 @@ public class AzureSecurityRealm extends SecurityRealm {
         // invalidate
         if (auth instanceof AzureAuthenticationToken) {
             AzureAuthenticationToken azureToken = (AzureAuthenticationToken) auth;
-            azureToken.invalidate();
+            String upn = azureToken.getAzureUser().getUniqueName();
+            AzureCachePool.invalidate(upn);
             System.out.println("invalidate cache entry when sign out");
         }
         Jenkins j = Jenkins.getInstance();
@@ -487,10 +496,25 @@ public class AzureSecurityRealm extends SecurityRealm {
 
 //            if(content == null) {
 //                JSONObject errJson = new JSONObject(content);
-//                return FormValidation.error(errJson.getString("error_description"));
+//                return FormValidation.error(errJson.toStr("error_description"));
 //            }
             return FormValidation.ok("Successfully verified");
         }
+    }
+
+    private String generateDescription(Authentication auth) {
+        if (auth instanceof AzureAuthenticationToken) {
+            AzureUser user = ((AzureAuthenticationToken) auth).getAzureUser();
+            StringBuffer description  = new StringBuffer("Azure Active Directory User\n\n");
+            description.append("Given            Name:  " + user.getGivenName() + "\n");
+            description.append("Family           Name:  " + user.getFamilyName() + "\n");
+            description.append("Unique Principal Name:  " + user.getUniqueName() + "\n");
+            description.append("Object             ID:  " + user.getObjectID() + "\n");
+            description.append("Tenant             ID:  " + user.getTenantID() + "\n");
+
+        }
+
+        return "";
     }
 
 }

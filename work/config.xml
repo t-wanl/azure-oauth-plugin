@@ -39,28 +39,26 @@
           <permission>hudson.model.Computer.Disconnect</permission>
           <permission>hudson.model.Run.Update</permission>
         </permissions>
-        <assignedSIDs/>
-      </role>
-      <role name="anonymous" pattern=".*">
-        <permissions>
-          <permission>hudson.model.Hudson.Read</permission>
-        </permissions>
         <assignedSIDs>
-          <sid>anonymous</sid>
+          <sid>t-wanl@microsoft.com</sid>
         </assignedSIDs>
       </role>
       <role name="reader" pattern=".*">
         <permissions>
           <permission>hudson.model.Hudson.Read</permission>
-          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update</permission>
-          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View</permission>
-          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create</permission>
-          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete</permission>
-          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains</permission>
         </permissions>
         <assignedSIDs>
-          <sid>5f6d4c09-e0f2-49f2-a981-52e5b3bfff8a</sid>
+          <sid>lwpgp (ecdff4f1-ab92-442d-a169-7489e7f0bbd2)</sid>
+          <sid>AnFs</sid>
+          <sid>anonymous</sid>
         </assignedSIDs>
+      </role>
+      <role name="reader + credential viewer" pattern=".*">
+        <permissions>
+          <permission>hudson.model.Hudson.Read</permission>
+          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View</permission>
+        </permissions>
+        <assignedSIDs/>
       </role>
     </roleMap>
     <roleMap type="slaveRoles"/>

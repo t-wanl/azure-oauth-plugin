@@ -27,17 +27,13 @@ package com.michelin.cio.hudson.plugins.rolestrategy;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 //import com.microsoft.azure.AzureResponseBuilder;
-import com.microsoft.azure.oauth.AzureAdApi;
-import com.microsoft.azure.oauth.AzureResponse;
-import com.microsoft.azure.oauth.AzureAuthenticationToken;
+import com.microsoft.azure.oauth.*;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.Macro;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.RoleMacroExtension;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.RoleType;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import hudson.model.User;
-import hudson.security.AccessControlled;
-import hudson.security.Permission;
-import hudson.security.SidACL;
+import hudson.security.*;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -49,6 +45,7 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -97,19 +94,32 @@ public class RoleMap {
    * Check if the given sid has the provided {@link Permission}.
    * @return True if the sid's granted permission
    */
-  private boolean hasPermission(String sid, Permission p, RoleType roleType, AccessControlled controlledItem) throws IOException, JSONException {
+  private boolean hasPermission(final String sid, Permission p, RoleType roleType, AccessControlled controlledItem) throws IOException, JSONException, ExecutionException {
+      // built-in user
+//      if (sid.equals(SidACL.ANONYMOUS_USERNAME) || sid.equals(SidACL.SYSTEM_USERNAME) || sid.equals("role_everyone"))
+//          return checkPermission(sid, p, roleType, controlledItem);
+
       // generate set of parent of sid and sid itself
-      Set<String> set = null;
       Authentication auth = Jenkins.getAuthentication();
-      if (auth instanceof AzureAuthenticationToken) {
-          String accessToken = ((AzureAuthenticationToken) auth).getAzureRmToken().getToken();
-          String tenant = ((AzureAuthenticationToken) auth).getAzureUser().getTenantID();
-          String userId = ((AzureAuthenticationToken) auth).getAzureUser().getObjectID();
-          System.out.println("user ID = " + userId);
-          AzureResponse response = AzureAdApi.getGroupsByUserId(accessToken, tenant, userId);
-          set = response.getGroupsByUserId();
+      Jenkins jenkins = Jenkins.getInstance();
+      if (jenkins == null) {
+          throw new RuntimeException("Jenkins is not started yet.");
+      }
+      SecurityRealm realm = jenkins.getSecurityRealm();
+
+      if (auth instanceof AzureAuthenticationToken && realm instanceof AzureSecurityRealm) {
+          String accessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
+          if (accessToken == null) return false;
+//          AzureResponse response = AzureAdApi.getGroupsByUserId(accessToken);
+          String upn = ((AzureAuthenticationToken) auth).getAzureUser().getUniqueName();
+          Set<String> set = AzureCachePool.getGroupsByUPN(upn);
+
+          // plus user himself/herself
+          set.add(((AzureAuthenticationToken) auth).getAzureUser().getUniqueName());
+
           // check one by one
           for (String ele : set) {
+              if (ele == null || ele.equals("")) continue;
               boolean hasPermission = checkPermission(ele, p, roleType, controlledItem);
               if (hasPermission) return true;
           }
@@ -122,8 +132,32 @@ public class RoleMap {
 
   }
 
+    private Set<String> getGroupsUniqueId(Set<String> groups) {
+      Set<String> updated = new HashSet<>();
+      for(String sid: groups) {
+          // built-in user types
+          if (sid.equals(SidACL.ANONYMOUS_USERNAME) || sid.equals(SidACL.SYSTEM_USERNAME) || sid.equals("role_everyone")) {
+              updated.add(sid);
+          // user upn or group display name + oid
+          } else {
+              int left = sid.lastIndexOf('(') + 1;
+              int right = sid.lastIndexOf(')');
+              // on GUID, treat as upn
+              if (left == -1 || right == -1 || right - left <= 1) {
+                  updated.add(sid);
+              // extract GUID
+              } else {
+                  String uuid = sid.substring(left, right);
+                  if (!Utils.UUIDUtil.isValidUuid(uuid)) continue;
+                  updated.add(uuid);
+                  // TODO: what if the uuid is wrong, need to throw exception?
+              }
+          }
+      }
+      return updated;
+    }
 
-    private boolean checkPermission(String sid, Permission p, RoleType roleType, AccessControlled controlledItem) {
+    private boolean checkPermission(final String sid, Permission p, RoleType roleType, AccessControlled controlledItem) {
         System.out.println("Role Map has Permission: " + " Sid = " + sid + " Permission = " + p + " RoleType = " + roleType + " ControlledItem = " + controlledItem);
 
 
@@ -133,9 +167,14 @@ public class RoleMap {
             p = Jenkins.ADMINISTER;
         }
 
+
+
+
         for(Role role : getRolesHavingPermission(p)) {
 
-            if(this.grantedRoles.get(role).contains(sid)) {
+            Set<String> groups = this.grantedRoles.get(role);
+            Set<String> uniqueIdSet = getGroupsUniqueId(groups);
+            if(uniqueIdSet.contains(sid)) {
                 // Handle roles macro
                 if (/*Macro.isMacro(role)*/false) {
                     Macro macro = RoleMacroExtension.getMacro(role.getName());
@@ -450,12 +489,15 @@ public class RoleMap {
     @CheckForNull
     protected Boolean hasPermission(Sid p, Permission permission) {
         try {
+//            System.out.println("Sid = " + p);
             if (RoleMap.this.hasPermission(toString(p), permission, roleType, item)) {
               return true;
             }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
             e.printStackTrace();
         }
         return null;

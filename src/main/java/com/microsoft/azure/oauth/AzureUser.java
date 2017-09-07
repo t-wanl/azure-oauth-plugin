@@ -19,11 +19,13 @@ public class AzureUser implements UserDetails {
     @SerializedName("family_name")
     public String familyName;
     @SerializedName("unique_name")
-    public String uniqueName;
+    public String uniqueName; // real unique principal name
     @SerializedName("tid")
     public String tenantID;
     @SerializedName("oid")
     public String objectID;
+    @SerializedName("upn")
+    public String UderPrincipleName;
 
     public AzureUser() {
         super();
@@ -41,9 +43,7 @@ public class AzureUser implements UserDetails {
 
     @Override
     public String getUsername() {
-//        return this.uniqueName;
-//        return
-        return this.givenName + " " + this.familyName;
+        return this.userName;
     }
 
     @Override
@@ -73,4 +73,21 @@ public class AzureUser implements UserDetails {
     public String getObjectID() {
         return objectID;
     }
+
+    public String getUniqueName() {
+        return uniqueName;
+    }
+
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public String getGivenName() {
+        return givenName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
 }
+

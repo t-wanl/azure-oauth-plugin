@@ -16,8 +16,8 @@
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/org/jenkinsci/plugins/rolestrategy/permissions/DangerousPermissionAdministrativeMonitor.java
 /Users/albertxavier/workspace/azure-oauth-plugin/target/generated-sources/localizer/com/microsoft/azure/oauth/Messages.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/synopsys/arc/jenkins/plugins/rolestrategy/IMacroExtension.java
+/Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureCachePool.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/org/jenkinsci/plugins/rolestrategy/Settings.java
-/Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureACL.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureAdApi.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureUser.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/Utils.java

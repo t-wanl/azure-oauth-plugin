@@ -29,8 +29,10 @@ public class HttpHelper {
         HttpClient client = new DefaultHttpClient();
         HttpGet request = new HttpGet(url);
 
-        Map<String, String> headers = generateHeaders(request, accessToken, null);
-        request = (HttpGet) addHeaders(request, headers);
+        if (accessToken != null) {
+            Map<String, String> headers = generateHeaders(request, accessToken, null);
+            request = (HttpGet) addHeaders(request, headers);
+        }
         HttpResponse response = client.execute(request);
         return response;
     }
@@ -69,9 +71,9 @@ public class HttpHelper {
     private static Map<String, String> generateHeaders(HttpRequestBase request, String accessToken, ContentType contentType) {
         Map<String, String> headers = new HashMap<String, String>();
         if (request instanceof HttpGet) {
-            headers.put("api-version", "1.6");
+//            headers.put("api-version", "v1.0");
             if (accessToken != null) headers.put("Authorization", "Bearer " + accessToken);
-            headers.put("Accept", "application/json;odata=minimalmetadata");
+            headers.put("Accept", "application/json");
         } else if (request instanceof HttpPost) {
             String contentTypeStr = null;
             String charSetStr = null;
@@ -84,11 +86,11 @@ public class HttpHelper {
             }
             if (accessToken != null) {
                 headers.put("Authorization", "Bearer " + accessToken);
-                headers.put("api-version", "beta");
+//                headers.put("api-version", "v1.0");
                 headers.put("Accept", "application/json, text/plain, */*");
                 headers.put("Content-Type", contentTypeStr + ";" + charSetStr);
             } else {
-                headers.put("api-version", "beta");
+//                headers.put("api-version", "v1.0");
                 headers.put("Accept", "application/json, text/plain, */*");
                 headers.put("Content-Type", contentTypeStr + ";" + charSetStr);
             }
@@ -103,7 +105,7 @@ public class HttpHelper {
                 charSetStr = "charset=" + ContentType.APPLICATION_JSON.getCharset().toString();
             }
             headers.put("Authorization", "Bearer " + accessToken);
-            headers.put("api-version", "beta");
+//            headers.put("api-version", "v1.0");
             headers.put("Accept", "application/json, text/plain, */*");
             headers.put("Content-Type", contentTypeStr + ";" + charSetStr);
         }

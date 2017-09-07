@@ -21,8 +21,6 @@ import org.scribe.utils.OAuthEncoder;
 import org.scribe.utils.Preconditions;
 
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Azure OAuth2.0
@@ -35,7 +33,7 @@ import java.util.regex.Pattern;
  */
 public class AzureApi extends DefaultApi20 {
 
-    private static final String AUTHORIZE_PARAMS = "response_type=code&client_id=%s&redirect_uri=%s&resource=%s";
+    private static final String AUTHORIZE_PARAMS = "response_type=code&client_id=%s&redirect_uri=%s&resource=%s&state=%s";
     private static final String SCOPED_AUTHORIZE_PARAMS = AUTHORIZE_PARAMS + "&scope=%s";
     private static final String SUFFIX_OFFLINE = "&access_type=offline&approval_prompt=force";
 
@@ -122,21 +120,22 @@ public class AzureApi extends DefaultApi20 {
         }
         url.append("/oauth2/authorize");
         // Append scope if present
-        if (config.hasScope()) {
-            return String.format(offline ?
-                            url.toString() +
-                                    "?" +
-                                    SCOPED_AUTHORIZE_PARAMS + SUFFIX_OFFLINE
-                            :
-                            url.toString() +
-                                    "?" +
-                                    SCOPED_AUTHORIZE_PARAMS, OAuthEncoder.encode(config.getApiKey()),
-//                    OAuthEncoder.encode(config.getApiSecret()),
-                    OAuthEncoder.encode(config.getCallback()),
-                    OAuthEncoder.encode(Constants.DEFAULT_RESOURCE),
-                    OAuthEncoder.encode(config.getScope())
-            );
-        } else {
+        if (false/*config.hasScope()*/) {
+//            return String.format(offline ?
+//                            url.toString() +
+//                                    "?" +
+//                                    SCOPED_AUTHORIZE_PARAMS + SUFFIX_OFFLINE
+//                            :
+//                            url.toString() +
+//                                    "?" +
+//                                    SCOPED_AUTHORIZE_PARAMS, OAuthEncoder.encode(config.getApiKey()),
+////                    OAuthEncoder.encode(config.getApiSecret()),
+//                    OAuthEncoder.encode(config.getCallback()),
+//                    OAuthEncoder.encode(Constants.DEFAULT_RESOURCE),
+//                    OAuthEncoder.encode(config.getScope())
+//            );
+            return null;
+        } else { // without scope
             String authorizationUrl =  String.format(offline ?
                             url.toString() +
                                     "?" +
@@ -147,14 +146,16 @@ public class AzureApi extends DefaultApi20 {
                                     AUTHORIZE_PARAMS, OAuthEncoder.encode(config.getApiKey()),
 //                    OAuthEncoder.encode(config.getApiSecret()),
                     OAuthEncoder.encode(config.getCallback()),
-                    OAuthEncoder.encode(Constants.DEFAULT_RESOURCE));
+                    OAuthEncoder.encode(config.getScope()/*Constants.DEFAULT_RESOURCE*/),
+            config.getScope().equals(Constants.DEFAULT_RESOURCE) ? "0" : "1"
+            );
             return authorizationUrl;
         }
     }
 
 
-    public AzureApiToken rereshToken(Token accessToken, String clientID, String clientSecret, String resource) {
-        OAuthRequest request = new OAuthRequest(Verb.POST,Constants.DEFAULT_AUTHENTICATION_ENDPOINT + "common/oauth2/token");
+    public AzureApiToken refreshToken(Token accessToken, String clientID, String clientSecret, String resource) {
+        OAuthRequest request = new OAuthRequest(Verb.POST,Constants.DEFAULT_AUTHENTICATION_ENDPOINT + tenant +"/oauth2/token");
         request.addBodyParameter("grant_type", "refresh_token");
         request.addBodyParameter("refresh_token", accessToken.getSecret()); // were accessToken is the Token object you want to refresh.
         request.addBodyParameter("client_id", clientID);
@@ -166,9 +167,12 @@ public class AzureApi extends DefaultApi20 {
     }
 
 
-    public AzureApiToken getAccessTokenByRefreshToken(Token refreshToken, String clientID, String clientSecret, String resource) {
-        return rereshToken(refreshToken, clientID, clientSecret, resource);
+    public AzureApiToken getAccessTokenByRefreshToken(Token token, String clientID, String clientSecret, String resource) {
+        return refreshToken(token, clientID, clientSecret, resource);
     }
+
+
+
 
     @Override
     public Verb getAccessTokenVerb() {

@@ -723,7 +723,7 @@ public class AzureCredentials extends BaseStandardCredentials {
                 AzureResponse spResponse = AzureAdApi.getServicePrincipalIdByAppId(tenant, clientId, appOnlyAccessToken);
                 if (!spResponse.isSuccess())
                     return FormValidation.error(spResponse.getResponseContent());
-                spId = spResponse.getServicePrincipal();
+                spId = spResponse.toStr();
 
                 // get user token
                 Authentication auth = Jenkins.getAuthentication();
@@ -736,7 +736,7 @@ public class AzureCredentials extends BaseStandardCredentials {
                 AzureResponse roleResponse = AzureAdApi.getAzureRbacRoleId(subId, userToken);
                 if (!roleResponse.isSuccess())
                     return FormValidation.error(roleResponse.getResponseContent());
-                String roleId = roleResponse.getRoleId();
+                String roleId = roleResponse.toStr();
                 AzureResponse assignResult = AzureAdApi.assginRbacRoleToServicePrincipal(subId, userToken, roleId, spId);
                 if (!assignResult.isSuccess() && assignResult.getStatusCode() != 409)
                     return FormValidation.error(assignResult.getResponseContent());
@@ -763,7 +763,7 @@ public class AzureCredentials extends BaseStandardCredentials {
                 return null;
             }
 
-            Map<String, String> subscriptions = response.getSubscriptions();
+            Map<String, String> subscriptions = response.toMap();
             for (Map.Entry<String, String> subscription : subscriptions.entrySet()) {
                 model.add(subscription.getValue() + " (" + subscription.getKey() + ")");
             }
