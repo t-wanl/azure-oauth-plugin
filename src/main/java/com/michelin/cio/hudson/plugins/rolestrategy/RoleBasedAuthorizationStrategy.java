@@ -25,6 +25,7 @@
 
 package com.michelin.cio.hudson.plugins.rolestrategy;
 
+import com.microsoft.azure.oauth.*;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.RoleType;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.UserMacroExtension;
 import com.thoughtworks.xstream.converters.Converter;
@@ -33,22 +34,10 @@ import com.thoughtworks.xstream.converters.UnmarshallingContext;
 import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import hudson.Extension;
-import hudson.model.AbstractItem;
-import hudson.model.Computer;
-import hudson.model.Hudson;
-import hudson.model.Item;
-import hudson.model.Job;
-import hudson.model.Project;
-import hudson.model.Run;
-import hudson.model.View;
+import hudson.model.*;
 import hudson.scm.SCM;
-import hudson.security.ACL;
-import hudson.security.AccessControlled;
-import hudson.security.AuthorizationStrategy;
-import hudson.security.GlobalMatrixAuthorizationStrategy;
-import hudson.security.Permission;
-import hudson.security.PermissionGroup;
-import hudson.security.SidACL;
+import hudson.security.*;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.ServletException;
@@ -65,6 +54,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.CheckForNull;
@@ -75,6 +65,7 @@ import net.sf.json.JSONObject;
 import org.acegisecurity.acls.sid.PrincipalSid;
 import org.jenkinsci.plugins.rolestrategy.permissions.DangerousPermissionHandlingMode;
 import org.jenkinsci.plugins.rolestrategy.permissions.DangerousPermissionHelper;
+import org.json.JSONException;
 import org.kohsuke.accmod.Restricted;
 import org.kohsuke.accmod.restrictions.NoExternalUse;
 import org.kohsuke.stapler.QueryParameter;
@@ -603,6 +594,20 @@ public class RoleBasedAuthorizationStrategy extends AuthorizationStrategy {
     @Override
     public  String getDisplayName() {
       return Messages.RoleBasedAuthorizationStrategy_DisplayName();
+    }
+
+
+    public AutoCompletionCandidates doAutoCompleteState(@QueryParameter String value) throws JSONException, ExecutionException, IOException {
+        AutoCompletionCandidates c = new AutoCompletionCandidates();
+
+        SecurityRealm realm = Utils.JenkinsUtil.getSecurityRealm();
+        if (!(realm instanceof AzureSecurityRealm)) return null;
+        AzureSecurityRealm azureRealm = (AzureSecurityRealm) realm;
+        String clientId = azureRealm.getClientid();
+        String clientSecret = azureRealm.getClientsecret();
+        String tenant = azureRealm.getTenant();
+        AzureApiToken appOnlyToken = AzureAuthenticationToken.getAppOnlyToken(clientId, clientSecret, tenant);
+        // TODO
     }
 
     /** 

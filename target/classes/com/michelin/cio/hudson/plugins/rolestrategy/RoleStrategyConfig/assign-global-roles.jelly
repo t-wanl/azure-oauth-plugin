@@ -51,7 +51,7 @@
         <j:set var="nbAssignedGlobalRoles" value="${nbAssignedGlobalRoles+1}" />
       </j:forEach>
       <tr name="anonymous">
-        <local:userRow sid="anonymous" title="${%Anonymous}" global="${true}" type="${it.strategy.GLOBAL}"/>
+        <local:userRow sid="anonymous" title="anonymous" global="${true}" type="${it.strategy.GLOBAL}"/>
       </tr>
       <tr id="${id}" style="display:none" class="permission-row">
         <local:userRow global="${true}" type="${it.strategy.GLOBAL}"/>

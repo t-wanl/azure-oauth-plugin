@@ -50,7 +50,6 @@ import org.springframework.dao.DataAccessException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -145,6 +144,16 @@ public class AzureSecurityRealm extends SecurityRealm {
 
 
     public HttpResponse doCommenceLogin(StaplerRequest request, @Header("Referer") final String referer) throws IOException {
+
+//        // todo: debug
+//        try {
+//            AzureApiToken tmpToken = AzureAuthenticationToken.getAppOnlyToken(clientid, clientsecret, tenant);
+//            AzureResponse res = AzureAdApi.getAllGroupsDisplayNameUpnMapInTenant(tmpToken.getToken());
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
 
         request.getSession().setAttribute(REFERER_ATTRIBUTE, referer);
 
@@ -293,7 +302,7 @@ public class AzureSecurityRealm extends SecurityRealm {
         // invalidate
         if (auth instanceof AzureAuthenticationToken) {
             AzureAuthenticationToken azureToken = (AzureAuthenticationToken) auth;
-            String upn = azureToken.getAzureUser().getUniqueName();
+            String upn = azureToken.getAzureIdTokenUser().getUniqueName();
             AzureCachePool.invalidate(upn);
             System.out.println("invalidate cache entry when sign out");
         }
@@ -504,14 +513,14 @@ public class AzureSecurityRealm extends SecurityRealm {
 
     private String generateDescription(Authentication auth) {
         if (auth instanceof AzureAuthenticationToken) {
-            AzureUser user = ((AzureAuthenticationToken) auth).getAzureUser();
+            AzureIdTokenUser user = ((AzureAuthenticationToken) auth).getAzureIdTokenUser();
             StringBuffer description  = new StringBuffer("Azure Active Directory User\n\n");
-            description.append("Given            Name:  " + user.getGivenName() + "\n");
-            description.append("Family           Name:  " + user.getFamilyName() + "\n");
-            description.append("Unique Principal Name:  " + user.getUniqueName() + "\n");
-            description.append("Object             ID:  " + user.getObjectID() + "\n");
-            description.append("Tenant             ID:  " + user.getTenantID() + "\n");
-
+            description.append("Given Name: " + user.getGivenName() + "\n");
+            description.append("Family Name: " + user.getFamilyName() + "\n");
+            description.append("Unique Principal Name: " + user.getUniqueName() + "\n");
+            description.append("Object ID: " + user.getObjectID() + "\n");
+            description.append("Tenant ID: " + user.getTenantID() + "\n");
+            return description.toString();
         }
 
         return "";

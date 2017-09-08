@@ -1,8 +1,11 @@
 package com.microsoft.azure.oauth;
 
 import com.google.gson.annotations.SerializedName;
+import hudson.security.SecurityRealm;
+import org.acegisecurity.GrantedAuthority;
+import org.acegisecurity.userdetails.UserDetails;
 
-public class AzureUser {
+public class AzureGroup {
 
     @SerializedName("name")
     public String userName;
@@ -19,7 +22,7 @@ public class AzureUser {
     @SerializedName("upn")
     public String UderPrincipleName;
 
-    public AzureUser() {
+    public AzureGroup() {
         super();
     }
 

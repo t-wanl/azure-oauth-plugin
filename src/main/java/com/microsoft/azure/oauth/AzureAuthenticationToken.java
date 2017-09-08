@@ -1,23 +1,17 @@
 package com.microsoft.azure.oauth;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
 import com.google.gson.Gson;
 import org.acegisecurity.GrantedAuthority;
 import org.acegisecurity.providers.AbstractAuthenticationToken;
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.HttpResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.scribe.utils.OAuthEncoder;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.Set;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
@@ -34,14 +28,13 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     private String clientSecret;
     private AzureApiToken azureRmToken;
     private AzureApiToken azureAdToken;
-    private AzureUser azureUser;
+    private AzureIdTokenUser azureIdTokenUser;
     public static final String APP_ONLY_TOKEN_KEY = "APP_ONLY_TOKEN_KEY";
     public static final TimeUnit CACHE_EXPIRY = TimeUnit.HOURS;
     private static final Logger LOGGER = Logger.getLogger(AbstractAuthenticationToken.class.getName());
     private static String servicePrincipal;
 
 
-    @Deprecated
     private static AzureApiToken appOnlyToken;
 
 //    private static final Cache<String, AzureApiToken> userToken =
@@ -55,7 +48,7 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         // extract user
         Gson gson = new Gson();
         String userInfo = token.getUserInfo();
-        this.azureUser = gson.fromJson(userInfo, AzureUser.class);
+        this.azureIdTokenUser = gson.fromJson(userInfo, AzureIdTokenUser.class);
 
         // store token
         System.out.println("set rm token");
@@ -68,7 +61,7 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 
         boolean authenticated = false;
 
-        if (azureUser != null) {
+        if (azureIdTokenUser != null) {
             authenticated = true;
         }
         setAuthenticated(authenticated);
@@ -76,7 +69,7 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 
     @Override
     public GrantedAuthority[] getAuthorities() {
-        return this.azureUser != null ? this.azureUser.getAuthorities() : new GrantedAuthority[0];
+        return this.azureIdTokenUser != null ? this.azureIdTokenUser.getAuthorities() : new GrantedAuthority[0];
     }
 
     /**
@@ -138,7 +131,6 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         AzureAuthenticationToken.servicePrincipal = servicePrincipal;
     }
 
-    @Deprecated
     public static AzureApiToken getAppOnlyToken(final String clientid, final String clientsecret, final String tenant) throws ExecutionException, IOException, JSONException {
         if (appOnlyToken != null && appOnlyToken.getExpiry().after(new Date())) {
             return appOnlyToken;
@@ -169,28 +161,28 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     @Override
     public Object getPrincipal() {
 //        return getName();
-//        return azureUser.getObjectID();
-        return azureUser.getUniqueName();
+//        return azureIdTokenUser.getObjectID();
+        return azureIdTokenUser.getUniqueName();
     }
 
     @Override
     public String getName() {
-        return (azureUser != null ? azureUser.getUsername() : null);
+        return (azureIdTokenUser != null ? azureIdTokenUser.getUsername() : null);
     }
 
-    public AzureUser getAzureUser() {
-        return azureUser;
+    public AzureIdTokenUser getAzureIdTokenUser() {
+        return azureIdTokenUser;
     }
 
 //    public Set<String> getMemberGroups() throws ExecutionException {
-//        String userId = azureUser.getObjectID();
+//        String userId = azureIdTokenUser.getObjectID();
 //        System.out.println("getMemberGroups ");
 //        return groupsByUserId.get(userId, new Callable<Set<String>>() {
 //            @Override
 //            public Set<String> call() throws Exception {
 ////                String accessToken = azureRmToken.getToken();
-//                String tenant = azureUser.getTenantID();
-//                String userId = azureUser.getObjectID();
+//                String tenant = azureIdTokenUser.getTenantID();
+//                String userId = azureIdTokenUser.getObjectID();
 //                HttpResponse accessTokenResponce = AzureAdApi.getAppOnlyAccessTokenResponce(clientID, clientSecret, tenant);
 //                int statusCode = HttpHelper.getStatusCode(accessTokenResponce);
 //                String content = HttpHelper.getContent(accessTokenResponce);

@@ -75,4 +75,5 @@ com/microsoft/azure/oauth/AzureSecurityRealm$DescriptorImpl.class
 org/jenkinsci/plugins/rolestrategy/permissions/DangerousPermissionHelper.class
 com/synopsys/arc/jenkins/plugins/rolestrategy/macros/BuildableJobMacro.class
 com/microsoft/azure/oauth/AzureApi$1.class
+com/microsoft/azure/oauth/AzureAdApi$6.class
 META-INF/annotations/hudson.Extension

@@ -101,6 +101,12 @@ public class RoleMap {
 
       // generate set of parent of sid and sid itself
       Authentication auth = Jenkins.getAuthentication();
+
+      if (auth instanceof AzureAuthenticationToken) {
+          System.out.println("current auth is " + ((AzureAuthenticationToken) auth).getAzureIdTokenUser().getUniqueName());
+          System.out.println("current aad token is " + ((AzureAuthenticationToken) auth).getAzureAdToken());
+          System.out.println("current  rm token is " + ((AzureAuthenticationToken) auth).getAzureRmToken());
+      }
       Jenkins jenkins = Jenkins.getInstance();
       if (jenkins == null) {
           throw new RuntimeException("Jenkins is not started yet.");
@@ -111,11 +117,11 @@ public class RoleMap {
           String accessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
           if (accessToken == null) return false;
 //          AzureResponse response = AzureAdApi.getGroupsByUserId(accessToken);
-          String upn = ((AzureAuthenticationToken) auth).getAzureUser().getUniqueName();
-          Set<String> set = AzureCachePool.getGroupsByUPN(upn);
+          String upn = ((AzureAuthenticationToken) auth).getAzureIdTokenUser().getUniqueName();
+          Set<String> set = AzureCachePool.getBelongingGroupsByUPN(upn);
 
           // plus user himself/herself
-          set.add(((AzureAuthenticationToken) auth).getAzureUser().getUniqueName());
+          set.add(((AzureAuthenticationToken) auth).getAzureIdTokenUser().getUniqueName());
 
           // check one by one
           for (String ele : set) {

@@ -41,6 +41,7 @@
         </permissions>
         <assignedSIDs>
           <sid>t-wanl@microsoft.com</sid>
+          <sid>live.com#albertxavier001@hotmail.com</sid>
         </assignedSIDs>
       </role>
       <role name="reader" pattern=".*">
@@ -49,7 +50,6 @@
         </permissions>
         <assignedSIDs>
           <sid>lwpgp (ecdff4f1-ab92-442d-a169-7489e7f0bbd2)</sid>
-          <sid>AnFs</sid>
           <sid>anonymous</sid>
         </assignedSIDs>
       </role>
@@ -58,14 +58,16 @@
           <permission>hudson.model.Hudson.Read</permission>
           <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View</permission>
         </permissions>
-        <assignedSIDs/>
+        <assignedSIDs>
+          <sid>lwpgp (ecdff4f1-ab92-442d-a169-7489e7f0bbd2)</sid>
+        </assignedSIDs>
       </role>
     </roleMap>
     <roleMap type="slaveRoles"/>
   </authorizationStrategy>
   <securityRealm class="com.microsoft.azure.oauth.AzureSecurityRealm">
-    <clientid>3e439767-7719-4a69-82c4-8bd00eb7bba5</clientid>
-    <clientsecret>vqw6dysqyd1RXe7N37F+WRaT7ndoY0qsZuFtJMtW60M=</clientsecret>
+    <clientid>f838e347-80af-4d3a-a9c4-759438b7298f</clientid>
+    <clientsecret>iUASxGwvanAHi7IkyxaLTezQ22yd0NyaYm6/qKm/wlQ=</clientsecret>
     <tenant>cd236629-6aa9-4323-98a2-f51cddcc721d</tenant>
   </securityRealm>
   <disableRememberMe>false</disableRememberMe>

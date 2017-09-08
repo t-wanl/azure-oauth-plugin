@@ -15,12 +15,12 @@ public class Constants {
 
     public static final String DEFAULT_GRAPH_ENDPOINT = "https://graph.microsoft.com/";
     public static final String DEFAULT_GRAPH_VERSION = "v1.0/";
-
+    public static final String BETA_GRAPH_VERSION = "beta/";
     public static final String DEFAULT_OAUTH_PREFIX = "https://login.windows.net/<TenantId>";
     public static final String DEFAULT_RESOURCE = DEFAULT_RESOURCE_MANAGER_ENDPOINT;
 //    public static final String DEFAULT_RESOURCE = DEFAULT_GRAPH_ENDPOINT;
 
-
+    public static final boolean DEBUG = true;
     public Constants() {
     }
 }

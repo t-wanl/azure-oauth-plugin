@@ -1,5 +1,8 @@
 package com.microsoft.azure.oauth;
 
+import hudson.security.SecurityRealm;
+import jenkins.model.Jenkins;
+
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -46,6 +49,21 @@ public class Utils {
         public static final boolean isValidUuid(final String uuid) {
             return ((uuid != null) && (uuid.trim().length() > 31)) ? pattern.matcher(uuid).matches() : false;
         }
+    }
+
+    public static class JenkinsUtil {
+        public static SecurityRealm getSecurityRealm() {
+            Jenkins jenkins = Jenkins.getInstance();
+            if (jenkins == null) {
+                throw new RuntimeException("Jenkins is not started yet.");
+            }
+            SecurityRealm realm = jenkins.getSecurityRealm();
+            return realm;
+        }
+    }
+
+    public static class GsonUtil {
+        public Object 
     }
 }
 

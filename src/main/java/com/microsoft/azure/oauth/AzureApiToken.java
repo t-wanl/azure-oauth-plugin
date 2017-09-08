@@ -30,7 +30,7 @@ public class AzureApiToken extends Token {
     private void setUserInfoByIdToken(String idToken) throws JSONException {
             String parts[] = idToken.split("\\.");
             userInfo = base64UrlDecode(parts[1]);
-//            AzureUser userResponse = GSON.fromJson(base64UrlDecode(parts[1]), AzureUser.class);
+//            AzureIdTokenUser userResponse = GSON.fromJson(base64UrlDecode(parts[1]), AzureIdTokenUser.class);
 //            return userResponse;
     }
 

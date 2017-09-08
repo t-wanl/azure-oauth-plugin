@@ -53,7 +53,7 @@
         <j:set var="nbAssignedSlaveRoles" value="${nbAssignedSlaveRoles+1}" />
       </j:forEach>
       <tr name="anonymous">
-        <local:userRow sid="anonymous" title="${%Anonymous}" global="${false}" type="${it.strategy.SLAVE}"/>
+        <local:userRow sid="anonymous" title="anonymous" global="${false}" type="${it.strategy.SLAVE}"/>
       </tr>
       <tr id="${id}" style="display:none" class="permission-row">
         <local:userRow global="${false}"  type="${it.strategy.SLAVE}"/>
