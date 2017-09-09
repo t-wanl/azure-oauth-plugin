@@ -2,49 +2,44 @@ package com.microsoft.azure.oauth;
 
 import com.google.gson.annotations.SerializedName;
 
-public class AzureUser {
+public class AzureUser extends AzureObject {
 
-    @SerializedName("name")
-    public String userName;
-    @SerializedName("given_name")
+    @SerializedName("displayName")
+    public String displayName;
+    @SerializedName("givenName")
     public String givenName;
-    @SerializedName("family_name")
-    public String familyName;
-    @SerializedName("unique_name")
-    public String uniqueName; // real unique principal name
-    @SerializedName("tid")
-    public String tenantID;
-    @SerializedName("oid")
-    public String objectID;
-    @SerializedName("upn")
-    public String UderPrincipleName;
+    @SerializedName("id")
+    public String objectId;
+    @SerializedName("surname")
+    public String surname;
+    @SerializedName("userPrincipalName")
+    public String userPrincipalName;
+
 
     public AzureUser() {
         super();
     }
 
-    public String getTenantID() {
-        return tenantID;
+    @Override
+    public String getObjectId() {
+        return objectId;
     }
 
-    public String getObjectID() {
-        return objectID;
-    }
-
-    public String getUniqueName() {
-        return uniqueName;
-    }
-
-    public String getFamilyName() {
-        return familyName;
+    @Override
+    public String getDisplayName() {
+        return displayName;
     }
 
     public String getGivenName() {
         return givenName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getUserPrincipalName() {
+        return userPrincipalName;
     }
 }
 

@@ -126,12 +126,15 @@ public class AzureSecurityRealm extends SecurityRealm {
     }
 
     @DataBoundConstructor
-    public AzureSecurityRealm(String tenant, String clientid, String clientsecret) {
+    public AzureSecurityRealm(String tenant, String clientid, String clientsecret) throws JSONException, ExecutionException, IOException {
         super();
         OAuthConfig config = new OAuthConfig(clientid, clientsecret, this.getCallback(), null, null, null);
         this.clientid = clientid;
         this.clientsecret = clientsecret;
         this.tenant = tenant;
+
+        // update app only token
+        AzureAuthenticationToken.refreshAppOnlyToken(clientid, clientsecret, tenant);
     }
 
 
@@ -299,12 +302,12 @@ public class AzureSecurityRealm extends SecurityRealm {
         // if we just redirect to the root and anonymous does not have Overall read then we will start a login all over again.
         // we are actually anonymous here as the security context has been cleared
 
-        // invalidate
+        // invalidateBelongingGroupsByOid
         if (auth instanceof AzureAuthenticationToken) {
             AzureAuthenticationToken azureToken = (AzureAuthenticationToken) auth;
-            String upn = azureToken.getAzureIdTokenUser().getUniqueName();
-            AzureCachePool.invalidate(upn);
-            System.out.println("invalidate cache entry when sign out");
+            String oid = azureToken.getAzureIdTokenUser().getObjectID();
+            AzureCachePool.invalidateBelongingGroupsByOid(oid);
+            System.out.println("invalidateBelongingGroupsByOid cache entry when sign out");
         }
         Jenkins j = Jenkins.getInstance();
         assert j != null;
@@ -483,30 +486,13 @@ public class AzureSecurityRealm extends SecurityRealm {
                                                     @QueryParameter final String tenant) throws IOException, JSONException, ExecutionException {
 
 
-
-//            String content = AzureAuthenticationToken.getAppOnlyToken().get(AzureAuthenticationToken.APP_ONLY_TOKEN_KEY, new Callable<String>() {
-//                @Override
-//                public String call() throws Exception {
-//                    org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
-//                    int statusCode = HttpHelper.getStatusCode(response);
-//                    String content = HttpHelper.getContent(response);
-//                    if (statusCode != 200) return null;
-//                    return content;
-//                }
-//            });
-
             org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
             int statusCode = HttpHelper.getStatusCode(response);
             String content = HttpHelper.getContent(response);
             if (statusCode != 200) {
-//                JSONObject errJson = new JSONObject(content);
                 return FormValidation.error(content);
             }
 
-//            if(content == null) {
-//                JSONObject errJson = new JSONObject(content);
-//                return FormValidation.error(errJson.toStr("error_description"));
-//            }
             return FormValidation.ok("Successfully verified");
         }
     }

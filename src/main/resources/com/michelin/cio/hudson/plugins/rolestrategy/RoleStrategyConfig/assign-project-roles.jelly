@@ -51,7 +51,7 @@
         <j:set var="nbAssignedProjectsRoles" value="${nbAssignedProjectsRoles+1}" />
       </j:forEach>
       <tr name="anonymous">
-        <local:userRow sid="anonymous" title="$anonymous" global="${false}" type="${it.strategy.PROJECT}"/>
+        <local:userRow sid="anonymous" title="anonymous" global="${false}" type="${it.strategy.PROJECT}"/>
       </tr>
       <tr id="${id}" style="display:none" class="permission-row">
         <local:userRow global="${false}" type="${it.strategy.PROJECT}"/>

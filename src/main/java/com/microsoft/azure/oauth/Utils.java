@@ -1,5 +1,6 @@
 package com.microsoft.azure.oauth;
 
+import com.google.gson.Gson;
 import hudson.security.SecurityRealm;
 import jenkins.model.Jenkins;
 
@@ -63,7 +64,12 @@ public class Utils {
     }
 
     public static class GsonUtil {
-        public Object 
+        public static Object generateFromJsonString(String jsonStr, Class modelClass) {
+            Gson gson = new Gson();
+            Object obj = gson.fromJson(jsonStr, modelClass);
+            return obj;
+        }
     }
+
 }
 

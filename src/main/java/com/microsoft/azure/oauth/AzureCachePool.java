@@ -3,6 +3,8 @@ package com.microsoft.azure.oauth;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import hudson.security.SecurityRealm;
 import jenkins.model.Jenkins;
 import org.acegisecurity.Authentication;
 import org.json.JSONException;
@@ -21,14 +23,12 @@ import java.util.logging.Logger;
 public class AzureCachePool {
     public static final TimeUnit CACHE_EXPIRY = TimeUnit.HOURS;
     private static final Logger LOGGER = Logger.getLogger(AzureCachePool.class.getName());
-    private static final Cache<String, Set<String>> belongingGroupsByUPN =
+    private static final Cache<String, Set<String>> belongingGroupsByOid =
             CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
-    private static final Cache<String, Set<AzureIdTokenUser>> usersByUPN =
-            CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
-    private static final Cache<String, Set<AzureGroup>> groupsByUPN =
+    private static final Cache<AzureObjectType, Set<AzureObject>> allAzureObjects =
             CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
 
-    public static Set<String> getBelongingGroupsByUPN(String upn) throws ExecutionException, IOException, JSONException {
+    public static Set<String> getBelongingGroupsByOid(String oid) throws IOException, JSONException {
 
         if (Constants.DEBUG == true) {
             Utils.TimeUtil.setBeginDate();
@@ -36,36 +36,85 @@ public class AzureCachePool {
             Authentication auth = Jenkins.getAuthentication();
             if (!(auth instanceof AzureAuthenticationToken)) return new HashSet<String>();
             String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
-            AzureResponse res = AzureAdApi.getGroupsByUserId(aadAccessToken);
+            AzureResponse<Set<String>> res = AzureAdApi.getGroupsByUserId(aadAccessToken);
             if (!res.isSuccess()) {
-                System.out.println("getBelongingGroupsByUPN: set is empty");
+                System.out.println("getBelongingGroupsByOid: set is empty");
                 System.out.println("error: " + res.getResponseContent());
                 return new HashSet<String>();
             }
             Utils.TimeUtil.setEndDate();
-            System.out.println("getBelongingGroupsByUPN time (debug) = " + Utils.TimeUtil.getTimeDifference() + "ms");
-            System.out.println("getBelongingGroupsByUPN: set = " + res.toSet());
-            return res.toSet();
+            System.out.println("getBelongingGroupsByOid time (debug) = " + Utils.TimeUtil.getTimeDifference() + "ms");
+            System.out.println("getBelongingGroupsByOid: set = " + res.<Set<String>>get());
+            return res.get();
         }
 
-        return belongingGroupsByUPN.get(upn, new Callable<Set<String>>() {
-            @Override
-            public Set<String> call() throws Exception {
-                Utils.TimeUtil.setBeginDate();
 
-                Authentication auth = Jenkins.getAuthentication();
-                if (!(auth instanceof AzureAuthenticationToken)) return new HashSet<String>();
-                String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
-                AzureResponse res = AzureAdApi.getGroupsByUserId(aadAccessToken);
-                if (!res.isSuccess()) return new HashSet<String>();
-                Utils.TimeUtil.setEndDate();
-                System.out.println("getBelongingGroupsByUPN time = " + Utils.TimeUtil.getTimeDifference() + "ms");
-                return res.toSet();
-            }
-        });
+        Set<String> set = null;
+        try {
+            set = belongingGroupsByOid.get(oid, new Callable<Set<String>>() {
+                @Override
+                public Set<String> call() throws Exception {
+                    Utils.TimeUtil.setBeginDate();
+                    Authentication auth = Jenkins.getAuthentication();
+                    if (!(auth instanceof AzureAuthenticationToken)) return null;
+                    String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
+                    AzureResponse<Set<String>> res = AzureAdApi.getGroupsByUserId(aadAccessToken);
+                    if (!res.isSuccess()) return null;
+                    Utils.TimeUtil.setEndDate();
+                    System.out.println("getBelongingGroupsByOid time = " + Utils.TimeUtil.getTimeDifference() + "ms");
+                    return res.get();
+                }
+            });
+            return set;
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+            invalidateBelongingGroupsByOid(oid);
+            return null;
+        }
+
+
     }
 
-    public static void invalidate(String userId) {
-            belongingGroupsByUPN.invalidate(userId);
+
+    public static Set<AzureObject> getAllAzureObjects(final AzureObjectType type) {
+        try {
+            Set<AzureObject> set = allAzureObjects.get(type, new Callable<Set<AzureObject>>() {
+                @Override
+                public Set<AzureObject> call() throws Exception {
+//                    Authentication auth = Jenkins.getAuthentication();
+//                    if (!(auth instanceof AzureAuthenticationToken)) return null;
+//                    String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
+                    SecurityRealm realm = Utils.JenkinsUtil.getSecurityRealm();
+                    if (!(realm instanceof AzureSecurityRealm)) return null;
+                    AzureSecurityRealm azureRealm = (AzureSecurityRealm) realm;
+                    String clientId = azureRealm.getClientid();
+                    String clientSecret = azureRealm.getClientsecret();
+                    String tenant = azureRealm.getTenant();
+                    AzureApiToken appOnlyToken = AzureAuthenticationToken.getAppOnlyToken(clientId, clientSecret, tenant);
+                    if (appOnlyToken == null) return null;
+                    AzureResponse<Set<AzureObject>> res = AzureAdApi.getAllAzureObjects(appOnlyToken.getToken(), type);
+                    if (res.isFail()) return null;
+                    return res.get();
+                }
+            });
+            return set;
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+//            invalidateAllObject(type);
+            return null;
+        } catch (CacheLoader.InvalidCacheLoadException e) {
+            e.printStackTrace();
+//            invalidateAllObject(type);
+            return null;
+        }
+    }
+
+
+    public static void invalidateBelongingGroupsByOid(String userId) {
+            belongingGroupsByOid.invalidate(userId);
+    }
+    public static void invalidateAllObject(AzureObjectType type) {
+        allAzureObjects.invalidate(type);
     }
 }

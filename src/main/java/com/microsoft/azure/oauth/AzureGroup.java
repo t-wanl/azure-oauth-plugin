@@ -5,49 +5,31 @@ import hudson.security.SecurityRealm;
 import org.acegisecurity.GrantedAuthority;
 import org.acegisecurity.userdetails.UserDetails;
 
-public class AzureGroup {
+public class AzureGroup extends AzureObject {
 
-    @SerializedName("name")
-    public String userName;
-    @SerializedName("given_name")
-    public String givenName;
-    @SerializedName("family_name")
-    public String familyName;
-    @SerializedName("unique_name")
-    public String uniqueName; // real unique principal name
-    @SerializedName("tid")
-    public String tenantID;
-    @SerializedName("oid")
-    public String objectID;
-    @SerializedName("upn")
-    public String UderPrincipleName;
+    @SerializedName("id")
+    public String objectId;
+    @SerializedName("displayName")
+    public String displayName;
+    @SerializedName("description")
+    public String description;
+
 
     public AzureGroup() {
         super();
     }
 
-    public String getTenantID() {
-        return tenantID;
+    public String getDescription() {
+        return description;
     }
 
-    public String getObjectID() {
-        return objectID;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public String getUniqueName() {
-        return uniqueName;
-    }
-
-    public String getFamilyName() {
-        return familyName;
-    }
-
-    public String getGivenName() {
-        return givenName;
-    }
-
-    public String getUserName() {
-        return userName;
+    public String getObjectId() {
+        return objectId;
     }
 }
+
 

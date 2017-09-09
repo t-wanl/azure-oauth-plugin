@@ -3,15 +3,18 @@
 /Users/albertxavier/workspace/azure-oauth-plugin/target/generated-sources/localizer/com/michelin/cio/hudson/plugins/rolestrategy/Messages.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/michelin/cio/hudson/plugins/rolestrategy/Role.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/org/jenkinsci/plugins/rolestrategy/permissions/DangerousPermissionHelper.java
+/Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureGroup.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/Constants.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureResponse.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/synopsys/arc/jenkins/plugins/rolestrategy/macros/BuildableJobMacro.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/michelin/cio/hudson/plugins/rolestrategy/RoleStrategyConfig.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureLogoutAction.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/HttpHelper.java
+/Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureObjectType.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/synopsys/arc/jenkins/plugins/rolestrategy/macros/StubMacro.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/synopsys/arc/jenkins/plugins/rolestrategy/MacroExceptionCode.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureAuthenticationToken.java
+/Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureObject.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/org/jenkinsci/plugins/rolestrategy/permissions/DangerousPermissionHandlingMode.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/org/jenkinsci/plugins/rolestrategy/permissions/DangerousPermissionAdministrativeMonitor.java
 /Users/albertxavier/workspace/azure-oauth-plugin/target/generated-sources/localizer/com/microsoft/azure/oauth/Messages.java
@@ -30,6 +33,7 @@
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureSecurityRealm.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/synopsys/arc/jenkins/plugins/rolestrategy/RoleStrategyConfigExtension.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/michelin/cio/hudson/plugins/rolestrategy/RoleBasedAuthorizationStrategy.java
+/Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureIdTokenUser.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureCredentials.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/synopsys/arc/jenkins/plugins/rolestrategy/Macro.java
 /Users/albertxavier/workspace/azure-oauth-plugin/src/main/java/com/microsoft/azure/oauth/AzureApi.java

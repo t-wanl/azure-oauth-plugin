@@ -20,7 +20,7 @@ public class Constants {
     public static final String DEFAULT_RESOURCE = DEFAULT_RESOURCE_MANAGER_ENDPOINT;
 //    public static final String DEFAULT_RESOURCE = DEFAULT_GRAPH_ENDPOINT;
 
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     public Constants() {
     }
 }

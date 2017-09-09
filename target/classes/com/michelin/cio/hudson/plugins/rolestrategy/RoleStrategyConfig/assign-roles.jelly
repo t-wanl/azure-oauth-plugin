@@ -28,7 +28,9 @@
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" 
           xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:local="local">
-    <l:layout permission="${app.ADMINISTER}" norefresh="true">
+  <j:set var="descriptor" value="${it.descriptor}" />
+
+  <l:layout permission="${app.ADMINISTER}" norefresh="true">
         <st:include it="${app}" page="sidepanel.jelly"/>
         <l:main-panel>
           <link rel="stylesheet" href="${rootURL}/plugin/role-strategy/css/role-strategy.css" type="text/css" />
@@ -42,7 +44,9 @@
           <j:set var="globalSIDs" value="${it.strategy.getSIDs(it.strategy.GLOBAL)}"/>
           <j:set var="projectSIDs" value="${it.strategy.getSIDs(it.strategy.PROJECT)}"/>
           <j:set var="slaveSIDs" value="${it.strategy.getSIDs(it.strategy.SLAVE)}"/>
-          
+          <j:set var="groupCandidates" value="${it.strategy.getGroupCandidates()}"/>
+          <j:set var="userCandidates" value="${it.strategy.getUserCandidates()}"/>
+
           <j:if test="${empty(descriptorPath)}">
             <j:set var="descriptorPath" value="${rootURL}/descriptor/${it.strategy.descriptor.clazz.name}"/>
           </j:if>

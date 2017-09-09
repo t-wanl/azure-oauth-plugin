@@ -45,6 +45,7 @@ import javax.servlet.ServletException;
 import hudson.util.VersionNumber;
 
 import java.io.OutputStream;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -63,6 +64,9 @@ import javax.annotation.Nullable;
 import jenkins.model.Jenkins;
 import net.sf.json.JSONObject;
 import org.acegisecurity.acls.sid.PrincipalSid;
+//import org.apache.commons.collections4.ListUtils;
+import org.apache.commons.collections4.ListUtils;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.jenkinsci.plugins.rolestrategy.permissions.DangerousPermissionHandlingMode;
 import org.jenkinsci.plugins.rolestrategy.permissions.DangerousPermissionHelper;
 import org.json.JSONException;
@@ -77,6 +81,7 @@ import org.kohsuke.stapler.interceptor.RequirePOST;
  * Role-based authorization strategy.
  * @author Thomas Maurel
  */
+@Extension
 public class RoleBasedAuthorizationStrategy extends AuthorizationStrategy {
 
   public final static String GLOBAL    = "globalRoles";
@@ -578,6 +583,9 @@ public class RoleBasedAuthorizationStrategy extends AuthorizationStrategy {
         }
     }
 
+
+
+
     /**
      * Control job create using {@link org.jenkinsci.plugins.rolestrategy.RoleBasedProjectNamingStrategy}.
      * @since 2.2.0
@@ -589,6 +597,7 @@ public class RoleBasedAuthorizationStrategy extends AuthorizationStrategy {
   /**
    * Descriptor used to bind the strategy to the Web forms.
    */
+  @Extension
   public static final class DescriptorImpl extends GlobalMatrixAuthorizationStrategy.DescriptorImpl {
 
     @Override
@@ -596,19 +605,6 @@ public class RoleBasedAuthorizationStrategy extends AuthorizationStrategy {
       return Messages.RoleBasedAuthorizationStrategy_DisplayName();
     }
 
-
-    public AutoCompletionCandidates doAutoCompleteState(@QueryParameter String value) throws JSONException, ExecutionException, IOException {
-        AutoCompletionCandidates c = new AutoCompletionCandidates();
-
-        SecurityRealm realm = Utils.JenkinsUtil.getSecurityRealm();
-        if (!(realm instanceof AzureSecurityRealm)) return null;
-        AzureSecurityRealm azureRealm = (AzureSecurityRealm) realm;
-        String clientId = azureRealm.getClientid();
-        String clientSecret = azureRealm.getClientsecret();
-        String tenant = azureRealm.getTenant();
-        AzureApiToken appOnlyToken = AzureAuthenticationToken.getAppOnlyToken(clientId, clientSecret, tenant);
-        // TODO
-    }
 
     /** 
      * Called on role management form's submission.

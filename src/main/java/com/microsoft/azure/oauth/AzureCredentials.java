@@ -720,10 +720,10 @@ public class AzureCredentials extends BaseStandardCredentials {
                 AzureApiToken token = AzureAuthenticationToken.getAppOnlyToken(clientId, clientSecret, tenant);
                 String appOnlyAccessToken = token.getToken();
                 // get service principal oid
-                AzureResponse spResponse = AzureAdApi.getServicePrincipalIdByAppId(tenant, clientId, appOnlyAccessToken);
+                AzureResponse<String> spResponse = AzureAdApi.getServicePrincipalIdByAppId(tenant, clientId, appOnlyAccessToken);
                 if (!spResponse.isSuccess())
                     return FormValidation.error(spResponse.getResponseContent());
-                spId = spResponse.toStr();
+                spId = spResponse.get();
 
                 // get user token
                 Authentication auth = Jenkins.getAuthentication();
@@ -733,10 +733,10 @@ public class AzureCredentials extends BaseStandardCredentials {
                 String userToken = azureAuth.getAzureRmToken().getToken();
 
                 // get role id
-                AzureResponse roleResponse = AzureAdApi.getAzureRbacRoleId(subId, userToken);
+                AzureResponse<String> roleResponse = AzureAdApi.getAzureRbacRoleId(subId, userToken);
                 if (!roleResponse.isSuccess())
                     return FormValidation.error(roleResponse.getResponseContent());
-                String roleId = roleResponse.toStr();
+                String roleId = roleResponse.get();
                 AzureResponse assignResult = AzureAdApi.assginRbacRoleToServicePrincipal(subId, userToken, roleId, spId);
                 if (!assignResult.isSuccess() && assignResult.getStatusCode() != 409)
                     return FormValidation.error(assignResult.getResponseContent());
@@ -758,12 +758,12 @@ public class AzureCredentials extends BaseStandardCredentials {
             AzureAuthenticationToken azureAuth = (AzureAuthenticationToken) auth;
             String userToken = azureAuth.getAzureRmToken().getToken();
 
-            AzureResponse response = AzureAdApi.getSubscriptions(userToken);
+            AzureResponse<Map<String, String>> response = AzureAdApi.getSubscriptions(userToken);
             if (!response.isSuccess()) {
                 return null;
             }
 
-            Map<String, String> subscriptions = response.toMap();
+            Map<String, String> subscriptions = response.get();
             for (Map.Entry<String, String> subscription : subscriptions.entrySet()) {
                 model.add(subscription.getValue() + " (" + subscription.getKey() + ")");
             }

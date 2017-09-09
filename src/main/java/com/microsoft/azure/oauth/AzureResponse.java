@@ -19,8 +19,7 @@ abstract public class AzureResponse <T> {
 
     public AzureResponse(HttpResponse response, int successCode) throws IOException, JSONException {
         String responseContent = HttpHelper.getContent(response);
-        int statusCode = HttpHelper.getStatusCode(response);
-        this.statusCode = statusCode;
+        this.statusCode = HttpHelper.getStatusCode(response);
         this.successCode = successCode;
         this.responseContent = responseContent;
         this.object = null;
@@ -52,7 +51,7 @@ abstract public class AzureResponse <T> {
         return !isSuccess();
     }
 
-    public T getResult() {
+    public T get() {
         return (T) this.object;
     }
 

@@ -25,22 +25,31 @@
 
 package com.michelin.cio.hudson.plugins.rolestrategy;
 
+import com.microsoft.azure.oauth.*;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.RoleMacroExtension;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.RoleType;
 import com.synopsys.arc.jenkins.plugins.rolestrategy.UserMacroExtension;
 import hudson.Extension;
 import hudson.ExtensionList;
+import hudson.ExtensionPoint;
+import hudson.model.*;
 import hudson.model.Descriptor.FormException;
-import hudson.model.Hudson;
-import hudson.model.ManagementLink;
 import hudson.security.AuthorizationStrategy;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.MessageFormat;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ExecutionException;
 import javax.servlet.ServletException;
 
+import hudson.security.SecurityRealm;
 import hudson.util.FormApply;
 import jenkins.model.Jenkins;
 
+import org.apache.commons.collections4.ListUtils;
+import org.json.JSONException;
+import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
@@ -55,7 +64,7 @@ import org.kohsuke.stapler.interceptor.RequirePOST;
  * @author Thomas Maurel
  */
 @Extension
-public class RoleStrategyConfig extends ManagementLink {
+public class RoleStrategyConfig extends ManagementLink implements ExtensionPoint, Describable<RoleStrategyConfig> {
 
   /**
    * Provides the icon for the Manage Hudson page link
@@ -189,4 +198,49 @@ public class RoleStrategyConfig extends ManagementLink {
     public final RoleType getSlaveRoleType() {
         return RoleType.Slave;
     }
+
+
+
+  @Override
+  public Descriptor<RoleStrategyConfig> getDescriptor() {
+    return Jenkins.getInstance().getDescriptor(getClass());
+
+  }
+
+  @Extension
+  public static final class DescriptorImpl extends Descriptor<RoleStrategyConfig> {
+    @Override
+    public String getDisplayName() {
+      return clazz.getSimpleName();
+    }
+
+    public AutoCompletionCandidates doAutoCompleteGlobalinput(@QueryParameter String value) throws JSONException, ExecutionException, IOException {
+      AutoCompletionCandidates c = new AutoCompletionCandidates();
+
+      SecurityRealm realm = Utils.JenkinsUtil.getSecurityRealm();
+      if (!(realm instanceof AzureSecurityRealm)) return null;
+      AzureSecurityRealm azureRealm = (AzureSecurityRealm) realm;
+      String clientId = azureRealm.getClientid();
+      String clientSecret = azureRealm.getClientsecret();
+      String tenant = azureRealm.getTenant();
+      AzureApiToken appOnlyToken = AzureAuthenticationToken.getAppOnlyToken(clientId, clientSecret, tenant);
+      Set<AzureObject> candidates = new HashSet<>();
+      System.out.println("get all users");
+      Set<AzureObject> users = AzureCachePool.getAllAzureObjects(AzureObjectType.User);
+      if (users != null && !users.isEmpty()) candidates.addAll(users);
+      System.out.println("get all groups");
+      Set<AzureObject>  groups = AzureCachePool.getAllAzureObjects(AzureObjectType.Group);
+      if (groups != null && !groups.isEmpty()) candidates.addAll(groups);
+
+      for (AzureObject obj : candidates) {
+        String candadateText = MessageFormat.format("{0} ({1})",obj.getDisplayName(), obj.getObjectId());
+        if (ListUtils.longestCommonSubsequence(candadateText, value).equalsIgnoreCase(value))
+          c.add(candadateText);
+      }
+
+      return c;
+    }
+
+  }
+
 }

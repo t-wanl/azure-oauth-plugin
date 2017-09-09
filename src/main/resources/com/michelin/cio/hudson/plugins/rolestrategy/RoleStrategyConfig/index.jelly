@@ -25,6 +25,8 @@
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
          xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    <j:set var="descriptor" value="${it.descriptor}" />
+
     <l:layout permission="${app.ADMINISTER}" xmlns:local="local" norefresh="true">
         <st:include it="${app}" page="sidepanel.jelly"/>
 
@@ -48,6 +50,8 @@
             </h1>
 
             <table style="padding-left: 2em;" id="management-links">
+
+
               <local:feature icon="fingerprint.gif" href="manage-roles" title="${it.manageRolesName}">
                 ${%Manage Roles}
               </local:feature>

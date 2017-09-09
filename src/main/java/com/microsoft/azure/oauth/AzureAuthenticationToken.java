@@ -131,6 +131,12 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         AzureAuthenticationToken.servicePrincipal = servicePrincipal;
     }
 
+
+    public static AzureApiToken refreshAppOnlyToken(final String clientid, final String clientsecret, final String tenant) throws JSONException, ExecutionException, IOException {
+        appOnlyToken = null;
+        return getAppOnlyToken(clientid, clientsecret, tenant);
+    }
+
     public static AzureApiToken getAppOnlyToken(final String clientid, final String clientsecret, final String tenant) throws ExecutionException, IOException, JSONException {
         if (appOnlyToken != null && appOnlyToken.getExpiry().after(new Date())) {
             return appOnlyToken;
@@ -161,8 +167,8 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     @Override
     public Object getPrincipal() {
 //        return getName();
-//        return azureIdTokenUser.getObjectID();
-        return azureIdTokenUser.getUniqueName();
+        return azureIdTokenUser.getObjectID();
+//        return azureIdTokenUser.getUniqueName();
     }
 
     @Override
@@ -175,14 +181,14 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     }
 
 //    public Set<String> getMemberGroups() throws ExecutionException {
-//        String userId = azureIdTokenUser.getObjectID();
+//        String userId = azureIdTokenUser.getObjectId();
 //        System.out.println("getMemberGroups ");
 //        return groupsByUserId.get(userId, new Callable<Set<String>>() {
 //            @Override
 //            public Set<String> call() throws Exception {
 ////                String accessToken = azureRmToken.getToken();
 //                String tenant = azureIdTokenUser.getTenantID();
-//                String userId = azureIdTokenUser.getObjectID();
+//                String userId = azureIdTokenUser.getObjectId();
 //                HttpResponse accessTokenResponce = AzureAdApi.getAppOnlyAccessTokenResponce(clientID, clientSecret, tenant);
 //                int statusCode = HttpHelper.getStatusCode(accessTokenResponce);
 //                String content = HttpHelper.getContent(accessTokenResponce);

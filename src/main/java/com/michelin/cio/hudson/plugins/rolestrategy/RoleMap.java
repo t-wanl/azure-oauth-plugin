@@ -117,11 +117,11 @@ public class RoleMap {
           String accessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
           if (accessToken == null) return false;
 //          AzureResponse response = AzureAdApi.getGroupsByUserId(accessToken);
-          String upn = ((AzureAuthenticationToken) auth).getAzureIdTokenUser().getUniqueName();
-          Set<String> set = AzureCachePool.getBelongingGroupsByUPN(upn);
+          String oid = ((AzureAuthenticationToken) auth).getAzureIdTokenUser().getObjectID();
+          Set<String> set = AzureCachePool.getBelongingGroupsByOid(oid);
 
           // plus user himself/herself
-          set.add(((AzureAuthenticationToken) auth).getAzureIdTokenUser().getUniqueName());
+          set.add(oid);
 
           // check one by one
           for (String ele : set) {
@@ -148,9 +148,11 @@ public class RoleMap {
           } else {
               int left = sid.lastIndexOf('(') + 1;
               int right = sid.lastIndexOf(')');
-              // on GUID, treat as upn
+              // do not neet to extract GUID TODO: impossible
               if (left == -1 || right == -1 || right - left <= 1) {
-                  updated.add(sid);
+                  // validate GUID
+                  if (Utils.UUIDUtil.isValidUuid(sid))
+                      updated.add(sid);
               // extract GUID
               } else {
                   String uuid = sid.substring(left, right);
