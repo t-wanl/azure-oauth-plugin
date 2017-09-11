@@ -32,6 +32,7 @@ import com.synopsys.arc.jenkins.plugins.rolestrategy.UserMacroExtension;
 import hudson.Extension;
 import hudson.ExtensionList;
 import hudson.ExtensionPoint;
+import hudson.RelativePath;
 import hudson.model.*;
 import hudson.model.Descriptor.FormException;
 import hudson.security.AuthorizationStrategy;
@@ -45,8 +46,10 @@ import javax.servlet.ServletException;
 
 import hudson.security.SecurityRealm;
 import hudson.util.FormApply;
+import hudson.util.FormValidation;
 import jenkins.model.Jenkins;
 
+import net.sf.json.JSONObject;
 import org.apache.commons.collections4.ListUtils;
 import org.json.JSONException;
 import org.kohsuke.stapler.QueryParameter;
@@ -215,15 +218,23 @@ public class RoleStrategyConfig extends ManagementLink implements ExtensionPoint
     }
 
     public AutoCompletionCandidates doAutoCompleteGlobalinput(@QueryParameter String value) throws JSONException, ExecutionException, IOException {
+      return generateAutoCompletion(value);
+    }
+
+    public AutoCompletionCandidates doAutoCompleteProjectinput(@QueryParameter String value) throws JSONException, ExecutionException, IOException {
+      return generateAutoCompletion(value);
+    }
+
+    public AutoCompletionCandidates doAutoCompleteSlaveinput(@QueryParameter String value) throws JSONException, ExecutionException, IOException {
+      return generateAutoCompletion(value);
+    }
+
+    public AutoCompletionCandidates generateAutoCompletion(String value) throws JSONException, ExecutionException, IOException {
       AutoCompletionCandidates c = new AutoCompletionCandidates();
 
       SecurityRealm realm = Utils.JenkinsUtil.getSecurityRealm();
       if (!(realm instanceof AzureSecurityRealm)) return null;
-      AzureSecurityRealm azureRealm = (AzureSecurityRealm) realm;
-      String clientId = azureRealm.getClientid();
-      String clientSecret = azureRealm.getClientsecret();
-      String tenant = azureRealm.getTenant();
-      AzureApiToken appOnlyToken = AzureAuthenticationToken.getAppOnlyToken(clientId, clientSecret, tenant);
+      AzureApiToken appOnlyToken = AzureAuthenticationToken.getAppOnlyToken();
       Set<AzureObject> candidates = new HashSet<>();
       System.out.println("get all users");
       Set<AzureObject> users = AzureCachePool.getAllAzureObjects(AzureObjectType.User);
@@ -234,13 +245,32 @@ public class RoleStrategyConfig extends ManagementLink implements ExtensionPoint
 
       for (AzureObject obj : candidates) {
         String candadateText = MessageFormat.format("{0} ({1})",obj.getDisplayName(), obj.getObjectId());
-        if (ListUtils.longestCommonSubsequence(candadateText, value).equalsIgnoreCase(value))
+        if (ListUtils.longestCommonSubsequence(candadateText.toLowerCase(), value.toLowerCase()).equalsIgnoreCase(value))
           c.add(candadateText);
       }
 
       return c;
     }
 
+    public FormValidation doVerifyAssignRoles(
+            @QueryParameter String globalRoles,
+            @QueryParameter String projectRoles,
+            @QueryParameter String slaveRoles) {
+
+        System.out.println("global roles = " + globalRoles);
+        System.out.println("project roles = " + projectRoles);
+        System.out.println("slave roles = " + slaveRoles);
+        return FormValidation.ok();
+    }
+
   }
+
+
+//  public static class RoleTable {
+//        public static class RoleData {
+//
+//        }
+//        RoleData data;
+//    }
 
 }

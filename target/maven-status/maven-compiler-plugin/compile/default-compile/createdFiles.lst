@@ -14,6 +14,7 @@ com/michelin/cio/hudson/plugins/rolestrategy/RoleBasedAuthorizationStrategy/doRe
 com/microsoft/azure/oauth/AzureSecurityRealm/DescriptorImpl/doVerifyConfiguration.stapler
 com/microsoft/azure/oauth/AzureCredentials/DescriptorImpl/doGenerateServicePrincipal.stapler
 com/microsoft/azure/oauth/AzureCredentials.stapler
+com/michelin/cio/hudson/plugins/rolestrategy/RoleStrategyConfig/DescriptorImpl/doAutoCompleteSlaveinput.stapler
 com/microsoft/azure/oauth/AzureAdApi$4.class
 com/microsoft/azure/oauth/AzureSecurityRealm$ConverterImpl.class
 com/microsoft/azure/oauth/AzureApi$2.class
@@ -38,12 +39,14 @@ com/microsoft/azure/oauth/Messages.class
 com/michelin/cio/hudson/plugins/rolestrategy/RoleMap$2.class
 com/microsoft/azure/oauth/AzureAdApi$3.class
 org/jenkinsci/plugins/rolestrategy/permissions/DangerousPermissionAdministrativeMonitor.class
+com/michelin/cio/hudson/plugins/rolestrategy/RoleStrategyConfig/DescriptorImpl/doVerifyAssignRoles.stapler
 com/michelin/cio/hudson/plugins/rolestrategy/RoleStrategyConfig$DescriptorImpl.class
 com/microsoft/azure/oauth/AzureAdApi$5.class
 com/michelin/cio/hudson/plugins/rolestrategy/RoleBasedAuthorizationStrategy/doAssignRole.stapler
 com/microsoft/azure/oauth/Utils$GsonUtil.class
 com/microsoft/azure/oauth/AzureUser.class
 com/microsoft/azure/oauth/AzureCredentials/DescriptorImpl/doVerifyConfiguration.stapler
+com/michelin/cio/hudson/plugins/rolestrategy/RoleStrategyConfig/DescriptorImpl/doAutoCompleteProjectinput.stapler
 com/microsoft/azure/oauth/AzureGroup.class
 com/microsoft/azure/oauth/Utils$UUIDUtil.class
 com/michelin/cio/hudson/plugins/rolestrategy/RoleBasedAuthorizationStrategy/doAddRole.stapler

@@ -28,15 +28,16 @@ public class AzureCachePool {
     private static final Cache<AzureObjectType, Set<AzureObject>> allAzureObjects =
             CacheBuilder.newBuilder().expireAfterAccess(1, CACHE_EXPIRY).build();
 
-    public static Set<String> getBelongingGroupsByOid(String oid) throws IOException, JSONException {
+    public static Set<String> getBelongingGroupsByOid(String oid) throws IOException, JSONException, ExecutionException {
 
         if (Constants.DEBUG == true) {
             Utils.TimeUtil.setBeginDate();
 
             Authentication auth = Jenkins.getAuthentication();
             if (!(auth instanceof AzureAuthenticationToken)) return new HashSet<String>();
-            String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
-            AzureResponse<Set<String>> res = AzureAdApi.getGroupsByUserId(aadAccessToken);
+//            String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
+            AzureApiToken accessToken = AzureAuthenticationToken.getAppOnlyToken();
+            AzureResponse<Set<String>> res = AzureAdApi.getGroupsByUserId(accessToken.getToken());
             if (!res.isSuccess()) {
                 System.out.println("getBelongingGroupsByOid: set is empty");
                 System.out.println("error: " + res.getResponseContent());
@@ -55,13 +56,20 @@ public class AzureCachePool {
                 @Override
                 public Set<String> call() throws Exception {
                     Utils.TimeUtil.setBeginDate();
+
                     Authentication auth = Jenkins.getAuthentication();
-                    if (!(auth instanceof AzureAuthenticationToken)) return null;
-                    String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
-                    AzureResponse<Set<String>> res = AzureAdApi.getGroupsByUserId(aadAccessToken);
-                    if (!res.isSuccess()) return null;
+                    if (!(auth instanceof AzureAuthenticationToken)) return new HashSet<String>();
+//            String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
+                    AzureApiToken accessToken = AzureAuthenticationToken.getAppOnlyToken();
+                    AzureResponse<Set<String>> res = AzureAdApi.getGroupsByUserId(accessToken.getToken());
+                    if (!res.isSuccess()) {
+                        System.out.println("getBelongingGroupsByOid: set is empty");
+                        System.out.println("error: " + res.getResponseContent());
+                        return new HashSet<String>();
+                    }
                     Utils.TimeUtil.setEndDate();
-                    System.out.println("getBelongingGroupsByOid time = " + Utils.TimeUtil.getTimeDifference() + "ms");
+                    System.out.println("getBelongingGroupsByOid time (debug) = " + Utils.TimeUtil.getTimeDifference() + "ms");
+                    System.out.println("getBelongingGroupsByOid: set = " + res.<Set<String>>get());
                     return res.get();
                 }
             });
@@ -69,7 +77,7 @@ public class AzureCachePool {
 
         } catch (ExecutionException e) {
             e.printStackTrace();
-            invalidateBelongingGroupsByOid(oid);
+//            invalidateBelongingGroupsByOid(oid);
             return null;
         }
 
@@ -87,11 +95,11 @@ public class AzureCachePool {
 //                    String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
                     SecurityRealm realm = Utils.JenkinsUtil.getSecurityRealm();
                     if (!(realm instanceof AzureSecurityRealm)) return null;
-                    AzureSecurityRealm azureRealm = (AzureSecurityRealm) realm;
-                    String clientId = azureRealm.getClientid();
-                    String clientSecret = azureRealm.getClientsecret();
-                    String tenant = azureRealm.getTenant();
-                    AzureApiToken appOnlyToken = AzureAuthenticationToken.getAppOnlyToken(clientId, clientSecret, tenant);
+//                    AzureSecurityRealm azureRealm = (AzureSecurityRealm) realm;
+//                    String clientId = azureRealm.getClientid();
+//                    String clientSecret = azureRealm.getClientsecret();
+//                    String tenant = azureRealm.getTenant();
+                    AzureApiToken appOnlyToken = AzureAuthenticationToken.getAppOnlyToken();
                     if (appOnlyToken == null) return null;
                     AzureResponse<Set<AzureObject>> res = AzureAdApi.getAllAzureObjects(appOnlyToken.getToken(), type);
                     if (res.isFail()) return null;

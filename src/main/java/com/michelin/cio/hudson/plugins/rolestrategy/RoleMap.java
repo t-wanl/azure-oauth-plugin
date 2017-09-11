@@ -104,7 +104,7 @@ public class RoleMap {
 
       if (auth instanceof AzureAuthenticationToken) {
           System.out.println("current auth is " + ((AzureAuthenticationToken) auth).getAzureIdTokenUser().getUniqueName());
-          System.out.println("current aad token is " + ((AzureAuthenticationToken) auth).getAzureAdToken());
+//          System.out.println("current aad token is " + ((AzureAuthenticationToken) auth).getAzureAdToken());
           System.out.println("current  rm token is " + ((AzureAuthenticationToken) auth).getAzureRmToken());
       }
       Jenkins jenkins = Jenkins.getInstance();
@@ -114,9 +114,10 @@ public class RoleMap {
       SecurityRealm realm = jenkins.getSecurityRealm();
 
       if (auth instanceof AzureAuthenticationToken && realm instanceof AzureSecurityRealm) {
-          String accessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
+//          String accessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
+          AzureApiToken accessToken = AzureAuthenticationToken.getAppOnlyToken();
           if (accessToken == null) return false;
-//          AzureResponse response = AzureAdApi.getGroupsByUserId(accessToken);
+//          AzureResponse response = AzureAdApi.getGroupsByUserId(accessToken.getToken());
           String oid = ((AzureAuthenticationToken) auth).getAzureIdTokenUser().getObjectID();
           Set<String> set = AzureCachePool.getBelongingGroupsByOid(oid);
 

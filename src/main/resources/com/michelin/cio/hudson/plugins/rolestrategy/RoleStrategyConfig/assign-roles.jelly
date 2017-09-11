@@ -95,6 +95,10 @@
                 <f:block><st:include page="assign-slave-roles.jelly" optional="true" /></f:block>
               </f:rowSet>
             </f:section>
+
+            <f:section title="">
+              <f:validateButton title="Verify Groups and Users" method="verifyAssignRoles" progress="Verifying..." with="globalRoles,projectRoles,slaveRoles"> </f:validateButton>
+            </f:section>
             <f:block>
               <f:submit value="${%Save}" />
               <f:apply />

@@ -1,6 +1,8 @@
 package com.microsoft.azure.oauth;
 
 import com.google.gson.Gson;
+import hudson.security.SecurityRealm;
+import jenkins.model.Jenkins;
 import org.acegisecurity.GrantedAuthority;
 import org.acegisecurity.providers.AbstractAuthenticationToken;
 import org.apache.commons.lang.StringUtils;
@@ -27,7 +29,7 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
     private String clientID;
     private String clientSecret;
     private AzureApiToken azureRmToken;
-    private AzureApiToken azureAdToken;
+//    private AzureApiToken azureAdToken;
     private AzureIdTokenUser azureIdTokenUser;
     public static final String APP_ONLY_TOKEN_KEY = "APP_ONLY_TOKEN_KEY";
     public static final TimeUnit CACHE_EXPIRY = TimeUnit.HOURS;
@@ -55,8 +57,8 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         this.azureRmToken = token;
 
         // get aad token by rm reshresh token
-        System.out.println("set ad token");
-        this.azureAdToken = getAccessTokenByRefreshToken();
+//        System.out.println("set ad token");
+//        this.azureAdToken = getAccessTokenByRefreshToken();
 
 
         boolean authenticated = false;
@@ -99,29 +101,29 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         }
     }
 
-    public AzureApiToken getAccessTokenByRefreshToken() {
-            System.out.println("get ad user token by refresh_token of rm token");
-            AzureApi api = new AzureApi();
-            AzureApiToken newToken = api.getAccessTokenByRefreshToken(this.getAzureRmToken(), clientID, clientSecret, Constants.DEFAULT_GRAPH_ENDPOINT);
-
-            this.azureAdToken = newToken;
-            return newToken;
-    }
-
-    public AzureApiToken getAzureAdToken() {
-        if (azureAdToken == null) return null;
-        if (azureAdToken.getExpiry().after(new Date()))
-            return azureAdToken;
-        else { // refresh token
-            System.out.println("refresh ad user token");
-            AzureApi api = new AzureApi();
+//    public AzureApiToken getAccessTokenByRefreshToken() {
+//            System.out.println("get ad user token by refresh_token of rm token");
+//            AzureApi api = new AzureApi();
 //            AzureApiToken newToken = api.getAccessTokenByRefreshToken(this.getAzureRmToken(), clientID, clientSecret, Constants.DEFAULT_GRAPH_ENDPOINT);
-            AzureApiToken newToken = api.refreshToken(azureAdToken, clientID, clientSecret, Constants.DEFAULT_GRAPH_ENDPOINT);
+//
+//            this.azureAdToken = newToken;
+//            return newToken;
+//    }
 
-            this.azureAdToken = newToken;
-            return newToken;
-        }
-    }
+//    public AzureApiToken getAzureAdToken() {
+//        if (azureAdToken == null) return null;
+//        if (azureAdToken.getExpiry().after(new Date()))
+//            return azureAdToken;
+//        else { // refresh token
+//            System.out.println("refresh ad user token");
+//            AzureApi api = new AzureApi();
+////            AzureApiToken newToken = api.getAccessTokenByRefreshToken(this.getAzureRmToken(), clientID, clientSecret, Constants.DEFAULT_GRAPH_ENDPOINT);
+//            AzureApiToken newToken = api.refreshToken(azureAdToken, clientID, clientSecret, Constants.DEFAULT_GRAPH_ENDPOINT);
+//
+//            this.azureAdToken = newToken;
+//            return newToken;
+//        }
+//    }
 
     public static String getServicePrincipal() {
         return servicePrincipal;
@@ -134,15 +136,25 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 
     public static AzureApiToken refreshAppOnlyToken(final String clientid, final String clientsecret, final String tenant) throws JSONException, ExecutionException, IOException {
         appOnlyToken = null;
-        return getAppOnlyToken(clientid, clientsecret, tenant);
+        return getAppOnlyToken();
     }
 
-    public static AzureApiToken getAppOnlyToken(final String clientid, final String clientsecret, final String tenant) throws ExecutionException, IOException, JSONException {
+    public static AzureApiToken getAppOnlyToken() throws ExecutionException, IOException, JSONException {
+
+        SecurityRealm realm = Utils.JenkinsUtil.getSecurityRealm();
+
+        if (!(realm instanceof AzureSecurityRealm)) return null;
+
+        String clientId = ((AzureSecurityRealm) realm).getClientid();
+        String clientSecret = ((AzureSecurityRealm) realm).getClientsecret();
+        String tenant = ((AzureSecurityRealm) realm).getTenant();
+
+
         if (appOnlyToken != null && appOnlyToken.getExpiry().after(new Date())) {
             return appOnlyToken;
         } else { // refresh token
             System.out.println("refresh app only token");
-            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientid, clientsecret, tenant);
+            org.apache.http.HttpResponse response = AzureAdApi.getAppOnlyAccessTokenResponce(clientId, clientSecret, tenant);
                     int statusCode = HttpHelper.getStatusCode(response);
                     String content = HttpHelper.getContent(response);
                     if (statusCode == 200) {
@@ -151,7 +163,8 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
 //                        String refreshToken = OAuthEncoder.decode(json.toStr("refresh_token"));
                         int lifeTime = Integer.parseInt(OAuthEncoder.decode(json.getString("expires_in")));
                         Date expiry = new Date(System.currentTimeMillis() + lifeTime * 1000);
-                        return new AzureApiToken(accessToken, "", expiry, content);
+                        appOnlyToken = new AzureApiToken(accessToken, "", expiry, content);
+                        return appOnlyToken;
                     } else {
                         return null;
                     }

@@ -40,6 +40,7 @@
           <permission>hudson.model.Run.Update</permission>
         </permissions>
         <assignedSIDs>
+          <sid>albertxavier001 (5f6d4c09-e0f2-49f2-a981-52e5b3bfff8a)</sid>
           <sid>anonymous</sid>
           <sid>lwp_test2 (6059bf1e-f8ce-42c1-88aa-fa3f89d5ed24)</sid>
         </assignedSIDs>
@@ -59,7 +60,6 @@
           <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View</permission>
         </permissions>
         <assignedSIDs>
-          <sid>xx</sid>
           <sid>lwpgp (ecdff4f1-ab92-442d-a169-7489e7f0bbd2)</sid>
         </assignedSIDs>
       </role>

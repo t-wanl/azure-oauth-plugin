@@ -717,7 +717,7 @@ public class AzureCredentials extends BaseStandardCredentials {
                 int end = subscriptions.lastIndexOf(')');
                 String subscriptionID = subscriptions.substring(beg, end);
                 subId = subscriptionID;
-                AzureApiToken token = AzureAuthenticationToken.getAppOnlyToken(clientId, clientSecret, tenant);
+                AzureApiToken token = AzureAuthenticationToken.getAppOnlyToken();
                 String appOnlyAccessToken = token.getToken();
                 // get service principal oid
                 AzureResponse<String> spResponse = AzureAdApi.getServicePrincipalIdByAppId(tenant, clientId, appOnlyAccessToken);
@@ -766,6 +766,10 @@ public class AzureCredentials extends BaseStandardCredentials {
             Map<String, String> subscriptions = response.get();
             for (Map.Entry<String, String> subscription : subscriptions.entrySet()) {
                 model.add(subscription.getValue() + " (" + subscription.getKey() + ")");
+            }
+            if (model.isEmpty()) {
+                model.add("You don't have any subscription!");
+                return model;
             }
             return model;
         }
