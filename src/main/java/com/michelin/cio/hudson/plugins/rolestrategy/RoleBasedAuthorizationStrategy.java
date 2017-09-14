@@ -597,7 +597,6 @@ public class RoleBasedAuthorizationStrategy extends AuthorizationStrategy {
   /**
    * Descriptor used to bind the strategy to the Web forms.
    */
-  @Extension
   public static final class DescriptorImpl extends GlobalMatrixAuthorizationStrategy.DescriptorImpl {
 
     @Override
