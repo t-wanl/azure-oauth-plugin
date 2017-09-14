@@ -30,24 +30,24 @@ public class AzureCachePool {
 
     public static Set<String> getBelongingGroupsByOid(String oid) throws IOException, JSONException, ExecutionException {
 
-        if (Constants.DEBUG == true) {
-            Utils.TimeUtil.setBeginDate();
-
-            Authentication auth = Jenkins.getAuthentication();
-            if (!(auth instanceof AzureAuthenticationToken)) return new HashSet<String>();
-//            String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
-            AzureApiToken accessToken = AzureAuthenticationToken.getAppOnlyToken();
-            AzureResponse<Set<String>> res = AzureAdApi.getGroupsByUserId(accessToken.getToken());
-            if (!res.isSuccess()) {
-                System.out.println("getBelongingGroupsByOid: set is empty");
-                System.out.println("error: " + res.getResponseContent());
-                return new HashSet<String>();
-            }
-            Utils.TimeUtil.setEndDate();
-            System.out.println("getBelongingGroupsByOid time (debug) = " + Utils.TimeUtil.getTimeDifference() + "ms");
-            System.out.println("getBelongingGroupsByOid: set = " + res.<Set<String>>get());
-            return res.get();
-        }
+//        if (Constants.DEBUG == true) {
+//            Utils.TimeUtil.setBeginDate();
+//
+//            Authentication auth = Jenkins.getAuthentication();
+//            if (!(auth instanceof AzureAuthenticationToken)) return new HashSet<String>();
+////            String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
+//            AzureApiToken accessToken = AzureAuthenticationToken.getAppOnlyToken();
+//            AzureResponse<Set<String>> res = AzureAdApi.getGroupsByUserId(accessToken.getToken());
+//            if (!res.isSuccess()) {
+//                System.out.println("getBelongingGroupsByOid: set is empty");
+//                System.out.println("error: " + res.getResponseContent());
+//                return new HashSet<String>();
+//            }
+//            Utils.TimeUtil.setEndDate();
+//            System.out.println("getBelongingGroupsByOid time (debug) = " + Utils.TimeUtil.getTimeDifference() + "ms");
+//            System.out.println("getBelongingGroupsByOid: set = " + res.<Set<String>>get());
+//            return res.get();
+//        }
 
 
         Set<String> set = null;
@@ -61,7 +61,8 @@ public class AzureCachePool {
                     if (!(auth instanceof AzureAuthenticationToken)) return new HashSet<String>();
 //            String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
                     AzureApiToken accessToken = AzureAuthenticationToken.getAppOnlyToken();
-                    AzureResponse<Set<String>> res = AzureAdApi.getGroupsByUserId(accessToken.getToken());
+                    String oid = ((AzureAuthenticationToken) auth).getAzureIdTokenUser().getObjectID();
+                    AzureResponse<Set<String>> res = AzureAdApi.getGroupsByUserId(accessToken.getToken(), oid);
                     if (!res.isSuccess()) {
                         System.out.println("getBelongingGroupsByOid: set is empty");
                         System.out.println("error: " + res.getResponseContent());
@@ -73,6 +74,7 @@ public class AzureCachePool {
                     return res.get();
                 }
             });
+            if (Constants.DEBUG == true) belongingGroupsByOid.invalidate(oid);
             return set;
 
         } catch (ExecutionException e) {
@@ -90,6 +92,7 @@ public class AzureCachePool {
             Set<AzureObject> set = allAzureObjects.get(type, new Callable<Set<AzureObject>>() {
                 @Override
                 public Set<AzureObject> call() throws Exception {
+                    System.out.println("get new azure obj");
 //                    Authentication auth = Jenkins.getAuthentication();
 //                    if (!(auth instanceof AzureAuthenticationToken)) return null;
 //                    String aadAccessToken = ((AzureAuthenticationToken) auth).getAzureAdToken().getToken();
@@ -106,6 +109,7 @@ public class AzureCachePool {
                     return res.get();
                 }
             });
+            if (Constants.DEBUG) allAzureObjects.invalidate(type);
             return set;
         } catch (ExecutionException e) {
             e.printStackTrace();

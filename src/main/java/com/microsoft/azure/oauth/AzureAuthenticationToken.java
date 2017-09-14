@@ -150,7 +150,7 @@ public class AzureAuthenticationToken extends AbstractAuthenticationToken {
         String tenant = ((AzureSecurityRealm) realm).getTenant();
 
 
-        if (appOnlyToken != null && appOnlyToken.getExpiry().after(new Date())) {
+        if (!Constants.DEBUG && appOnlyToken != null && appOnlyToken.getExpiry().after(new Date())) {
             return appOnlyToken;
         } else { // refresh token
             System.out.println("refresh app only token");

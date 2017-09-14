@@ -100,9 +100,9 @@ public class AzureAdApi {
     /*
     * delegate permission: Directory.AccessAsUser.All
     * */
-    public static AzureResponse getGroupsByUserId(String accessToken) throws IOException, JSONException {
+    public static AzureResponse getGroupsByUserId(String accessToken, String oid) throws IOException, JSONException {
 //        Utils.TimeUtil.setBeginDate();
-        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + Constants.DEFAULT_GRAPH_VERSION + "me/getMemberGroups");
+        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + Constants.DEFAULT_GRAPH_VERSION + "users/%s/getMemberGroups", oid);
 //        String url = String.format(Constants.DEFAULT_GRAPH_ENDPOINT + Constants.DEFAULT_GRAPH_VERSION + "%s/users/%s/getMemberGroups?api-version=1.6", tenant, userID);
 //        System.out.println("getGroupsByUserId url = \n" + url);
         JSONObject body = new JSONObject();
