@@ -19,6 +19,7 @@ import hudson.security.GroupDetails;
 import hudson.security.SecurityRealm;
 import hudson.security.UserMayOrMayNotExistException;
 import hudson.util.FormValidation;
+import hudson.util.Secret;
 import jenkins.model.Jenkins;
 import org.acegisecurity.Authentication;
 import org.acegisecurity.AuthenticationException;
@@ -61,45 +62,57 @@ public class AzureSecurityRealm extends SecurityRealm {
     private static final Token EMPTY_TOKEN = null;
     private static final Logger LOGGER = Logger.getLogger(AzureSecurityRealm.class.getName());
     private static final String azurePortalUrl = "https://ms.portal.azure.com";
-    private String clientid;
-    private String clientsecret;
-    private String tenant;
+    private Secret clientid;
+    private Secret clientsecret;
+    private Secret tenant;
+
+    public String getClientIdSecret() {
+        return clientid.getEncryptedValue();
+    }
+
+    public String getClientSecretSecret() {
+        return clientsecret.getEncryptedValue();
+    }
+
+    public String getTenantSecret() {
+        return tenant.getEncryptedValue();
+    }
 
     public String getAzurePortalUrl() {
         return azurePortalUrl;
     }
 
     public String getClientid() {
-        return clientid;
+        return clientid.getPlainText();
     }
 
     public void setClientid(String clientid) {
-        this.clientid = clientid;
+        this.clientid = Secret.fromString(clientid);
     }
 
     public String getClientsecret() {
-        return clientsecret;
+        return clientsecret.getPlainText();
     }
 
     public void setClientsecret(String clientsecret) {
-        this.clientsecret = clientsecret;
+        this.clientsecret = Secret.fromString(clientsecret);
     }
 
     public String getTenant() {
-        return tenant;
+        return tenant.getPlainText();
     }
 
     public void setTenant(String tenant) {
-        this.tenant = tenant;
+        this.tenant = Secret.fromString(tenant);
     }
 
     private OAuthService getService(String resource) {
         if (resource == null) resource = Constants.DEFAULT_RESOURCE;
         AzureApi api = new AzureApi();
         api.setTenant(this.getTenant());
-        OAuthConfig config = new OAuthConfig(clientid, clientsecret, getCallback(), null, null, null);
+        OAuthConfig config = new OAuthConfig(clientid.getPlainText(), clientsecret.getPlainText(), getCallback(), null, null, null);
         OAuthService service = new ServiceBuilder().provider(AzureApi.class)
-                .apiKey(clientid).apiSecret(clientsecret).callback(getCallback()).scope(resource)
+                .apiKey(clientid.getPlainText()).apiSecret(clientsecret.getPlainText()).callback(getCallback()).scope(resource)
                 .build();
 
         return service;
@@ -129,9 +142,9 @@ public class AzureSecurityRealm extends SecurityRealm {
     public AzureSecurityRealm(String tenant, String clientid, String clientsecret) throws JSONException, ExecutionException, IOException {
         super();
         OAuthConfig config = new OAuthConfig(clientid, clientsecret, this.getCallback(), null, null, null);
-        this.clientid = clientid;
-        this.clientsecret = clientsecret;
-        this.tenant = tenant;
+        this.clientid = Secret.fromString(clientid);
+        this.clientsecret = Secret.fromString(clientsecret);
+        this.tenant = Secret.fromString(tenant);
 
         // update app only token
         AzureAuthenticationToken.refreshAppOnlyToken(clientid, clientsecret, tenant);
@@ -204,7 +217,7 @@ public class AzureSecurityRealm extends SecurityRealm {
             AzureAuthenticationToken auth = null;
             if (accessToken instanceof AzureApiToken) {
                 AzureApiToken azureApiToken = (AzureApiToken)accessToken;
-                auth = new AzureAuthenticationToken(azureApiToken, clientid, clientsecret, 0);
+                auth = new AzureAuthenticationToken(azureApiToken, clientid.getPlainText(), clientsecret.getPlainText(), 0);
 //                if (tokenType == 0) {
 //                    OAuthService service1 = getService(Constants.DEFAULT_GRAPH_ENDPOINT);
 //                    HttpHelper.sendGet(service1.getAuthorizationUrl(EMPTY_TOKEN), null);
@@ -377,7 +390,7 @@ public class AzureSecurityRealm extends SecurityRealm {
             AzureSecurityRealm realm = (AzureSecurityRealm) source;
 
             writer.startNode("clientid");
-            writer.setValue(realm.getClientid());
+            writer.setValue(realm.getClientIdSecret());
             writer.endNode();
 
             writer.startNode("clientsecret");
@@ -385,7 +398,7 @@ public class AzureSecurityRealm extends SecurityRealm {
             writer.endNode();
 
             writer.startNode("tenant");
-            writer.setValue(realm.getTenant());
+            writer.setValue(realm.getTenantSecret());
             writer.endNode();
         }
 
