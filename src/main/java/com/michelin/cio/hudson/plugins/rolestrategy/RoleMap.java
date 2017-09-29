@@ -144,25 +144,20 @@ public class RoleMap {
     private Set<String> getGroupsUniqueId(Set<String> groups) {
       Set<String> updated = new HashSet<>();
       for(String sid: groups) {
-          // built-in user types
-          if (sid.equals(SidACL.ANONYMOUS_USERNAME) || sid.equals(SidACL.SYSTEM_USERNAME) || sid.equals("role_everyone")) {
+          if (Utils.UUIDUtil.isValidUuid(sid)) { // uuid
               updated.add(sid);
-          // user upn or group display name + oid
-          } else {
+          } else if (sid.lastIndexOf('(') != -1 && sid.lastIndexOf(')') != -1) { // user upn or group display name + oid
               int left = sid.lastIndexOf('(') + 1;
               int right = sid.lastIndexOf(')');
-              // do not neet to extract GUID TODO: impossible
-              if (left == -1 || right == -1 || right - left <= 1) {
-                  // validate GUID
-                  if (Utils.UUIDUtil.isValidUuid(sid))
-                      updated.add(sid);
-              // extract GUID
-              } else {
+              if (left >= 0 && right >= 0) { // format: display name (uuid)
                   String uuid = sid.substring(left, right);
                   if (!Utils.UUIDUtil.isValidUuid(uuid)) continue;
                   updated.add(uuid);
                   // TODO: what if the uuid is wrong, need to throw exception?
               }
+          } else { // built-in user types
+              //  if (sid.equals(SidACL.ANONYMOUS_USERNAME) || sid.equals(SidACL.SYSTEM_USERNAME) || sid.equals("role_everyone"))
+              updated.add(sid);
           }
       }
       return updated;

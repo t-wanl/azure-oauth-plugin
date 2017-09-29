@@ -55,6 +55,7 @@ com/microsoft/azure/oauth/AzureAdApi$2.class
 com/microsoft/azure/oauth/AzureCredentials$Constants.class
 com/michelin/cio/hudson/plugins/rolestrategy/RoleBasedAuthorizationStrategy.class
 com/microsoft/azure/oauth/AzureCachePool$1.class
+com/michelin/cio/hudson/plugins/rolestrategy/RoleBasedAuthorizationStrategy/DescriptorImpl/doAutoCompleteAdmin.stapler
 com/microsoft/azure/oauth/AzureAuthFailAction.class
 com/michelin/cio/hudson/plugins/rolestrategy/RoleBasedAuthorizationStrategy/doDeleteSid.stapler
 com/microsoft/azure/oauth/AzureObject.class

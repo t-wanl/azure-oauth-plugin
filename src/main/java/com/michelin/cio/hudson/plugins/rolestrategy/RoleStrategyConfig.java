@@ -32,7 +32,6 @@ import com.synopsys.arc.jenkins.plugins.rolestrategy.UserMacroExtension;
 import hudson.Extension;
 import hudson.ExtensionList;
 import hudson.ExtensionPoint;
-import hudson.RelativePath;
 import hudson.model.*;
 import hudson.model.Descriptor.FormException;
 import hudson.security.AuthorizationStrategy;
@@ -49,14 +48,12 @@ import hudson.util.FormApply;
 import hudson.util.FormValidation;
 import jenkins.model.Jenkins;
 
-import net.sf.json.JSONObject;
 import org.apache.commons.collections4.ListUtils;
 import org.json.JSONException;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
-import static hudson.util.FormApply.success;
 import javax.annotation.CheckForNull;
 import org.kohsuke.accmod.Restricted;
 import org.kohsuke.accmod.restrictions.NoExternalUse;
@@ -143,6 +140,13 @@ public class RoleStrategyConfig extends ManagementLink implements ExtensionPoint
     }
   }
 
+  public void updateAutoComplete() {
+    AzureCachePool.invalidateAllObject(AzureObjectType.User);
+    AzureCachePool.invalidateAllObject(AzureObjectType.Group);
+    AzureCachePool.getAllAzureObjects(AzureObjectType.User);
+    AzureCachePool.getAllAzureObjects(AzureObjectType.Group);
+  }
+
   /**
    * Called on roles management form submission.
    */
@@ -218,39 +222,18 @@ public class RoleStrategyConfig extends ManagementLink implements ExtensionPoint
     }
 
     public AutoCompletionCandidates doAutoCompleteGlobalinput(@QueryParameter String value) throws JSONException, ExecutionException, IOException {
-      return generateAutoCompletion(value);
+      return Utils.JenkinsUtil.generateAutoCompletionForAadObjects(value);
     }
 
     public AutoCompletionCandidates doAutoCompleteProjectinput(@QueryParameter String value) throws JSONException, ExecutionException, IOException {
-      return generateAutoCompletion(value);
+      return Utils.JenkinsUtil.generateAutoCompletionForAadObjects(value);
     }
 
     public AutoCompletionCandidates doAutoCompleteSlaveinput(@QueryParameter String value) throws JSONException, ExecutionException, IOException {
-      return generateAutoCompletion(value);
+      return Utils.JenkinsUtil.generateAutoCompletionForAadObjects(value);
     }
 
-    public AutoCompletionCandidates generateAutoCompletion(String value) throws JSONException, ExecutionException, IOException {
-      AutoCompletionCandidates c = new AutoCompletionCandidates();
 
-      SecurityRealm realm = Utils.JenkinsUtil.getSecurityRealm();
-      if (!(realm instanceof AzureSecurityRealm)) return null;
-      AzureApiToken appOnlyToken = AzureAuthenticationToken.getAppOnlyToken();
-      Set<AzureObject> candidates = new HashSet<>();
-      System.out.println("get all users");
-      Set<AzureObject> users = AzureCachePool.getAllAzureObjects(AzureObjectType.User);
-      if (users != null && !users.isEmpty()) candidates.addAll(users);
-      System.out.println("get all groups");
-      Set<AzureObject>  groups = AzureCachePool.getAllAzureObjects(AzureObjectType.Group);
-      if (groups != null && !groups.isEmpty()) candidates.addAll(groups);
-
-      for (AzureObject obj : candidates) {
-        String candadateText = MessageFormat.format("{0} ({1})",obj.getDisplayName(), obj.getObjectId());
-        if (ListUtils.longestCommonSubsequence(candadateText.toLowerCase(), value.toLowerCase()).equalsIgnoreCase(value))
-          c.add(candadateText);
-      }
-
-      return c;
-    }
 
     public FormValidation doVerifyAssignRoles(
             @QueryParameter String globalRoles,

@@ -6,17 +6,16 @@
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="com.michelin.cio.hudson.plugins.rolestrategy.RoleBasedAuthorizationStrategy">
+    <roleMap type="projectRoles"/>
     <roleMap type="globalRoles">
       <role name="admin" pattern=".*">
         <permissions>
           <permission>hudson.model.View.Delete</permission>
           <permission>hudson.model.Computer.Connect</permission>
           <permission>hudson.model.Run.Delete</permission>
-          <permission>hudson.model.Hudson.UploadPlugins</permission>
           <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains</permission>
           <permission>hudson.model.Computer.Create</permission>
           <permission>hudson.model.View.Configure</permission>
-          <permission>hudson.model.Hudson.ConfigureUpdateCenter</permission>
           <permission>hudson.model.Computer.Build</permission>
           <permission>hudson.model.Item.Configure</permission>
           <permission>hudson.model.Hudson.Administer</permission>
@@ -25,7 +24,6 @@
           <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View</permission>
           <permission>hudson.model.Computer.Delete</permission>
           <permission>hudson.model.Item.Build</permission>
-          <permission>hudson.model.Item.ExtendedRead</permission>
           <permission>hudson.scm.SCM.Tag</permission>
           <permission>hudson.model.Item.Discover</permission>
           <permission>hudson.model.Hudson.Read</permission>
@@ -33,29 +31,32 @@
           <permission>hudson.model.Item.Create</permission>
           <permission>hudson.model.Item.Workspace</permission>
           <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete</permission>
-          <permission>hudson.model.Item.WipeOut</permission>
           <permission>hudson.model.View.Read</permission>
-          <permission>hudson.model.Hudson.RunScripts</permission>
           <permission>hudson.model.View.Create</permission>
-          <permission>hudson.model.Computer.ExtendedRead</permission>
           <permission>hudson.model.Item.Delete</permission>
           <permission>hudson.model.Computer.Configure</permission>
           <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create</permission>
           <permission>hudson.model.Computer.Disconnect</permission>
-          <permission>hudson.model.Run.Artifacts</permission>
-          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.UseItem</permission>
-          <permission>com.cloudbees.plugins.credentials.CredentialsProvider.UseOwn</permission>
           <permission>hudson.model.Run.Update</permission>
         </permissions>
         <assignedSIDs>
-          <sid>anonymous</sid>
+          <sid>albertxavier001 (5f6d4c09-e0f2-49f2-a981-52e5b3bfff8a)</sid>
+        </assignedSIDs>
+      </role>
+      <role name="overall reader" pattern=".*">
+        <permissions>
+          <permission>hudson.model.Hudson.Read</permission>
+        </permissions>
+        <assignedSIDs>
+          <sid>Visual Studio Team (b1b67e63-0ddb-4739-893b-62981aa17c42)</sid>
         </assignedSIDs>
       </role>
     </roleMap>
+    <roleMap type="slaveRoles"/>
   </authorizationStrategy>
   <securityRealm class="com.microsoft.azure.oauth.AzureSecurityRealm">
     <clientid>HWlZwv2kfXdONO/pLnGKerZJRtHLA1eNhOsCHtRLqTvAbuEIJQvfPK0coc77dXyOI6iCFvF5XwADNMYPc8x7+w==</clientid>
-    <clientsecret>iUASxGwvanAHi7IkyxaLTezQ22yd0NyaYm6/qKm/wlQ=</clientsecret>
+    <clientsecret>NwbhyvOCPQP2h3pLG+93u7cvCx2p4GR2UGvfNZwxaWI=</clientsecret>
     <tenant>JAX5VCKnV6OJ5E95hfSOCKwkl9EUc1hvhsD1OZ0d+HxRy6p2LOxSWvjafXnYrXAVI6iCFvF5XwADNMYPc8x7+w==</tenant>
   </securityRealm>
   <disableRememberMe>false</disableRememberMe>

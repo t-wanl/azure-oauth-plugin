@@ -3,27 +3,27 @@ SLF4J: Found binding in [jar:file:/Users/albertxavier/.m2/repository/org/slf4j/s
 SLF4J: Found binding in [jar:file:/Users/albertxavier/.m2/repository/org/slf4j/slf4j-jdk14/1.7.7/slf4j-jdk14-1.7.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
-[main] INFO org.eclipse.jetty.util.log - Logging initialized @872ms
+[main] INFO org.eclipse.jetty.util.log - Logging initialized @632ms
 Picking up existing exploded jenkins.war at /Users/albertxavier/workspace/azure-oauth-plugin/target/jenkins-for-test
 [main] WARN org.eclipse.jetty.server.handler.ContextHandler - Empty contextPath
 [main] INFO org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
 [main] INFO org.eclipse.jetty.webapp.StandardDescriptorProcessor - NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
-[main] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@19962194{/,file:/Users/albertxavier/workspace/azure-oauth-plugin/target/jenkins-for-test/,AVAILABLE}{/Users/albertxavier/workspace/azure-oauth-plugin/target/jenkins-for-test}
-[main] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@6b3f6585{HTTP/1.1}{localhost:56963}
-[main] INFO org.eclipse.jetty.server.Server - Started @4838ms
-Sep 14, 2017 8:22:58 PM jenkins.InitReactorRunner$1 onAttained
+[main] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@6631cb64{/,file:/Users/albertxavier/workspace/azure-oauth-plugin/target/jenkins-for-test/,AVAILABLE}{/Users/albertxavier/workspace/azure-oauth-plugin/target/jenkins-for-test}
+[main] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@64f1fd08{HTTP/1.1}{localhost:53425}
+[main] INFO org.eclipse.jetty.server.Server - Started @5046ms
+Sep 24, 2017 7:58:59 PM jenkins.InitReactorRunner$1 onAttained
 INFO: Started initialization
-Sep 14, 2017 8:23:11 PM jenkins.InitReactorRunner$1 onAttained
+Sep 24, 2017 7:59:11 PM jenkins.InitReactorRunner$1 onAttained
 INFO: Listed all plugins
-Sep 14, 2017 8:23:11 PM jenkins.InitReactorRunner$1 onAttained
+Sep 24, 2017 7:59:11 PM jenkins.InitReactorRunner$1 onAttained
 INFO: Prepared all plugins
-Sep 14, 2017 8:23:11 PM jenkins.InitReactorRunner$1 onAttained
+Sep 24, 2017 7:59:11 PM jenkins.InitReactorRunner$1 onAttained
 INFO: Started all plugins
-Sep 14, 2017 8:23:11 PM jenkins.InitReactorRunner$1 onAttained
+Sep 24, 2017 7:59:11 PM jenkins.InitReactorRunner$1 onAttained
 INFO: Augmented all extensions
-Sep 14, 2017 8:23:14 PM jenkins.InitReactorRunner$1 onAttained
+Sep 24, 2017 7:59:13 PM jenkins.InitReactorRunner$1 onAttained
 INFO: Loaded all jobs
-Sep 14, 2017 8:23:16 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
+Sep 24, 2017 7:59:14 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
 WARNING: Failed to instantiate Key[type=org.jenkinsci.main.modules.sshd.SSHD, annotation=[none]]; skipping this component
 com.google.inject.ProvisionException: Guice provision errors:
 
@@ -96,7 +96,7 @@ Caused by: java.lang.VerifyError: (class: org/bouncycastle/openssl/PEMReader$Enc
 	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
 	... 40 more
 
-Sep 14, 2017 8:23:16 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
+Sep 24, 2017 7:59:14 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
 WARNING: Failed to instantiate Key[type=org.jenkinsci.main.modules.sshd.PortAdvertiser, annotation=[none]]; skipping this component
 com.google.inject.ProvisionException: Guice provision errors:
 
@@ -137,7 +137,7 @@ com.google.inject.ProvisionException: Guice provision errors:
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at java.lang.Thread.run(Thread.java:745)
 
-Sep 14, 2017 8:23:16 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
+Sep 24, 2017 7:59:14 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
 WARNING: Failed to instantiate Key[type=org.jenkinsci.main.modules.sshd.SSHD, annotation=[none]]; skipping this component
 com.google.inject.ProvisionException: Guice provision errors:
 
@@ -199,7 +199,7 @@ Caused by: java.lang.VerifyError: (class: org/bouncycastle/openssl/PEMReader$Enc
 	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
 	... 29 more
 
-Sep 14, 2017 8:23:17 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
+Sep 24, 2017 7:59:15 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
 WARNING: Failed to instantiate Key[type=org.jenkinsci.main.modules.sshd.SSHD, annotation=[none]]; skipping this component
 com.google.inject.ProvisionException: Guice provision errors:
 
@@ -260,7 +260,7 @@ Caused by: java.lang.VerifyError: (class: org/bouncycastle/openssl/PEMReader$Enc
 	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
 	... 28 more
 
-Sep 14, 2017 8:23:17 PM jenkins.InitReactorRunner$1 onTaskFailed
+Sep 24, 2017 7:59:15 PM jenkins.InitReactorRunner$1 onTaskFailed
 SEVERE: Failed SSHD.init
 java.lang.Error: java.lang.reflect.InvocationTargetException
 	at hudson.init.TaskMethodFinder.invoke(TaskMethodFinder.java:110)
@@ -283,9 +283,9 @@ Caused by: java.lang.NullPointerException
 	at org.jenkinsci.main.modules.sshd.SSHD.init(SSHD.java:146)
 	... 13 more
 
-Sep 14, 2017 8:23:17 PM jenkins.InitReactorRunner$1 onAttained
+Sep 24, 2017 7:59:15 PM jenkins.InitReactorRunner$1 onAttained
 INFO: Completed initialization
-Sep 14, 2017 8:23:17 PM hudson.UDPBroadcastThread run
+Sep 24, 2017 7:59:15 PM hudson.UDPBroadcastThread run
 WARNING: UDP handling problem
 java.net.SocketException: Can't assign requested address
 	at java.net.PlainDatagramSocketImpl.join(Native Method)
@@ -293,7 +293,7 @@ java.net.SocketException: Can't assign requested address
 	at java.net.MulticastSocket.joinGroup(MulticastSocket.java:323)
 	at hudson.UDPBroadcastThread.run(UDPBroadcastThread.java:77)
 
-Sep 14, 2017 8:23:17 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
+Sep 24, 2017 7:59:15 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
 WARNING: Failed to instantiate Key[type=org.jenkinsci.main.modules.sshd.SSHD, annotation=[none]]; skipping this component
 com.google.inject.ProvisionException: Guice provision errors:
 
@@ -365,7 +365,7 @@ Caused by: java.lang.VerifyError: (class: org/bouncycastle/openssl/PEMReader$Enc
 	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
 	... 39 more
 
-Sep 14, 2017 8:23:17 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
+Sep 24, 2017 7:59:15 PM hudson.ExtensionFinder$GuiceFinder$FaultTolerantScope$1 error
 WARNING: Failed to instantiate Key[type=org.jenkinsci.main.modules.sshd.ItemListenerImpl, annotation=[none]]; skipping this component
 com.google.inject.ProvisionException: Guice provision errors:
 
@@ -406,10 +406,33 @@ com.google.inject.ProvisionException: Guice provision errors:
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
 
 [main] INFO org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
-[main] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@6812fa3a{/,null,AVAILABLE}
-[main] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@173a6728{HTTP/1.1}{0.0.0.0:56973}
-[main] INFO org.eclipse.jetty.server.Server - Started @23517ms
-[main] INFO org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@6b3f6585{HTTP/1.1}{localhost:0}
-[main] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.w.WebAppContext@19962194{/,file:/Users/albertxavier/workspace/azure-oauth-plugin/target/jenkins-for-test/,UNAVAILABLE}{/Users/albertxavier/workspace/azure-oauth-plugin/target/jenkins-for-test}
+[main] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@2a4f5433{/,null,AVAILABLE}
+[main] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@68868328{HTTP/1.1}{0.0.0.0:53471}
+[main] INFO org.eclipse.jetty.server.Server - Started @21233ms
+[main] INFO org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@64f1fd08{HTTP/1.1}{localhost:0}
+[main] INFO org.eclipse.jetty.server.handler.ContextHandler - Stopped o.e.j.w.WebAppContext@6631cb64{/,file:/Users/albertxavier/workspace/azure-oauth-plugin/target/jenkins-for-test/,UNAVAILABLE}{/Users/albertxavier/workspace/azure-oauth-plugin/target/jenkins-for-test}
+Sep 24, 2017 7:59:19 PM hudson.TcpSlaveAgentListener shutdown
+WARNING: Failed to close down TCP port
+java.io.IOException: No such file or directory
+	at sun.nio.ch.NativeThread.signal(Native Method)
+	at sun.nio.ch.ServerSocketChannelImpl.implCloseSelectableChannel(ServerSocketChannelImpl.java:292)
+	at java.nio.channels.spi.AbstractSelectableChannel.implCloseChannel(AbstractSelectableChannel.java:234)
+	at java.nio.channels.spi.AbstractInterruptibleChannel.close(AbstractInterruptibleChannel.java:115)
+	at hudson.TcpSlaveAgentListener.shutdown(TcpSlaveAgentListener.java:119)
+	at jenkins.model.Jenkins.cleanUp(Jenkins.java:2820)
+	at org.jvnet.hudson.test.HudsonTestCase.tearDown(HudsonTestCase.java:422)
+	at org.jvnet.hudson.test.JellyTestSuiteBuilder$JellyTestSuite.tearDown(JellyTestSuiteBuilder.java:148)
+	at org.jvnet.hudson.test.junit.GroupedTest.run(GroupedTest.java:53)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:367)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:274)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:161)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+
 WARN: The method class org.apache.commons.logging.impl.SLF4JLogFactory#release() was invoked.
 WARN: Please see http://www.slf4j.org/codes.html#release for an explanation.

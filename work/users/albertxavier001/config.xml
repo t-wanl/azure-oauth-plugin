@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <user>
-  <fullName>albertxavier001</fullName>
+  <fullName>wanpeng li</fullName>
   <description>Azure Active Directory User&#xd;
 &#xd;
 Given            Name:  华&#xd;
@@ -33,5 +33,14 @@ Tenant                 ID:  cd236629-6aa9-4323-98a2-f51cddcc721d&#xd;
     <hudson.search.UserSearchProperty>
       <insensitiveSearch>false</insensitiveSearch>
     </hudson.search.UserSearchProperty>
+    <hudson.security.HudsonPrivateSecurityRealm_-Details>
+      <passwordHash>#jbcrypt:$2a$10$whqFqvmzSuZrmO/iqqdC5uUDwpX6bRdZmIAnSXPYz4mms9olqkKUK</passwordHash>
+    </hudson.security.HudsonPrivateSecurityRealm_-Details>
+    <jenkins.security.LastGrantedAuthoritiesProperty>
+      <roles>
+        <string>authenticated</string>
+      </roles>
+      <timestamp>1505724456606</timestamp>
+    </jenkins.security.LastGrantedAuthoritiesProperty>
   </properties>
 </user>

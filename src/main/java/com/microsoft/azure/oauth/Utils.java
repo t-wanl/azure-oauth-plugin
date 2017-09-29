@@ -1,10 +1,18 @@
 package com.microsoft.azure.oauth;
 
 import com.google.gson.Gson;
+import hudson.model.AutoCompletionCandidates;
 import hudson.security.SecurityRealm;
 import jenkins.model.Jenkins;
+import org.apache.commons.collections4.ListUtils;
+import org.json.JSONException;
 
+import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
 /**
@@ -61,6 +69,29 @@ public class Utils {
             SecurityRealm realm = jenkins.getSecurityRealm();
             return realm;
         }
+
+        public static AutoCompletionCandidates generateAutoCompletionForAadObjects(String value) throws JSONException, ExecutionException, IOException {
+            AutoCompletionCandidates c = new AutoCompletionCandidates();
+
+            SecurityRealm realm = Utils.JenkinsUtil.getSecurityRealm();
+            if (!(realm instanceof AzureSecurityRealm)) return null;
+            AzureApiToken appOnlyToken = AzureAuthenticationToken.getAppOnlyToken();
+            Set<AzureObject> candidates = new HashSet<>();
+            System.out.println("get all users");
+            Set<AzureObject> users = AzureCachePool.getAllAzureObjects(AzureObjectType.User);
+            if (users != null && !users.isEmpty()) candidates.addAll(users);
+            System.out.println("get all groups");
+            Set<AzureObject>  groups = AzureCachePool.getAllAzureObjects(AzureObjectType.Group);
+            if (groups != null && !groups.isEmpty()) candidates.addAll(groups);
+
+            for (AzureObject obj : candidates) {
+                String candadateText = MessageFormat.format("{0} ({1})",obj.getDisplayName(), obj.getObjectId());
+                if (ListUtils.longestCommonSubsequence(candadateText.toLowerCase(), value.toLowerCase()).equalsIgnoreCase(value))
+                    c.add(candadateText);
+            }
+
+            return c;
+        }
     }
 
     public static class GsonUtil {
@@ -70,6 +101,8 @@ public class Utils {
             return obj;
         }
     }
+
+
 
 }
 

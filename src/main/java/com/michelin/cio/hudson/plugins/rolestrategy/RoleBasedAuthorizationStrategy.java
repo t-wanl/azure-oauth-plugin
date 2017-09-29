@@ -89,13 +89,19 @@ public class RoleBasedAuthorizationStrategy extends AuthorizationStrategy {
   public final static String SLAVE     = "slaveRoles";
   public final static String MACRO_ROLE = "roleMacros";
   public final static String MACRO_USER  = "userMacros";
-  
+  private String admin;
+
   private static final Logger LOGGER = Logger.getLogger(RoleBasedAuthorizationStrategy.class.getName());
   
   /** {@link RoleMap}s associated to each {@link AccessControlled} class */
   private final Map <String, RoleMap> grantedRoles = new HashMap < String, RoleMap >();
 
-  /**
+
+    public String getAdmin() {
+        return admin;
+    }
+
+    /**
    * Get the root ACL.
    * @return The global ACL
    */
@@ -605,6 +611,12 @@ public class RoleBasedAuthorizationStrategy extends AuthorizationStrategy {
     }
 
 
+
+      public AutoCompletionCandidates doAutoCompleteAdmin(@QueryParameter String value) throws JSONException, ExecutionException, IOException {
+          return Utils.JenkinsUtil.generateAutoCompletionForAadObjects(value);
+      }
+
+
     /** 
      * Called on role management form's submission.
      */
@@ -718,6 +730,16 @@ public class RoleBasedAuthorizationStrategy extends AuthorizationStrategy {
         Role adminRole = createAdminRole();
         strategy.addRole(GLOBAL, adminRole);
         strategy.assignRole(GLOBAL, adminRole, getCurrentUser());
+//
+//        if (strategy.admin == null || strategy.admin.isEmpty()) {
+//            throw new IllegalArgumentException();
+//        }
+//
+//        int left = strategy.admin.lastIndexOf('(') + 1;
+//        int right = strategy.admin.lastIndexOf(')');
+//        String adminGuid = strategy.admin.substring(left, right);
+//
+//        strategy.assignRole(GLOBAL, adminRole, adminGuid);
       }
       
       strategy.renewMacroRoles();

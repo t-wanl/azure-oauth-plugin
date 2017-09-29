@@ -28,6 +28,7 @@
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" 
           xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:local="local">
+  ${it.updateAutoComplete()}
   <j:set var="descriptor" value="${it.descriptor}" />
 
   <l:layout permission="${app.ADMINISTER}" norefresh="true">
@@ -97,7 +98,7 @@
             </f:section>
 
             <f:section title="">
-              <f:validateButton title="Verify Groups and Users" method="verifyAssignRoles" progress="Verifying..." with="globalRoles,projectRoles,slaveRoles"> </f:validateButton>
+              <!--<f:validateButton title="Verify Groups and Users" method="verifyAssignRoles" progress="Verifying..." with="globalRoles,projectRoles,slaveRoles"> </f:validateButton>-->
             </f:section>
             <f:block>
               <f:submit value="${%Save}" />
